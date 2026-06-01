@@ -1,0 +1,11 @@
+---
+description: Global CSS and design tokens
+globs: src/styles.css,src/lib/designSystem.ts
+alwaysApply: false
+---
+
+# Styles
+
+- `src/styles.css` is large — search for section comments (homepage vs `.case-study`) before editing.
+- Prefer changing the smallest scope: component class in `AiDesignHomepage.tsx` or `CocoCarePage.tsx` before global CSS.
+- Case study utilities often start with `case-` prefix.

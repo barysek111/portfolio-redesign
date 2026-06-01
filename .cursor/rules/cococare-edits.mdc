@@ -1,0 +1,20 @@
+---
+description: CocoCare case study — one file per chapter
+globs: src/routes/project/cococare.tsx,src/components/project/CocoCarePage.tsx,src/components/project/cococare/**/*
+alwaysApply: false
+---
+
+# Coco Care (only case study page)
+
+- **Copy / images:** `src/lib/cocoCareContent.ts` only.
+- **Layout by chapter** — `@` the chapter file, not the whole page:
+  - Hero → `cococare/ProjectHero.tsx`
+  - Research → `cococare/chapters/ResearchSection.tsx`
+  - Define → `cococare/chapters/DefineSection.tsx`
+  - Ideate → `cococare/chapters/IdeateSection.tsx`
+  - Prototype → `cococare/chapters/PrototypeSection.tsx`
+  - Test → `cococare/chapters/TestSection.tsx`
+- Shared Figure/callout components → `cococare/primitives.tsx` (only if changing patterns used across chapters).
+- Route: `/project/cococare`.
+
+See `AGENTS.md` for the full map.

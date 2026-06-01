@@ -1,0 +1,36 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="120" height="120" rx="27" fill="white"/>
+<rect x="12" y="12" width="96" height="96" rx="15" fill="url(#paint0_linear_54_100)"/>
+<rect x="12" y="12" width="96" height="96" rx="15" stroke="url(#paint1_linear_54_100)" stroke-width="6"/>
+<g clip-path="url(#clip0_54_100)">
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 40.3809 63.397)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 47.3335 70.3491)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 68.1904 63.397)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 61.2383 70.3491)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 64.7144 81.9365)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 43.8569 81.9365)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 47.3335 93.5239)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 61.2383 93.5239)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 40.3809 37.9048)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 68.1904 37.9048)" fill="black"/>
+<rect width="6.95238" height="18.5397" transform="matrix(1 0 0 -1 33.4287 56.4443)" fill="black"/>
+<rect width="6.95238" height="18.5397" transform="matrix(1 0 0 -1 75.1431 56.4443)" fill="black"/>
+<rect width="6.95238" height="20.8571" transform="matrix(-4.37114e-08 1 1 4.37114e-08 47.3335 70.3491)" fill="black"/>
+<rect width="6.95238" height="20.8571" transform="matrix(-4.37114e-08 1 1 4.37114e-08 47.3335 80.7778)" fill="black"/>
+<rect width="6.95238" height="11.5873" transform="matrix(-4.37114e-08 1 1 4.37114e-08 51.9683 90.0479)" fill="black"/>
+<rect width="6.95238" height="20.8571" transform="matrix(-4.37114e-08 1 1 4.37114e-08 47.3335 24)" fill="black"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_54_100" x1="60" y1="9" x2="60" y2="111" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F1F2F0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint1_linear_54_100" x1="60" y1="9" x2="60" y2="111" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#DFE1DD"/>
+</linearGradient>
+<clipPath id="clip0_54_100">
+<rect width="73" height="73" fill="white" transform="translate(23 24)"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,9 @@
+---
+description: Homepage-only edits
+globs: src/routes/index.tsx,src/components/home/**/*
+alwaysApply: false
+---
+
+# Homepage (`/`)
+
+Edit `src/components/home/AiDesignHomepage.tsx` (route file only re-exports). Section lines in `AGENTS.md`.

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" color="currentColor">
+
+<g>
+  <ellipse cx="32.00" cy="31.50" rx="19.50" ry="10.80" transform="rotate(-14.00 32.00 31.50)" stroke="currentColor" stroke-width="0.42" opacity="0.400"/>
+  <ellipse cx="32.00" cy="31.59" rx="18.96" ry="10.51" transform="rotate(-12.39 32.00 31.59)" stroke="currentColor" stroke-width="0.42" opacity="0.464"/>
+  <ellipse cx="32.00" cy="31.68" rx="18.43" ry="10.22" transform="rotate(-10.80 32.00 31.68)" stroke="currentColor" stroke-width="0.42" opacity="0.527"/>
+  <ellipse cx="32.00" cy="31.77" rx="17.89" ry="9.93" transform="rotate(-9.28 32.00 31.77)" stroke="currentColor" stroke-width="0.32" opacity="0.588"/>
+  <ellipse cx="32.00" cy="31.86" rx="17.35" ry="9.64" transform="rotate(-7.85 32.00 31.86)" stroke="currentColor" stroke-width="0.32" opacity="0.427"/>
+  <ellipse cx="32.00" cy="31.94" rx="16.81" ry="9.36" transform="rotate(-6.52 32.00 31.94)" stroke="currentColor" stroke-width="0.32" opacity="0.482"/>
+  <ellipse cx="32.00" cy="32.01" rx="16.28" ry="9.07" transform="rotate(-5.32 32.00 32.01)" stroke="currentColor" stroke-width="0.32" opacity="0.534"/>
+  <ellipse cx="32.00" cy="32.08" rx="15.74" ry="8.78" transform="rotate(-4.24 32.00 32.08)" stroke="currentColor" stroke-width="0.32" opacity="0.580"/>
+  <ellipse cx="32.00" cy="32.14" rx="15.20" ry="8.49" transform="rotate(-3.31 32.00 32.14)" stroke="currentColor" stroke-width="0.32" opacity="0.621"/>
+  <ellipse cx="32.00" cy="32.19" rx="14.67" ry="8.20" transform="rotate(-2.50 32.00 32.19)" stroke="currentColor" stroke-width="0.32" opacity="0.656"/>
+  <ellipse cx="32.00" cy="32.23" rx="14.13" ry="7.91" transform="rotate(-1.81 32.00 32.23)" stroke="currentColor" stroke-width="0.32" opacity="0.685"/>
+  <ellipse cx="32.00" cy="32.27" rx="13.59" ry="7.62" transform="rotate(-1.22 32.00 32.27)" stroke="currentColor" stroke-width="0.32" opacity="0.707"/>
+  <ellipse cx="32.00" cy="32.29" rx="13.06" ry="7.33" transform="rotate(-0.70 32.00 32.29)" stroke="currentColor" stroke-width="0.32" opacity="0.722"/>
+  <ellipse cx="32.00" cy="32.30" rx="12.52" ry="7.04" transform="rotate(-0.23 32.00 32.30)" stroke="currentColor" stroke-width="0.32" opacity="0.729"/>
+  <ellipse cx="32.00" cy="32.30" rx="11.98" ry="6.76" transform="rotate(0.23 32.00 32.30)" stroke="currentColor" stroke-width="0.32" opacity="0.729"/>
+  <ellipse cx="32.00" cy="32.29" rx="11.44" ry="6.47" transform="rotate(0.70 32.00 32.29)" stroke="currentColor" stroke-width="0.32" opacity="0.722"/>
+  <ellipse cx="32.00" cy="32.27" rx="10.91" ry="6.18" transform="rotate(1.22 32.00 32.27)" stroke="currentColor" stroke-width="0.32" opacity="0.707"/>
+  <ellipse cx="32.00" cy="32.23" rx="10.37" ry="5.89" transform="rotate(1.81 32.00 32.23)" stroke="currentColor" stroke-width="0.32" opacity="0.685"/>
+  <ellipse cx="32.00" cy="32.19" rx="9.83" ry="5.60" transform="rotate(2.50 32.00 32.19)" stroke="currentColor" stroke-width="0.32" opacity="0.656"/>
+  <ellipse cx="32.00" cy="32.14" rx="9.30" ry="5.31" transform="rotate(3.31 32.00 32.14)" stroke="currentColor" stroke-width="0.32" opacity="0.621"/>
+  <ellipse cx="32.00" cy="32.08" rx="8.76" ry="5.02" transform="rotate(4.24 32.00 32.08)" stroke="currentColor" stroke-width="0.32" opacity="0.580"/>
+  <ellipse cx="32.00" cy="32.01" rx="8.22" ry="4.73" transform="rotate(5.32 32.00 32.01)" stroke="currentColor" stroke-width="0.32" opacity="0.534"/>
+  <ellipse cx="32.00" cy="31.94" rx="7.69" ry="4.44" transform="rotate(6.52 32.00 31.94)" stroke="currentColor" stroke-width="0.32" opacity="0.482"/>
+  <ellipse cx="32.00" cy="31.86" rx="7.15" ry="4.16" transform="rotate(7.85 32.00 31.86)" stroke="currentColor" stroke-width="0.32" opacity="0.427"/>
+  <ellipse cx="32.00" cy="31.77" rx="6.61" ry="3.87" transform="rotate(9.28 32.00 31.77)" stroke="currentColor" stroke-width="0.32" opacity="0.588"/>
+  <ellipse cx="32.00" cy="31.68" rx="6.07" ry="3.58" transform="rotate(10.80 32.00 31.68)" stroke="currentColor" stroke-width="0.42" opacity="0.527"/>
+  <ellipse cx="32.00" cy="31.59" rx="5.54" ry="3.29" transform="rotate(12.39 32.00 31.59)" stroke="currentColor" stroke-width="0.42" opacity="0.464"/>
+  <ellipse cx="32.00" cy="31.50" rx="5.00" ry="3.00" transform="rotate(14.00 32.00 31.50)" stroke="currentColor" stroke-width="0.42" opacity="0.400"/>
+</g>
+</svg>

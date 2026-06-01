@@ -1,0 +1,26 @@
+---
+description: Fast workflow — two pages only (homepage + Coco Care)
+alwaysApply: true
+---
+
+# Portfolio redesign
+
+Read **`AGENTS.md`** for file/section line map.
+
+## Scope
+
+- **Homepage:** `src/routes/index.tsx`, `src/components/home/AiDesignHomepage.tsx`
+- **Coco Care:** `src/lib/cocoCareContent.ts` + one chapter file under `src/components/project/cococare/chapters/` (see AGENTS.md)
+- **Styles:** `src/styles.css`, `src/lib/designSystem.ts`
+
+No other routes exist. Do not recreate `/aidesign`, `/showcases`, or `/project/cococare-edit`.
+
+## Speed rules
+
+1. Small layout changes → edit directly; no Agent plan for one spacing tweak.
+2. Do not run browser/terminal MCP to preview unless asked.
+3. User previews: `npm run dev` + Safari/Chrome + Cmd+Shift+R.
+4. Use `@` on 1–3 files. Never search `node_modules`, `dist`, `_archive`.
+5. No Figma MCP.
+
+**Coco Care:** layout in the matching `cococare/chapters/*Section.tsx`, copy in `cocoCareContent.ts`.

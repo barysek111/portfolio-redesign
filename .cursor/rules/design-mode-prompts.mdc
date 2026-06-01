@@ -1,0 +1,38 @@
+---
+description: Copy-paste prompts for Design mode and Composer (fast edits)
+alwaysApply: false
+---
+
+# Fast prompts
+
+## Homepage spacing/layout
+
+```
+@src/components/home/AiDesignHomepage.tsx
+Increase [section] padding by [N]px. Only that section.
+```
+
+## Coco Care spacing/layout (pick the chapter file)
+
+```
+@src/components/project/cococare/chapters/ResearchSection.tsx
+[change]. Minimal diff. Do not edit other chapters.
+```
+
+Files: `ResearchSection`, `DefineSection`, `IdeateSection`, `PrototypeSection`, `TestSection`, or `ProjectHero.tsx`.
+
+## Coco Care copy only
+
+```
+@src/lib/cocoCareContent.ts
+Update [field]: "[new text]". Do not touch CocoCarePage.tsx.
+```
+
+## Global tokens / shared CSS
+
+```
+@src/styles.css @src/lib/designSystem.ts
+[change]. Prefer existing CSS variables/classes.
+```
+
+Never ask to preview in Cursor browser — user refreshes Safari/Chrome on localhost:5173.

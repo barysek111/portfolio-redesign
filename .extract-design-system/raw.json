@@ -1,0 +1,522 @@
+{
+  "url": "https://www.gentle.systems/",
+  "extractedAt": "2026-06-01T16:58:28.981Z",
+  "siteName": "Home",
+  "logo": null,
+  "favicons": [
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/favicon-32x32_light.png",
+      "sizes": "32x32"
+    },
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/favicon-32x32_dark.png",
+      "sizes": "32x32"
+    },
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/icons/icon-512x512.png",
+      "sizes": "512x512"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-48x48.png",
+      "sizes": "48x48"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-72x72.png",
+      "sizes": "72x72"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-96x96.png",
+      "sizes": "96x96"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-144x144.png",
+      "sizes": "144x144"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-192x192.png",
+      "sizes": "192x192"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-256x256.png",
+      "sizes": "256x256"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-384x284.png",
+      "sizes": "384x284"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-512x512.png",
+      "sizes": "512x512"
+    },
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/icons/icon-48x48.png",
+      "sizes": "48x48"
+    },
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/icons/icon-72x72.png",
+      "sizes": "72x72"
+    },
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/icons/icon-96x96.png",
+      "sizes": "96x96"
+    },
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/icons/icon-144x144.png",
+      "sizes": "144x144"
+    },
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/icons/icon-192x192.png",
+      "sizes": "192x192"
+    },
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/icons/icon-256x256.png",
+      "sizes": "256x256"
+    },
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/icons/icon-384x384.png",
+      "sizes": "384x384"
+    },
+    {
+      "type": "icon",
+      "url": "https://www.gentle.systems/icons/icon-512x512.png",
+      "sizes": "512x512"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-48x48.png",
+      "sizes": "48x48"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-72x72.png",
+      "sizes": "72x72"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-96x96.png",
+      "sizes": "96x96"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-144x144.png",
+      "sizes": "144x144"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-192x192.png",
+      "sizes": "192x192"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-256x256.png",
+      "sizes": "256x256"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-384x284.png",
+      "sizes": "384x284"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://www.gentle.systems/icons/icon-512x512.png",
+      "sizes": "512x512"
+    },
+    {
+      "type": "og:image",
+      "url": "https://images.ctfassets.net/1c4tf0ju3bmy/1wKYrGlmVInEYGhiaos0jy/292a5f3797f0a17878e2935ccd3a2631/share.jpg",
+      "sizes": null
+    },
+    {
+      "type": "twitter:image",
+      "url": "https://images.ctfassets.net/1c4tf0ju3bmy/1wKYrGlmVInEYGhiaos0jy/292a5f3797f0a17878e2935ccd3a2631/share.jpg",
+      "sizes": null
+    },
+    {
+      "type": "favicon.ico",
+      "url": "https://www.gentle.systems/favicon.ico",
+      "sizes": null
+    }
+  ],
+  "colors": {
+    "semantic": {},
+    "palette": [
+      {
+        "color": "rgb(246, 246, 246)",
+        "normalized": "#f6f6f6",
+        "count": 74,
+        "confidence": "high",
+        "sources": [],
+        "lch": "lch(96.88% 0 158.2)",
+        "oklch": "oklch(97.31% 0 89.88)"
+      },
+      {
+        "color": "rgb(102, 97, 90)",
+        "normalized": "#66615a",
+        "count": 10,
+        "confidence": "medium",
+        "sources": [],
+        "lch": "lch(41.39% 4.74 82.47)",
+        "oklch": "oklch(49.5% 0.013 76.51)"
+      },
+      {
+        "color": "rgb(54, 34, 14)",
+        "normalized": "#36220e",
+        "count": 10,
+        "confidence": "high",
+        "sources": [],
+        "lch": "lch(15.28% 18.07 66.9)",
+        "oklch": "oklch(27.22% 0.044 64.03)"
+      },
+      {
+        "color": "rgb(244, 244, 244)",
+        "normalized": "#f4f4f4",
+        "count": 1,
+        "confidence": "medium",
+        "sources": [
+          "hover/focus"
+        ]
+      },
+      {
+        "color": "rgb(123, 110, 97)",
+        "normalized": "#7b6e61",
+        "count": 1,
+        "confidence": "medium",
+        "sources": [
+          "hover/focus"
+        ]
+      },
+      {
+        "color": "rgb(141, 130, 120)",
+        "normalized": "#8d8278",
+        "count": 1,
+        "confidence": "medium",
+        "sources": [
+          "hover/focus"
+        ]
+      }
+    ],
+    "cssVariables": {},
+    "_raw": [
+      {
+        "color": "rgb(246, 246, 246)",
+        "normalized": "#f6f6f6",
+        "count": 74
+      },
+      {
+        "color": "rgb(43, 23, 3)",
+        "normalized": "#2b1703",
+        "count": 383
+      },
+      {
+        "color": "rgb(238, 238, 238)",
+        "normalized": "#eeeeee",
+        "count": 23
+      },
+      {
+        "color": "rgb(102, 97, 90)",
+        "normalized": "#66615a",
+        "count": 10
+      },
+      {
+        "color": "rgb(54, 34, 14)",
+        "normalized": "#36220e",
+        "count": 10
+      }
+    ]
+  },
+  "typography": {
+    "styles": [
+      {
+        "context": "heading-1",
+        "family": "Unica77_Reg",
+        "fallbacks": "Unica77_Reg Fallback, Unica77_Reg",
+        "size": "46px (2.88rem)",
+        "weight": 400,
+        "lineHeight": "1.10",
+        "spacing": "-0.69px",
+        "transform": null,
+        "fontFeatures": "\"kern\""
+      },
+      {
+        "context": "heading-1",
+        "family": "Unica77_Reg",
+        "fallbacks": "Unica77_Reg Fallback, Unica77_Reg",
+        "size": "24px (1.50rem)",
+        "weight": 400,
+        "lineHeight": "1.25",
+        "spacing": "-0.12px",
+        "transform": null,
+        "fontFeatures": "\"kern\""
+      },
+      {
+        "context": "link",
+        "family": "Unica77_Reg",
+        "fallbacks": "Unica77_Reg Fallback, Unica77_Reg",
+        "size": "14px (0.88rem)",
+        "weight": 400,
+        "lineHeight": "1.20",
+        "spacing": "-0.07px",
+        "transform": null,
+        "fontFeatures": "\"kern\""
+      },
+      {
+        "context": "caption",
+        "family": "Unica77_Reg",
+        "fallbacks": "Unica77_Reg Fallback, Unica77_Reg",
+        "size": "14px (0.88rem)",
+        "weight": 400,
+        "lineHeight": "1.20",
+        "spacing": "-0.07px",
+        "transform": null,
+        "fontFeatures": "\"kern\""
+      },
+      {
+        "context": "button",
+        "family": "Unica77_Reg",
+        "fallbacks": "Unica77_Reg Fallback, Unica77_Reg",
+        "size": "14px (0.88rem)",
+        "weight": 400,
+        "lineHeight": "1.20",
+        "spacing": "-0.07px",
+        "transform": null,
+        "fontFeatures": "\"kern\""
+      }
+    ],
+    "sources": {
+      "googleFonts": [],
+      "adobeFonts": false,
+      "variableFonts": false
+    }
+  },
+  "spacing": {
+    "scaleType": "8px",
+    "commonValues": [
+      {
+        "px": "6px",
+        "rem": "0.38rem",
+        "count": 15,
+        "numericValue": 6
+      },
+      {
+        "px": "8px",
+        "rem": "0.50rem",
+        "count": 74,
+        "numericValue": 8
+      },
+      {
+        "px": "30px",
+        "rem": "1.88rem",
+        "count": 3,
+        "numericValue": 30
+      },
+      {
+        "px": "70px",
+        "rem": "4.38rem",
+        "count": 1,
+        "numericValue": 70
+      },
+      {
+        "px": "85px",
+        "rem": "5.31rem",
+        "count": 1,
+        "numericValue": 85
+      },
+      {
+        "px": "200px",
+        "rem": "12.50rem",
+        "count": 3,
+        "numericValue": 200
+      }
+    ]
+  },
+  "borderRadius": {
+    "values": [
+      {
+        "value": "40px",
+        "count": 37,
+        "elements": [
+          "a",
+          "badge",
+          "Running demo",
+          "Otto, Robotic Choreographies",
+          "Explore the case"
+        ],
+        "confidence": "high",
+        "numericValue": 40
+      }
+    ]
+  },
+  "borders": {
+    "combinations": []
+  },
+  "shadows": [],
+  "components": {
+    "buttons": [
+      {
+        "states": {
+          "default": {
+            "backgroundColor": "rgb(238, 238, 238)",
+            "color": "rgb(43, 23, 3)",
+            "padding": "8px 12px",
+            "borderRadius": "40px",
+            "border": "0px none rgb(43, 23, 3)",
+            "boxShadow": "none",
+            "outline": "rgb(43, 23, 3) none 3px",
+            "transform": "none",
+            "opacity": "1"
+          },
+          "hover": null,
+          "active": null,
+          "focus": null
+        },
+        "fontWeight": "400",
+        "fontSize": "14px",
+        "classes": "pill",
+        "confidence": "high"
+      },
+      {
+        "states": {
+          "default": {
+            "backgroundColor": "rgb(54, 34, 14)",
+            "color": "rgb(246, 246, 246)",
+            "padding": "8px 12px",
+            "borderRadius": "40px",
+            "border": "0px none rgb(246, 246, 246)",
+            "boxShadow": "none",
+            "outline": "rgb(246, 246, 246) none 3px",
+            "transform": "none",
+            "opacity": "1"
+          },
+          "hover": null,
+          "active": null,
+          "focus": null
+        },
+        "fontWeight": "400",
+        "fontSize": "14px",
+        "classes": "footer_copy_button__WMPlS ",
+        "confidence": "high"
+      }
+    ],
+    "inputs": {
+      "text": [],
+      "checkbox": [],
+      "radio": [],
+      "select": []
+    },
+    "links": [
+      {
+        "color": "rgb(43, 23, 3)",
+        "textDecoration": "none",
+        "fontWeight": "400",
+        "states": {
+          "default": {
+            "color": "rgb(43, 23, 3)",
+            "textDecoration": "none"
+          },
+          "hover": null
+        }
+      },
+      {
+        "color": "rgb(246, 246, 246)",
+        "textDecoration": "none",
+        "fontWeight": "400",
+        "states": {
+          "default": {
+            "color": "rgb(246, 246, 246)",
+            "textDecoration": "none"
+          },
+          "hover": null
+        }
+      }
+    ],
+    "badges": {
+      "all": [
+        {
+          "backgroundColor": "rgb(238, 238, 238)",
+          "color": "rgb(43, 23, 3)",
+          "padding": "8px 12px",
+          "borderRadius": "40px",
+          "border": "0px none rgb(43, 23, 3)",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "16.8px",
+          "textTransform": "none",
+          "letterSpacing": "-0.07px",
+          "variant": "neutral",
+          "styleType": "filled",
+          "isRounded": true,
+          "classes": "pill home_tag__WBzgU",
+          "confidence": "high"
+        }
+      ],
+      "byVariant": {
+        "error": [],
+        "warning": [],
+        "success": [],
+        "info": [],
+        "neutral": [
+          {
+            "backgroundColor": "rgb(238, 238, 238)",
+            "color": "rgb(43, 23, 3)",
+            "padding": "8px 12px",
+            "borderRadius": "40px",
+            "border": "0px none rgb(43, 23, 3)",
+            "fontSize": "14px",
+            "fontWeight": "400",
+            "lineHeight": "16.8px",
+            "textTransform": "none",
+            "letterSpacing": "-0.07px",
+            "variant": "neutral",
+            "styleType": "filled",
+            "isRounded": true,
+            "classes": "pill home_tag__WBzgU",
+            "confidence": "high"
+          }
+        ]
+      }
+    }
+  },
+  "breakpoints": [
+    {
+      "px": "374px"
+    },
+    {
+      "px": "599px"
+    },
+    {
+      "px": "799px"
+    },
+    {
+      "px": "801px"
+    },
+    {
+      "px": "1049px"
+    },
+    {
+      "px": "1099px"
+    },
+    {
+      "px": "1599px"
+    }
+  ],
+  "iconSystem": [],
+  "frameworks": []
+}

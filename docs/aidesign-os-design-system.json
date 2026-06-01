@@ -1,0 +1,388 @@
+{
+  "designSystem": {
+    "name": "AI Design OS - Design System",
+    "url": "https://aidesign-os.com",
+    "description": "Minimalist, content-first design system emphasizing clean typography, generous whitespace, and smooth micro-interactions",
+    "generatedFor": "Cursor AI - Next.js + Tailwind CSS replication",
+
+    "corePhilosophy": {
+      "summary": "Brutalist minimalism with sophisticated typography. Focus on content and breathing room. No visual clutter. Smooth, purposeful interactions. Light background with dark text.",
+      "designPrinciples": [
+        "Content hierarchy through typography size and weight, not color",
+        "Generous whitespace as active design element",
+        "Typography is the primary visual element",
+        "Minimal color palette: whites, blacks, grays only",
+        "Subtle, purposeful animations and scroll effects",
+        "Full-bleed sections with centered max-width containers",
+        "No excessive borders or dividers",
+        "Accessibility-first: high contrast, readable fonts",
+        "Responsive design that reflows, never breaks",
+        "Let images and content breathe"
+      ]
+    },
+
+    "typography": {
+      "system": "Modern serif + sans-serif pairing for sophisticated contrast",
+      "fontStack": {
+        "headings": "Serif typeface (appears to be: Georgia, 'Times New Roman', or modern serif like 'Sohne Serif', 'GT Sectra', 'Lyon')",
+        "body": "Sans-serif typeface (appears to be: -apple-system, 'Segoe UI', 'Helvetica Neue', or 'Inter')",
+        "fallback": "System fonts for performance"
+      },
+      "headings": {
+        "h1": {
+          "fontSize": "64px-84px (desktop), 48px-56px (tablet), 36px-40px (mobile)",
+          "fontWeight": "400 or 700",
+          "lineHeight": "1.1-1.15",
+          "letterSpacing": "-0.02em to -0.01em",
+          "marginTop": "0",
+          "marginBottom": "24px-48px",
+          "usage": "Page titles, main hero headlines",
+          "examples": [
+            "AI Design OS",
+            "About",
+            "Featured section headers"
+          ]
+        },
+        "h2": {
+          "fontSize": "36px-56px (desktop), 28px-40px (tablet), 24px-32px (mobile)",
+          "fontWeight": "400 or 600",
+          "lineHeight": "1.15-1.2",
+          "letterSpacing": "-0.01em",
+          "marginTop": "64px-120px",
+          "marginBottom": "24px-40px",
+          "usage": "Section headers, subsection titles",
+          "examples": [
+            "About",
+            "Paradigms",
+            "Featured Collaborators"
+          ]
+        },
+        "h3": {
+          "fontSize": "20px-28px (desktop), 18px-24px (tablet), 16px-20px (mobile)",
+          "fontWeight": "600",
+          "lineHeight": "1.2-1.3",
+          "letterSpacing": "0em",
+          "marginTop": "32px",
+          "marginBottom": "16px",
+          "usage": "Smaller headers, metadata labels",
+          "examples": [
+            "Speaker names",
+            "Event titles"
+          ]
+        },
+        "h4": {
+          "fontSize": "16px-18px",
+          "fontWeight": "600",
+          "lineHeight": "1.3",
+          "usage": "Labels and metadata"
+        }
+      },
+      "bodyText": {
+        "p": {
+          "fontSize": "16px (desktop), 15px (tablet), 14px (mobile)",
+          "fontWeight": "400",
+          "lineHeight": "1.6-1.7",
+          "letterSpacing": "0em",
+          "marginBottom": "16px-24px",
+          "color": "#1A1A1A"
+        },
+        "small": {
+          "fontSize": "14px-15px",
+          "fontWeight": "400",
+          "lineHeight": "1.5",
+          "color": "#666666"
+        },
+        "label": {
+          "fontSize": "12px-13px",
+          "fontWeight": "500",
+          "letterSpacing": "0.05em",
+          "textTransform": "uppercase",
+          "color": "#999999"
+        }
+      },
+      "links": {
+        "color": "#1A1A1A",
+        "textDecoration": "underline",
+        "hoverState": "opacity 0.6 or slight color shift",
+        "styling": "Inline links with underline. No button styling."
+      }
+    },
+
+    "colorPalette": {
+      "philosophy": "Minimal, high-contrast palette. No color in UI—only in images and content.",
+      "colors": {
+        "white": {
+          "value": "#FFFFFF",
+          "usage": "Clean sections, isolated content blocks"
+        },
+        "background": {
+          "value": "#FAFAF8 or #F5F5F3",
+          "usage": "Main page background—off-white, slightly warm"
+        },
+        "textPrimary": {
+          "value": "#1A1A1A",
+          "usage": "Headlines, body text, primary content"
+        },
+        "textSecondary": {
+          "value": "#666666 or #727272",
+          "usage": "Secondary text, metadata, descriptions"
+        },
+        "textTertiary": {
+          "value": "#999999",
+          "usage": "Disabled text, captions, small labels"
+        },
+        "borderLight": {
+          "value": "#E8E8E8 or #EFEFEF",
+          "usage": "Subtle dividers, section separators"
+        },
+        "borderMedium": {
+          "value": "#D0D0D0",
+          "usage": "More prominent dividers"
+        }
+      },
+      "rules": [
+        "No colored text in body copy—only black/gray",
+        "Dividers are light, subtle, rarely full-width",
+        "Images and video bring color and visual interest",
+        "Buttons and interactive elements are black or white with minimal styling",
+        "No gradients or color overlays",
+        "High contrast for accessibility (WCAG AA+)"
+      ]
+    },
+
+    "spacing": {
+      "philosophy": "Generous spacing creates visual breathing room and hierarchy",
+      "scale": {
+        "0": "0px",
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px",
+        "6": "24px",
+        "8": "32px",
+        "10": "40px",
+        "12": "48px",
+        "16": "64px",
+        "20": "80px",
+        "24": "96px",
+        "32": "128px"
+      },
+      "sectionPadding": {
+        "desktop": "120px vertical, 80px horizontal",
+        "tablet": "80px vertical, 48px horizontal",
+        "mobile": "48px vertical, 24px horizontal"
+      },
+      "containerMaxWidth": "1200px-1400px (wide sections), 900px-1000px (text sections)",
+      "gutterWidth": "24px (between columns)",
+      "marginBetweenSections": "80px-120px (desktop), 60px-80px (tablet), 40px-60px (mobile)",
+      "marginBetweenElements": "16px-24px (default), 32px-48px (large sections)"
+    },
+
+    "layout": {
+      "grid": {
+        "type": "CSS Grid or Flexbox",
+        "columns": "12-column grid system (flexible)",
+        "rowGap": "24px-48px",
+        "columnGap": "24px-32px"
+      },
+      "fullBleedSections": {
+        "description": "Sections extend to viewport edges, content is centered within max-width container",
+        "padding": "120px 0 (desktop), 80px 0 (tablet), 48px 0 (mobile)",
+        "pattern": "Section > Container (max-width: 1200px) > Content"
+      },
+      "imageSizing": {
+        "responsiveImages": "Use srcset and sizes for different viewport widths",
+        "aspectRatio": "Varies, but maintain consistent aspect ratios per section",
+        "objectFit": "cover or contain depending on context"
+      },
+      "containerAlignment": {
+        "textContent": "Centered, max-width 800px-900px",
+        "mixed": "Centered, max-width 1200px",
+        "full": "Full bleed or 1400px max-width"
+      }
+    },
+
+    "components": {
+      "navigation": {
+        "structure": "Horizontal, minimal navigation bar",
+        "positioning": "Fixed or sticky at top",
+        "styling": "Light background with dark text. Minimal visual weight.",
+        "items": "Logo left, nav links center/right, no hamburger menu visible",
+        "spacing": "24px-32px horizontal padding, 16px-20px vertical padding",
+        "linkStyle": "Underlined or plain, dark text",
+        "activeState": "Bold or darker text, no background highlight"
+      },
+      "hero": {
+        "layout": "Full-width, centered content",
+        "padding": "120px-160px vertical (desktop), 80px-100px (tablet), 60px-80px (mobile)",
+        "textAlignment": "Center or left-aligned",
+        "content": "Large h1, optional subtext, minimal decoration",
+        "maxWidth": "900px-1000px for text"
+      },
+      "card": {
+        "style": "Minimal white or transparent card",
+        "border": "Subtle light border (1px) or no border",
+        "padding": "32px-48px",
+        "shadow": "No shadow or very subtle (0.5px blur)",
+        "hoverState": "Slight scale, opacity change, or background color shift",
+        "spacing": "24px-32px between cards"
+      },
+      "imageBlock": {
+        "sizing": "Responsive, maintain aspect ratio",
+        "spacing": "32px-48px margin around image",
+        "caption": "Optional, small gray text below"
+      },
+      "listItems": {
+        "style": "Simple list with dot or dash markers",
+        "spacing": "12px-16px between items",
+        "indentation": "24px for nested items"
+      },
+      "buttons": {
+        "style": "Minimal, text-based or subtle outline",
+        "padding": "12px-16px horizontal, 8px-12px vertical",
+        "border": "1px solid border or no border",
+        "background": "Transparent or white",
+        "text": "Dark, underlined",
+        "hoverState": "Opacity change or background color"
+      },
+      "divider": {
+        "style": "1px line, light color (#E8E8E8)",
+        "width": "Variable, not always full-width",
+        "margin": "48px-80px top and bottom",
+        "usage": "Subtle section separation"
+      },
+      "footer": {
+        "padding": "80px-120px top, 32px-48px bottom",
+        "textSize": "Small (13px-14px)",
+        "textColor": "Dark gray (#666)",
+        "layout": "Centered or left-aligned with links",
+        "links": "Underlined, inline"
+      }
+    },
+
+    "interactions": {
+      "scrollBehavior": {
+        "smooth": "Smooth scroll enabled throughout",
+        "parallax": "Subtle parallax on images (optional, minimal)",
+        "animations": "Fade-in on scroll for images and text blocks"
+      },
+      "hoverStates": {
+        "links": "Opacity 0.6-0.7, underline remains",
+        "cards": "Subtle scale (1.02) or background color change",
+        "buttons": "Opacity change or border darkening",
+        "images": "Slight scale or opacity change"
+      },
+      "transitions": {
+        "duration": "200ms-300ms for most interactions",
+        "easing": "ease-in-out or ease-out",
+        "properties": "opacity, transform, color"
+      },
+      "pageTransitions": {
+        "style": "Fade or subtle slide between pages",
+        "duration": "300ms-500ms"
+      }
+    },
+
+    "responsive": {
+      "breakpoints": {
+        "mobile": "0px - 640px",
+        "tablet": "641px - 1024px",
+        "desktop": "1025px+"
+      },
+      "mobileOptimizations": {
+        "fontSize": "Reduce by 10-20%",
+        "spacing": "Reduce by 30-40%",
+        "padding": "16px horizontal minimum",
+        "layout": "Single column, stack vertically"
+      },
+      "tabletOptimizations": {
+        "fontSize": "Reduce by 10%",
+        "spacing": "Reduce by 20%",
+        "layout": "2-column where applicable, adjust max-width"
+      },
+      "desktopFirst": "Design for desktop first, adapt down"
+    },
+
+    "typographyPairs": {
+      "headingBody": {
+        "heading": "Serif, 600-700 weight",
+        "body": "Sans-serif, 400 weight",
+        "contrast": "High, very readable"
+      }
+    },
+
+    "visualStyle": {
+      "aesthetic": "Minimalist, brutalist, sophisticated",
+      "motifs": [
+        "Generous whitespace",
+        "Typography-driven design",
+        "High contrast",
+        "Subtle dividers",
+        "Clean grid structure",
+        "No decorative elements beyond images",
+        "Smooth, purposeful motion"
+      ],
+      "imageStyle": "Professional photography and illustrations. Full bleed or contained within sections. Various aspect ratios.",
+      "iconography": "Minimal use. Text-based navigation preferred."
+    },
+
+    "codingGuidelines": {
+      "framework": "Next.js 13+ (App Router recommended)",
+      "styling": "Tailwind CSS with custom color config",
+      "libraries": [
+        "Framer Motion for animations",
+        "React Intersection Observer for scroll triggers",
+        "next/image for responsive image optimization"
+      ],
+      "semantics": "Use semantic HTML: <header>, <section>, <article>, <footer>",
+      "accessibility": [
+        "ARIA labels for interactive elements",
+        "Proper heading hierarchy (h1 > h2 > h3)",
+        "Color contrast ratio 7:1 (AAA standard)",
+        "Keyboard navigation support"
+      ]
+    },
+
+    "commonPatterns": [
+      {
+        "name": "Full-width Hero Section",
+        "structure": "Section with centered max-width container, large h1, optional subtext"
+      },
+      {
+        "name": "Content + Image Grid",
+        "structure": "2-column grid (or single column mobile) with text on one side, image on other"
+      },
+      {
+        "name": "Numbered List Section",
+        "structure": "Left: number, Right: text content. Large spacing between items."
+      },
+      {
+        "name": "Image Gallery",
+        "structure": "Responsive grid of images, 2-3 columns. Maintain aspect ratio."
+      },
+      {
+        "name": "CTA Section",
+        "structure": "Centered text with subtle button or link below"
+      },
+      {
+        "name": "Feature Card Grid",
+        "structure": "Grid of minimal cards with heading, description, subtle border"
+      }
+    ],
+
+    "whatNotToDo": [
+      "Avoid bright colors or color overlays",
+      "No drop shadows or complex depth effects",
+      "Don't use too many font sizes—stick to 3-4 key sizes",
+      "Avoid horizontal scrolling or unusual layouts",
+      "Don't use multiple font families (stick to serif + sans-serif pair)",
+      "Minimize use of borders—prefer whitespace",
+      "No animated gifs or auto-playing video with sound",
+      "Avoid justified text alignment on small screens"
+    ],
+
+    "exampleSectionStructure": {
+      "html": "<section className='py-20 md:py-32 lg:py-40 bg-white'><div className='max-w-6xl mx-auto px-4 md:px-8'><h2 className='text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-8'>Section Title</h2><p className='text-lg leading-relaxed max-w-3xl'>Body content here...</p></div></section>"
+    }
+  }
+}

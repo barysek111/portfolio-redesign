@@ -1,0 +1,40 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="120" height="120" rx="27" fill="white"/>
+<rect x="12" y="12" width="96" height="96" rx="15" fill="url(#paint0_linear_54_87)"/>
+<rect x="12" y="12" width="96" height="96" rx="15" stroke="url(#paint1_linear_54_87)" stroke-width="6"/>
+<g clip-path="url(#clip0_54_87)">
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 56 63)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 89 95.9521)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 82 88.9521)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 75 81.9521)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 89 95.9521)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 82 88.9521)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(1 0 0 -1 75 81.9521)" fill="black"/>
+<rect x="29.9521" y="95.9521" width="6.95238" height="6.95238" transform="rotate(180 29.9521 95.9521)" fill="black"/>
+<rect x="36.9521" y="88.9521" width="6.95238" height="6.95238" transform="rotate(180 36.9521 88.9521)" fill="black"/>
+<rect x="43.9521" y="81.9521" width="6.95238" height="6.95238" transform="rotate(180 43.9521 81.9521)" fill="black"/>
+<rect x="89" y="23" width="6.95238" height="6.95238" fill="black"/>
+<rect x="82" y="30" width="6.95238" height="6.95238" fill="black"/>
+<rect x="75" y="37" width="6.95238" height="6.95238" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(-1 0 0 1 29.9521 23)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(-1 0 0 1 36.9521 30)" fill="black"/>
+<rect width="6.95238" height="6.95238" transform="matrix(-1 0 0 1 43.9521 37)" fill="black"/>
+<rect width="22" height="7" transform="matrix(1 0 0 -1 74 63)" fill="black"/>
+<rect width="22" height="7" transform="matrix(1 0 0 -1 23 63)" fill="black"/>
+<rect width="22" height="7" transform="matrix(-4.37114e-08 1 1 4.37114e-08 56 74)" fill="black"/>
+<rect width="22" height="7" transform="matrix(-4.37114e-08 1 1 4.37114e-08 56 23)" fill="black"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_54_87" x1="60" y1="9" x2="60" y2="111" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F1F2F0"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint1_linear_54_87" x1="60" y1="9" x2="60" y2="111" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#DFE1DD"/>
+</linearGradient>
+<clipPath id="clip0_54_87">
+<rect width="73" height="73" fill="white" transform="translate(23 23)"/>
+</clipPath>
+</defs>
+</svg>

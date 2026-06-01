@@ -1,0 +1,31 @@
+{
+  "source": {
+    "url": "https://www.gentle.systems/",
+    "extractedAt": "2026-06-01T16:58:28.981Z",
+    "extractor": "dembrandt"
+  },
+  "colors": {
+    "palette": [],
+    "cssVariables": {}
+  },
+  "typography": {
+    "headingFont": "Unica77_Reg",
+    "bodyFont": "Unica77_Reg"
+  },
+  "spacing": {
+    "scale": [
+      "6px",
+      "8px",
+      "30px",
+      "70px",
+      "85px",
+      "200px"
+    ]
+  },
+  "radius": {
+    "scale": []
+  },
+  "shadows": {
+    "scale": []
+  }
+}

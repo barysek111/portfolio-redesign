@@ -1,0 +1,28 @@
+# Keep Cursor indexing and AI context off heavy/generated paths
+node_modules/
+dist/
+dist-ssr/
+.output/
+.vinxi/
+.tanstack/
+.nitro/
+.wrangler/
+.dev.vars
+
+# Logs and OS noise
+*.log
+.DS_Store
+
+# Binary assets — rarely needed for layout/copy edits
+**/*.jpg
+**/*.jpeg
+**/*.png
+**/*.webp
+**/*.gif
+**/*.mp4
+**/*.mov
+
+docs/reference/
+
+# Unused shadcn kit (not imported by homepage or case study)
+src/components/ui/
