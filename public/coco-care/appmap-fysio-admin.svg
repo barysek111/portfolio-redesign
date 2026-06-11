@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1349" viewBox="0 0 2000 1349" fill="none">
+<title>Appmap — Fysio view and Admin view</title>
+<style>
+text{font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}
+.section-label{font-size:25.861px;font-weight:500;fill:#000}
+.node-label{font-size:14.284px;font-weight:500;fill:#000}
+</style>
+<g id="connectors">
+<g transform="translate(233.221,358.516)"><path d="M0.595562 38.2953L0.594727 0.595703L324.555 0.595679L324.555 38.2953" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(341.771,358.516)"><path d="M0.595005 38.2953L0.594727 0.595703L107.454 0.595695L107.454 38.2953" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(233.398,456.461)"><path d="M0.594727 76.1517V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(395.199,320.441)"><path d="M0.594727 38.0758V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(676.928,221.791)"><path d="M246.402 38.6869L246.402 0.595684L0 0.595703" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(676.424,221.791)"><path d="M281.517 38.6869L281.518 0.595703L0.595219 0.595724L0.595245 38.6869" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(676.428,184.041)"><path d="M0.594727 38.0758V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(676.428,48.020)"><path d="M0.59473 76.1516L0.594727 0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(341.771,456.461)"><path d="M0.594727 76.1517V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(448.631,456.461)"><path d="M0.594727 76.1517V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(814.779,358.516)"><path d="M0.595286 38.2953L0.594727 0.595703L216.893 0.595687L216.893 38.2953" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(923.330,358.516)"><path d="M0.595005 37.6996L0.594727 0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(814.957,456.838)"><path d="M0.59473 76.1517L0.594727 0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1139.469,592.859)"><path d="M0.594727 15.478V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1675.127,592.859)"><path d="M0.594727 15.478V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1564.424,592.859)"><path d="M0.594727 15.478V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(814.504,592.859)"><path d="M0.594727 15.478V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(923.330,320.441)"><path d="M0.594727 38.0758V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1030.598,494.916)"><path d="M0.595007 38.2953L0.594727 0.595703L108.342 0.595695L108.342 38.2953" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1030.598,494.916)"><path d="M0.595288 38.2953L0.594727 0.595703L217.701 0.595687L217.701 38.2953" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1030.598,494.916)"><path d="M0.595561 38.2953L0.594727 0.595703L324.137 0.595679L324.137 38.2953" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1030.598,494.916)"><path d="M0.595832 38.2953L0.594727 0.595703L429.753 0.595671L429.753 38.2953" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1030.598,494.916)"><path d="M0.596101 38.2953L0.594727 0.595703L534.474 0.595663L534.474 38.2953" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1030.598,494.916)"><path d="M0.596386 38.2953L0.594727 0.595703L645.245 0.595654L645.245 38.2952" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1030.598,494.916)"><path d="M0.596653 38.2953L0.594727 0.595703L749.299 0.595646L749.299 38.2952" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1030.598,494.916)"><path d="M0.596935 38.2953L0.594727 0.595703L859.104 0.595638L859.104 38.2952" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1030.598,456.838)"><path d="M0.594727 38.0758V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(677.939,320.441)"><path d="M0.594727 75.7754V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(676.428,456.838)"><path d="M0.59473 76.1516L0.594727 0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(230.725,1166.631)"><path d="M0.596426 32.5839L0.594727 0.595703L661.152 0.595655L661.152 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(609.221,934.842)"><path d="M0.595218 32.5839L0.594727 0.595703L190.643 0.595689L190.643 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(704.992,934.842)"><path d="M0.594972 32.5839L0.594727 0.595703L94.8729 0.595696L94.8728 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(609.379,1017.951)"><path d="M0.594727 64.615V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(704.611,902.648)"><path d="M0.594727 32.3075V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1018.879,819.324)"><path d="M0.595338 32.7351L0.594727 0.595703L237.474 0.595686L237.474 32.7351" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1098.406,819.324)"><path d="M435.668 32.7351L435.668 0.595671L0 0.595703" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1018.963,819.324)"><path d="M317.227 32.7351L317.228 0.595703L0.59473 0.595726L0.594758 32.7351" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1143.018,786.801)"><path d="M0.594727 32.3075V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(922.443,934.842)"><path d="M0.595464 32.5839L0.594727 0.595703L143.071 0.595703" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1018.215,934.842)"><path d="M0.594972 32.5839L0.594727 0.595703L94.8729 0.595696L94.8728 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1018.242,902.533)"><path d="M0.594727 32.3075V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1244.135,902.533)"><path d="M0.594727 64.2957V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1242.805,1018.270)"><path d="M0.59473 64.6149L0.594727 0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(327.270,1249.738)"><path d="M0.594727 15.8786V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(799.840,1249.738)"><path d="M0.594727 15.8786V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(702.230,1249.738)"><path d="M0.594727 15.8786V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(230.725,1166.631)"><path d="M0.594974 32.5839L0.594727 0.595703L95.6569 0.595696L95.6569 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(230.725,1166.631)"><path d="M0.595222 32.5839L0.594727 0.595703L192.14 0.595689L192.14 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(230.725,1166.631)"><path d="M0.595463 32.5839L0.594727 0.595703L286.046 0.595682L286.046 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(230.725,1166.631)"><path d="M0.595702 32.5839L0.594727 0.595703L379.227 0.595676L379.227 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(230.725,1166.631)"><path d="M0.59594 32.5839L0.594727 0.595703L471.62 0.595669L471.62 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(230.725,1166.631)"><path d="M0.596191 32.5839L0.594727 0.595703L569.349 0.595662L569.349 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(230.725,1166.631)"><path d="M0.596675 32.5839L0.594727 0.595703L758.029 0.595648L758.029 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(609.383,1134.322)"><path d="M0.594727 32.3075V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1391.568,934.867)"><path d="M0.595464 32.5839L0.594727 0.595703L286.414 0.595682L286.414 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1487.338,934.867)"><path d="M0.594972 32.5839L0.594727 0.595703L94.8729 0.595696L94.8728 32.5839" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1391.727,1017.977)"><path d="M0.594727 64.615V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1534.479,902.559)"><path d="M0.594727 32.3075V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1487.338,1017.977)"><path d="M0.594727 64.615V0" fill="#1A1A1A" stroke="none"/></g>
+<g transform="translate(1581.615,1017.977)"><path d="M0.594727 64.615V0" fill="#1A1A1A" stroke="none"/></g>
+</g>
+<g id="nodes">
+<rect x="25.862" y="26.862" width="284.861" height="42.066" rx="9.482" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1.724"/>
+<text x="168.292" y="56.895" text-anchor="middle" class="section-label">Appmap - Fysio view</text>
+<rect x="25.862" y="714.862" width="298.861" height="42.066" rx="9.482" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1.724"/>
+<text x="175.292" y="744.895" text-anchor="middle" class="section-label">Appmap - Admin view</text>
+<rect x="629.030" y="48.000" width="97.815" height="59.870" fill="#FFFFFF"/><text x="677.938" y="82.934" text-anchor="middle" class="node-label"><tspan x="677.938" dy="0.000">Fysio login</tspan></text>
+<rect x="629.030" y="124.170" width="97.815" height="59.870" fill="#FFFFFF"/><text x="677.938" y="150.891" text-anchor="middle" class="node-label"><tspan x="677.938" dy="0.000">Patients</tspan><tspan x="677.938" dy="16.427">(homepage)</tspan></text>
+<rect x="346.290" y="260.190" width="97.815" height="59.870" fill="#FFFFFF"/><text x="395.197" y="295.124" text-anchor="middle" class="node-label"><tspan x="395.197" dy="0.000">Programs</tspan></text>
+<rect x="629.030" y="260.190" width="97.815" height="59.870" fill="#FFFFFF"/><text x="677.938" y="295.124" text-anchor="middle" class="node-label"><tspan x="677.938" dy="0.000">Exercises</tspan></text>
+<rect x="874.420" y="260.190" width="97.815" height="59.870" fill="#FFFFFF"/><text x="923.327" y="295.124" text-anchor="middle" class="node-label"><tspan x="923.327" dy="0.000">Patients</tspan></text>
+<rect x="186.000" y="396.590" width="97.815" height="59.870" fill="#FFFFFF"/><text x="234.907" y="431.524" text-anchor="middle" class="node-label"><tspan x="234.907" dy="0.000">Create new program</tspan></text>
+<rect x="293.620" y="396.590" width="97.815" height="59.870" fill="#FFFFFF"/><text x="342.528" y="431.524" text-anchor="middle" class="node-label"><tspan x="342.528" dy="0.000">Go to folder</tspan></text>
+<rect x="401.230" y="396.590" width="97.815" height="59.870" fill="#FFFFFF"/><text x="450.138" y="431.524" text-anchor="middle" class="node-label"><tspan x="450.138" dy="0.000">Edit program</tspan></text>
+<rect x="508.850" y="396.590" width="97.815" height="59.870" fill="#FFFFFF"/><text x="557.758" y="431.524" text-anchor="middle" class="node-label"><tspan x="557.758" dy="0.000">Delete program</tspan></text>
+<rect x="629.030" y="396.210" width="97.815" height="59.870" fill="#FFFFFF"/><text x="677.938" y="431.144" text-anchor="middle" class="node-label"><tspan x="677.938" dy="0.000">View exercise</tspan></text>
+<rect x="767.560" y="396.590" width="97.815" height="59.870" fill="#FFFFFF"/><text x="816.467" y="431.524" text-anchor="middle" class="node-label"><tspan x="816.467" dy="0.000">Add new patient</tspan></text>
+<rect x="874.420" y="396.590" width="97.815" height="59.870" fill="#FFFFFF"/><text x="923.327" y="431.524" text-anchor="middle" class="node-label"><tspan x="923.327" dy="0.000">Delete patient/s</tspan></text>
+<rect x="981.290" y="396.590" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1030.197" y="431.524" text-anchor="middle" class="node-label"><tspan x="1030.197" dy="0.000">Patient page</tspan></text>
+<rect x="186.000" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="234.907" y="567.924" text-anchor="middle" class="node-label"><tspan x="234.907" dy="0.000">Program editor</tspan></text>
+<rect x="293.620" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="342.528" y="567.924" text-anchor="middle" class="node-label"><tspan x="342.528" dy="0.000">Name folder</tspan></text>
+<rect x="401.230" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="450.138" y="567.924" text-anchor="middle" class="node-label"><tspan x="450.138" dy="0.000">Program editor</tspan></text>
+<rect x="629.030" y="532.610" width="97.815" height="59.870" fill="#FFFFFF"/><text x="677.938" y="567.544" text-anchor="middle" class="node-label"><tspan x="677.938" dy="0.000">Edit exercise note</tspan></text>
+<rect x="767.560" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="816.467" y="567.924" text-anchor="middle" class="node-label"><tspan x="816.467" dy="0.000">Add</tspan></text>
+<rect x="982.170" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1031.077" y="567.924" text-anchor="middle" class="node-label"><tspan x="1031.077" dy="0.000">Delete patient</tspan></text>
+<rect x="1089.440" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1138.348" y="567.924" text-anchor="middle" class="node-label"><tspan x="1138.348" dy="0.000">Asign program</tspan></text>
+<rect x="1196.700" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1245.608" y="567.924" text-anchor="middle" class="node-label"><tspan x="1245.608" dy="0.000">Request PSFS data</tspan></text>
+<rect x="1303.970" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1352.878" y="567.924" text-anchor="middle" class="node-label"><tspan x="1352.878" dy="0.000">Knee flexibiloty</tspan></text>
+<rect x="1411.230" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1460.138" y="567.924" text-anchor="middle" class="node-label"><tspan x="1460.138" dy="0.000">Pain score</tspan></text>
+<rect x="1518.500" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1567.408" y="567.924" text-anchor="middle" class="node-label"><tspan x="1567.408" dy="0.000">Set SMART goal</tspan></text>
+<rect x="1625.770" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1674.678" y="567.924" text-anchor="middle" class="node-label"><tspan x="1674.678" dy="0.000">Modify program</tspan></text>
+<rect x="1733.030" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1781.938" y="559.711" text-anchor="middle" class="node-label"><tspan x="1781.938" dy="0.000">See details of</tspan><tspan x="1781.938" dy="16.427">exercises</tspan></text>
+<rect x="1839.190" y="532.990" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1888.098" y="567.924" text-anchor="middle" class="node-label"><tspan x="1888.098" dy="0.000">Chat with patient</tspan></text>
+<rect x="767.560" y="608.320" width="97.815" height="59.870" fill="#FFFFFF"/><text x="816.467" y="635.041" text-anchor="middle" class="node-label"><tspan x="816.467" dy="0.000">Assign program to</tspan><tspan x="816.467" dy="16.427">patient</tspan></text>
+<rect x="1090.240" y="608.320" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1139.148" y="643.254" text-anchor="middle" class="node-label"><tspan x="1139.148" dy="0.000">Program builder</tspan></text>
+<rect x="1515.570" y="608.320" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1564.477" y="643.254" text-anchor="middle" class="node-label"><tspan x="1564.477" dy="0.000">Set goal</tspan></text>
+<rect x="1625.770" y="608.320" width="97.815" height="59.870" fill="#FFFFFF"/><text x="1674.678" y="643.254" text-anchor="middle" class="node-label"><tspan x="1674.678" dy="0.000">Program builder</tspan></text>
+<rect x="1099.810" y="736.000" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1142.959" y="766.125" text-anchor="middle" class="node-label"><tspan x="1142.959" dy="0.000">Admin login</tspan></text>
+<rect x="662.510" y="851.410" width="86.299" height="50.800" fill="#FFFFFF"/><text x="705.659" y="881.535" text-anchor="middle" class="node-label"><tspan x="705.659" dy="0.000">users</tspan></text>
+<rect x="976.090" y="851.410" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1019.240" y="881.535" text-anchor="middle" class="node-label"><tspan x="1019.240" dy="0.000">Teams</tspan></text>
+<rect x="1200.990" y="851.410" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1244.139" y="881.535" text-anchor="middle" class="node-label"><tspan x="1244.139" dy="0.000">Exercises</tspan></text>
+<rect x="1491.330" y="851.440" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1534.479" y="881.565" text-anchor="middle" class="node-label"><tspan x="1534.479" dy="0.000">Programs</tspan></text>
+<rect x="567.560" y="967.150" width="86.299" height="50.800" fill="#FFFFFF"/><text x="610.709" y="997.275" text-anchor="middle" class="node-label"><tspan x="610.709" dy="0.000">Patient page</tspan></text>
+<rect x="662.510" y="967.150" width="86.299" height="50.800" fill="#FFFFFF"/><text x="705.659" y="997.275" text-anchor="middle" class="node-label"><tspan x="705.659" dy="0.000">Fysio page</tspan></text>
+<rect x="757.450" y="967.150" width="86.299" height="50.800" fill="#FFFFFF"/><text x="800.600" y="997.275" text-anchor="middle" class="node-label"><tspan x="800.600" dy="0.000">Delete users</tspan></text>
+<rect x="880.780" y="967.150" width="86.299" height="50.800" fill="#FFFFFF"/><text x="923.929" y="997.275" text-anchor="middle" class="node-label"><tspan x="923.929" dy="0.000">Add new team</tspan></text>
+<rect x="976.000" y="967.000" width="86.000" height="51.000" fill="#FFFFFF"/><text x="1019.000" y="997.225" text-anchor="middle" class="node-label"><tspan x="1019.000" dy="0.000">Select /delete</tspan></text>
+<rect x="1070.670" y="967.150" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1113.820" y="997.275" text-anchor="middle" class="node-label"><tspan x="1113.820" dy="0.000">View team</tspan></text>
+<rect x="1200.990" y="966.830" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1244.139" y="996.955" text-anchor="middle" class="node-label"><tspan x="1244.139" dy="0.000">View exercise</tspan></text>
+<rect x="1349.910" y="967.170" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1393.060" y="989.532" text-anchor="middle" class="node-label"><tspan x="1393.060" dy="0.000">Create new</tspan><tspan x="1393.060" dy="15.525">program</tspan></text>
+<rect x="1444.850" y="967.170" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1487.999" y="997.295" text-anchor="middle" class="node-label"><tspan x="1487.999" dy="0.000">Go to folder</tspan></text>
+<rect x="1539.800" y="967.170" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1582.949" y="997.295" text-anchor="middle" class="node-label"><tspan x="1582.949" dy="0.000">Edit program</tspan></text>
+<rect x="1634.750" y="967.170" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1677.899" y="997.295" text-anchor="middle" class="node-label"><tspan x="1677.899" dy="0.000">Delete program</tspan></text>
+<rect x="567.560" y="1082.880" width="86.299" height="50.800" fill="#FFFFFF"/><text x="610.709" y="1113.005" text-anchor="middle" class="node-label"><tspan x="610.709" dy="0.000">Program editor</tspan></text>
+<rect x="1200.990" y="1082.560" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1244.139" y="1112.685" text-anchor="middle" class="node-label"><tspan x="1244.139" dy="0.000">Edit note</tspan></text>
+<rect x="1349.910" y="1082.910" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1393.060" y="1113.035" text-anchor="middle" class="node-label"><tspan x="1393.060" dy="0.000">Program editor</tspan></text>
+<rect x="1444.850" y="1082.910" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1487.999" y="1113.035" text-anchor="middle" class="node-label"><tspan x="1487.999" dy="0.000">Name folder</tspan></text>
+<rect x="1539.800" y="1082.910" width="86.299" height="50.800" fill="#FFFFFF"/><text x="1582.949" y="1113.035" text-anchor="middle" class="node-label"><tspan x="1582.949" dy="0.000">Program editor</tspan></text>
+<rect x="188.000" y="1198.940" width="86.299" height="50.800" fill="#FFFFFF"/><text x="231.149" y="1229.065" text-anchor="middle" class="node-label"><tspan x="231.149" dy="0.000">Delete patient</tspan></text>
+<rect x="282.640" y="1198.940" width="86.299" height="50.800" fill="#FFFFFF"/><text x="325.789" y="1229.065" text-anchor="middle" class="node-label"><tspan x="325.789" dy="0.000">Assign program</tspan></text>
+<rect x="377.280" y="1198.940" width="86.299" height="50.800" fill="#FFFFFF"/><text x="420.429" y="1229.065" text-anchor="middle" class="node-label"><tspan x="420.429" dy="0.000">Request PSFS</tspan></text>
+<rect x="471.910" y="1198.940" width="86.299" height="50.800" fill="#FFFFFF"/><text x="515.060" y="1221.303" text-anchor="middle" class="node-label"><tspan x="515.060" dy="0.000">Knee</tspan><tspan x="515.060" dy="15.525">flexibility</tspan></text>
+<rect x="566.550" y="1198.940" width="86.299" height="50.800" fill="#FFFFFF"/><text x="609.699" y="1229.065" text-anchor="middle" class="node-label"><tspan x="609.699" dy="0.000">Pain score</tspan></text>
+<rect x="661.190" y="1198.940" width="86.299" height="50.800" fill="#FFFFFF"/><text x="704.340" y="1229.065" text-anchor="middle" class="node-label"><tspan x="704.340" dy="0.000">Set SMART goal</tspan></text>
+<rect x="755.820" y="1198.940" width="86.299" height="50.800" fill="#FFFFFF"/><text x="798.970" y="1229.065" text-anchor="middle" class="node-label"><tspan x="798.970" dy="0.000">Modify program</tspan></text>
+<rect x="851.000" y="1199.000" width="85.000" height="51.000" fill="#FFFFFF"/><text x="893.500" y="1229.225" text-anchor="middle" class="node-label"><tspan x="893.500" dy="0.000">See details</tspan></text>
+<rect x="944.120" y="1198.940" width="86.299" height="50.800" fill="#FFFFFF"/><text x="987.269" y="1229.065" text-anchor="middle" class="node-label"><tspan x="987.269" dy="0.000">Patient chat</tspan></text>
+<rect x="283.350" y="1265.710" width="86.299" height="50.800" fill="#FFFFFF"/><text x="326.500" y="1288.072" text-anchor="middle" class="node-label"><tspan x="326.500" dy="0.000">Program</tspan><tspan x="326.500" dy="15.525">builder</tspan></text>
+<rect x="658.600" y="1265.710" width="86.299" height="50.800" fill="#FFFFFF"/><text x="701.750" y="1295.835" text-anchor="middle" class="node-label"><tspan x="701.750" dy="0.000">Set goal</tspan></text>
+<rect x="755.820" y="1265.710" width="86.299" height="50.800" fill="#FFFFFF"/><text x="798.970" y="1288.072" text-anchor="middle" class="node-label"><tspan x="798.970" dy="0.000">Program</tspan><tspan x="798.970" dy="15.525">builder</tspan></text>
+</g>
+</svg>

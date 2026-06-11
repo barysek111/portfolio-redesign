@@ -1,3 +1,6 @@
+import { NumberedCalloutGrid } from "@/components/project/NumberedCalloutGrid";
+import { CalloutStack } from "@/components/project/CalloutStack";
+
 type InterviewCalloutLayout = "grid-3" | "stack-hero";
 
 type InterviewCalloutBoardProps = {
@@ -19,30 +22,24 @@ export function InterviewCalloutBoard({
     <div className="case-interview-callouts">
       <h3 className="case-block-title">{title}</h3>
       {isStackHero ? (
-        <div className="case-hero-numbered-callouts">
-          {items.map((text, index) => (
-            <div key={text} className="case-callout case-numbered-item">
-              <div className="case-numbered-item-content min-w-0">
-                {headlines?.[index] ? (
-                  <h5 className="case-screen-title">{headlines[index]}</h5>
-                ) : null}
-                <p className="text-body-s">{text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <CalloutStack
+          items={items.map((text, index) => ({
+            key: headlines?.[index]
+              ? `${headlines[index]}-${text}`
+              : text,
+            text,
+            title: headlines?.[index],
+          }))}
+        />
       ) : (
-        <div className="case-interview-callouts__row case-interview-callouts__row--3">
-          {items.map((text, index) => (
-            <div
-              key={text}
-              className="case-interview-callout case-interview-callout--square case-interview-callout--numbered"
-            >
-              <h2 className="case-index">{index + 1}</h2>
-              <p className="text-body-s">{text}</p>
-            </div>
-          ))}
-        </div>
+        <NumberedCalloutGrid
+          items={items.map((text, index) => ({
+            key: text,
+            number: String(index + 1),
+            text,
+          }))}
+          columns={3}
+        />
       )}
     </div>
   );

@@ -1,9 +1,11 @@
 ---
-description: Homepage-only edits
-globs: src/routes/index.tsx,src/components/home/**/*
+description: Homepage file context (auto when editing home files)
+globs: src/routes/index.tsx,src/components/home/**/*,src/components/nav/topNavConfig.ts
 alwaysApply: false
 ---
 
 # Homepage (`/`)
 
-Edit `src/components/home/AiDesignHomepage.tsx` (route file only re-exports). Section lines in `AGENTS.md`.
+Edit `src/components/home/AiDesignHomepage.tsx` (route: `src/routes/index.tsx` re-exports only).
+
+Section lines in `AGENTS.md`. Nav copy/links: `src/components/nav/topNavConfig.ts`.

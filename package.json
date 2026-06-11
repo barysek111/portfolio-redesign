@@ -11,7 +11,9 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "optimize:personas": "node scripts/optimize-persona-svgs.mjs",
+    "generate:ideate-diagrams": "node scripts/coco-care-svg/build-all.mjs"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",

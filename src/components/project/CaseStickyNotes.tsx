@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { InterviewCalloutBoard } from "@/components/project/InterviewCalloutBoard";
+import { CalloutStack } from "@/components/project/CalloutStack";
 import {
   useLayoutEffect,
   useRef,
@@ -46,6 +47,13 @@ const UX_GOALS = [
   "Make exercise flows intuitive, even for users with limited digital skills or accessibility needs.",
   "Provide physios with actionable insights and easy navigation, enabling fast, informed care decisions.",
   "Deliver feedback, reminders, and support in the channels each user prefers, reducing cognitive load.",
+] as const;
+
+const UX_GOAL_HEADLINES = [
+  "Onboarding",
+  "Intuitive",
+  "Insights",
+  "Channels",
 ] as const;
 
 const INTERVIEW_QUESTIONS = [
@@ -135,7 +143,7 @@ function useEqualStickyNoteHeights(
 function StickyNoteBoardShell({
   className,
   children,
-  equalizeHeights = true,
+  equalizeHeights = false,
 }: {
   className?: string;
   children: ReactNode;
@@ -181,7 +189,7 @@ function StickyNoteGrid({
 }: {
   notes: readonly string[];
   color: StickyColor;
-  columns: 2 | 3;
+  columns: 2 | 3 | 4;
   className?: string;
 }) {
   return (
@@ -190,6 +198,7 @@ function StickyNoteGrid({
         "case-sticky-board__grid",
         columns === 2 && "case-sticky-board__grid--2",
         columns === 3 && "case-sticky-board__grid--3",
+        columns === 4 && "case-sticky-board__grid--4",
         className,
       )}
     >
@@ -206,11 +215,11 @@ function KeyUserNeedsBoard() {
   return (
     <StickyNoteBoardShell className="case-sticky-board--key-user-needs">
       <div className="case-sticky-board__group">
-        <p className="case-sticky-board__label">Patients:</p>
+        <h6 className="case-sticky-board__label">Patients:</h6>
         <StickyNoteGrid notes={KEY_USER_NEEDS.patients} color="white" columns={2} />
       </div>
       <div className="case-sticky-board__group">
-        <p className="case-sticky-board__label">Physios:</p>
+        <h6 className="case-sticky-board__label">Physios:</h6>
         <StickyNoteGrid notes={KEY_USER_NEEDS.physios} color="yellow" columns={2} />
       </div>
     </StickyNoteBoardShell>
@@ -223,29 +232,49 @@ function PrioritizedFeaturesBoard() {
       <StickyNoteGrid
         notes={PRIORITIZED_FEATURES}
         color="green"
-        columns={3}
+        columns={4}
       />
     </StickyNoteBoardShell>
   );
 }
 
-function MetricsBoard({ notes }: { notes: readonly string[] }) {
+/** Same card stack as InterviewCalloutBoard `stack-hero` (Key Interview Findings). */
+function StackedCalloutBoard({
+  items,
+  headlines,
+  highlightMetricValues = false,
+}: {
+  items: readonly string[];
+  headlines?: readonly string[];
+  highlightMetricValues?: boolean;
+}) {
   return (
-    <StickyNoteBoardShell
-      className="case-sticky-board--metrics"
-      equalizeHeights={false}
-    >
-      <StickyNoteGrid notes={notes} color="white" columns={2} />
-    </StickyNoteBoardShell>
+    <div className="case-interview-callouts">
+      <CalloutStack
+        items={items.map((text, index) => ({
+          key: headlines?.[index] ? `${headlines[index]}-${text}` : text,
+          text,
+          title: headlines?.[index],
+        }))}
+        highlightMetricValues={highlightMetricValues}
+      />
+    </div>
   );
 }
 
 function SuccessMetricsBoard() {
-  return <MetricsBoard notes={SUCCESS_METRICS} />;
+  return (
+    <StackedCalloutBoard
+      items={SUCCESS_METRICS}
+      highlightMetricValues
+    />
+  );
 }
 
 function UxGoalsBoard() {
-  return <MetricsBoard notes={UX_GOALS} />;
+  return (
+    <StackedCalloutBoard items={UX_GOALS} headlines={UX_GOAL_HEADLINES} />
+  );
 }
 
 function InterviewQuestionsBoard() {
@@ -271,7 +300,7 @@ function InterviewFindingsBoard() {
 
 export function InterviewCalloutsSection() {
   return (
-    <div className="case-interview-callouts-section flex w-full flex-col gap-[75px]">
+    <div className="case-subsection-stack case-subsection-stack--64 w-full">
       <InterviewQuestionsBoard />
       <InterviewFindingsBoard />
     </div>
@@ -295,14 +324,8 @@ export function useEqualStickyNoteHeightsInRow(
 }
 
 export function StickyNoteEqualizedStack({ children }: { children: ReactNode }) {
-  const groupRef = useRef<HTMLDivElement>(null);
-  useEqualStickyNoteHeights(groupRef);
-
   return (
-    <div
-      ref={groupRef}
-      className="case-sticky-notes-equalized flex w-full flex-col gap-[160px]"
-    >
+    <div className="case-sticky-notes-equalized flex w-full flex-col gap-13">
       {children}
     </div>
   );

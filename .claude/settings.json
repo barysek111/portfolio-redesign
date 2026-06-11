@@ -1,0 +1,6 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/spagett/portfolio-projects/portfolio-redesign/.claude/statusline.sh"
+  }
+}

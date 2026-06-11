@@ -308,6 +308,7 @@ export const chapterIntroIconArt = {
   ideate: buildIdeateArt(3),
   prototype: buildPrototypeArt(3),
   test: buildTestArt(1),
+  launch: buildLaunchArt(1),
 } as const;
 
 export type ChapterIntroId = keyof typeof chapterIntroIconArt;

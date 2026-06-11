@@ -7,21 +7,24 @@ export const cocoCareAssetFolder = "coco-care_assets" as const;
 
 /** Image filenames referenced in coco-care.html (jpg, png, svg). */
 export const cocoCareImages = [
-  "3453.jpg",
-  "3454.jpg",
+  "appmap-fysio-admin.svg",
+  "1.svg",
+  "2.svg",
+  "3.svg",
+  "4.svg",
   "ARROWDOWN-1-1.svg",
   "Design-System-1-scaled.jpg",
   "Design-System-2-1-scaled.jpg",
-  "Group-427323035.jpg",
-  "Group-427323036.jpg",
+  "Group-427323035.svg",
+  "Group-427323036.svg",
   "prioritized-features.svg",
   "Prototype.svg",
   "Screenshot-2025-08-24-at-16.01.06.png",
   "Screenshot-2025-08-24-at-16.01.17.png",
   "Slide-16_9-1-scaled.jpg",
   "Test.svg",
-  "Wireframesmobileapp1-scaled.jpg",
-  "Wireframesmobileapp2-scaled.jpg",
+  "Wireframesmobileapp1-scaled.svg",
+  "Wireframesmobileapp2-scaled.svg",
   "define.svg",
   "hi-fidelity-mobilescreen1.jpg",
   "hi-fidelity-mobilescreen4.svg",
@@ -43,7 +46,7 @@ export const cocoCareImages = [
   "revision1.svg",
   "revision2.svg",
   "revision3.svg",
-  "sitemapsdesktopapp-scaled.jpg",
+  "sitemapsdesktopapp-scaled.svg",
 ] as const;
 
 export const cocoCareContent = {
@@ -72,10 +75,11 @@ export const cocoCareContent = {
       },
       field: {
         label: "Field",
-        items: ["SAAS", "Health tech", "Mobile app"],
+        items: ["SaaS", "Health tech", "Mobile app"],
       },
     },
     heroImage: "Slide-16_9-1-scaled.jpg",
+    heroImageAlt: "Coco Care hero showing the patient mobile app and physiotherapist web portal",
   },
 
   projectBackground: {
@@ -129,7 +133,7 @@ export const cocoCareContent = {
       heading: "User Personas",
       body:
         "Personas in this project are concise, realistic profiles representing our main user groups, patients and physiotherapists. They are based on insights from targeted interviews and typical user behaviors observed in digital health solutions. These personas helped anchor the Coco Care design process in real-world needs and guided feature prioritization at every stage.",
-      slots: 2,
+      images: ["persona-jonas.svg", "persona-alice.svg"] as const,
     },
   },
 
@@ -245,21 +249,30 @@ export const cocoCareContent = {
       heading: "Sitemap",
       body:
         "The sitemap for the portal provides an overview of the platform’s structure and key navigation paths. It outlines how physios access and manage core features, such as creating and editing programs, viewing and updating patient information, and monitoring exercise progress.",
-      image: "sitemapsdesktopapp-scaled.jpg",
+      items: [
+        {
+          image: "1.svg",
+          title: "App map - admin view",
+        },
+        {
+          image: "2.svg",
+          title: "App map - Fysio view",
+        },
+      ] as const,
     },
 
     informationArchitecture: {
       heading: "Information Architecture",
       body:
         "This information architecture diagram outlines the overall structure and relationships within the Coco Care platform for both patients and physiotherapists. By visualizing key user roles, modules, and the flow of critical actions like onboarding, program assignment, and exercise management. It ensured clarity and alignment across the team.",
-      images: ["3454.jpg", "3453.jpg"] as const,
+      images: ["3.svg", "4.svg"] as const,
     },
 
     userFlows: {
       heading: "User Flows",
       body:
         "Next, I mapped out the user flow, focusing on the onboarding of new users and in-app exercise flow.These user flow diagrams visualize the main paths for patients navigating the Coco Care app, from initial onboarding to completing daily training sessions.",
-      images: ["Group-427323036.jpg", "Group-427323035.jpg"] as const,
+      images: ["Group-427323036.svg", "Group-427323035.svg"] as const,
     },
 
     wireframes: {
@@ -267,8 +280,8 @@ export const cocoCareContent = {
       body:
         "These wireframes illustrate the key patient-facing screens for the mobile app. The wireframes present detailed views of essential elements such as dashboard cards, activity tracking, pain score inputs, settings, and real-time exercise instructions. Two alternative dashboard concepts were explored to compare how patients could best view their daily progress, goals, and motivation boosters right from the home screen, ensuring clarity and ease of use.",
       images: [
-        "Wireframesmobileapp1-scaled.jpg",
-        "Wireframesmobileapp2-scaled.jpg",
+        "Wireframesmobileapp1-scaled.svg",
+        "Wireframesmobileapp2-scaled.svg",
       ] as const,
     },
   },
@@ -426,14 +439,6 @@ export const cocoCareContent = {
       ] as const,
       images: ["revision1.svg", "revision3.svg", "revision2.svg"] as const,
     },
-  },
-
-  /** End-of-page CTA (same pattern as work.html). */
-  footerCta: {
-    heading: "Let's build together?",
-    links: "Projects About Work with me",
-    copyright: "© Barbora Gadlinova 2025",
-    ctaButton: "Work with me",
   },
 } as const;
 

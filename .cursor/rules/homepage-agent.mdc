@@ -1,0 +1,51 @@
+---
+description: Homepage-only agent — locks scope to `/` (disable when working on Coco Care)
+alwaysApply: true
+---
+
+# Homepage-only agent
+
+**Scope lock:** This chat is for the homepage only (`/`). Do not read, search, or edit Coco Care unless the user explicitly asks to switch to Coco Care.
+
+## Allowed files
+
+- `src/components/home/**` — main file: `AiDesignHomepage.tsx`
+- `src/routes/index.tsx` — route re-export only
+- `src/components/nav/topNavConfig.ts` — homepage nav copy/links
+- `src/styles.css` and `src/lib/designSystem.ts` — only when the change is for homepage visuals
+
+Shared nav shell (`PortfolioTopNav.tsx`): touch only if the homepage nav behavior or layout requires it.
+
+## Off limits (unless user overrides)
+
+- `src/components/project/**`, `src/lib/cocoCareContent.ts`, `public/coco-care/**`
+- Scripts, asset pipelines, `docs/reference/**`
+
+## Speed (save tokens)
+
+1. Use `@` on 1–3 files; use AGENTS.md section line numbers — do not re-scan the repo.
+2. No broad `SemanticSearch` / grep across the project; never search `node_modules`, `dist`, `_archive`.
+3. No browser MCP, no Figma MCP, no Task subagents unless the user asks.
+4. Small layout/copy tweaks → edit directly; no plan mode for one-off spacing.
+5. Preview: user runs `npm run dev` → http://localhost:5173/ or `npm run open:home`.
+
+## Page color palette (homepage + Coco Care — not SVGs/images)
+
+| Token | Hex | Use |
+|-------|-----|-----|
+| ink | `#111111` | Primary text, headings, 3D letter, filled buttons, near-black UI |
+| muted | `#66615A` | Secondary/body gray text, captions, nav pill labels (case-study) |
+| callout | `#EEEEEE` | Callouts, default nav pills, borders, surfaces |
+| white | `#FFFFFF` | Page background, hovers, principle pills, cards |
+
+CSS: `--portfolio-ink`, `--portfolio-muted`, `--portfolio-callout`, `--portfolio-white` in `:root`.
+
+## Homepage layout rules (`case-study--home` in `styles.css`)
+
+- **Hero (`#about`):** exactly **one viewport** (`100svh`) — 3D letter + `hero-intro` only; no “How I work” peeking above the fold.
+- **Gap to How I work:** **160px** minimum (`margin-top` on `.case-page-shell--after-hero`).
+- Do not add top padding on `#services` that fights this; shell handles the hero→content gap.
+
+## Section map (`AiDesignHomepage.tsx`)
+
+Nav ~126 · Hero ~144 · Work grid ~162 · How I work ~268 · Footer ~485

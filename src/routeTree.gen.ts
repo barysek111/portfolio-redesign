@@ -9,48 +9,182 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WeldRouteImport } from './routes/weld'
+import { Route as RokokowebRouteImport } from './routes/rokokoweb'
+import { Route as RokokobrandRouteImport } from './routes/rokokobrand'
+import { Route as PowermatchRouteImport } from './routes/powermatch'
+import { Route as EatgrimRouteImport } from './routes/eatgrim'
+import { Route as CococareRouteImport } from './routes/cococare'
+import { Route as AgerasRouteImport } from './routes/ageras'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProjectCococareRouteImport } from './routes/project/cococare'
 
+const WeldRoute = WeldRouteImport.update({
+  id: '/weld',
+  path: '/weld',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RokokowebRoute = RokokowebRouteImport.update({
+  id: '/rokokoweb',
+  path: '/rokokoweb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RokokobrandRoute = RokokobrandRouteImport.update({
+  id: '/rokokobrand',
+  path: '/rokokobrand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PowermatchRoute = PowermatchRouteImport.update({
+  id: '/powermatch',
+  path: '/powermatch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EatgrimRoute = EatgrimRouteImport.update({
+  id: '/eatgrim',
+  path: '/eatgrim',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CococareRoute = CococareRouteImport.update({
+  id: '/cococare',
+  path: '/cococare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgerasRoute = AgerasRouteImport.update({
+  id: '/ageras',
+  path: '/ageras',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectCococareRoute = ProjectCococareRouteImport.update({
-  id: '/project/cococare',
-  path: '/project/cococare',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/project/cococare': typeof ProjectCococareRoute
+  '/ageras': typeof AgerasRoute
+  '/cococare': typeof CococareRoute
+  '/eatgrim': typeof EatgrimRoute
+  '/powermatch': typeof PowermatchRoute
+  '/rokokobrand': typeof RokokobrandRoute
+  '/rokokoweb': typeof RokokowebRoute
+  '/weld': typeof WeldRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/project/cococare': typeof ProjectCococareRoute
+  '/ageras': typeof AgerasRoute
+  '/cococare': typeof CococareRoute
+  '/eatgrim': typeof EatgrimRoute
+  '/powermatch': typeof PowermatchRoute
+  '/rokokobrand': typeof RokokobrandRoute
+  '/rokokoweb': typeof RokokowebRoute
+  '/weld': typeof WeldRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/project/cococare': typeof ProjectCococareRoute
+  '/ageras': typeof AgerasRoute
+  '/cococare': typeof CococareRoute
+  '/eatgrim': typeof EatgrimRoute
+  '/powermatch': typeof PowermatchRoute
+  '/rokokobrand': typeof RokokobrandRoute
+  '/rokokoweb': typeof RokokowebRoute
+  '/weld': typeof WeldRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/project/cococare'
+  fullPaths:
+    | '/'
+    | '/ageras'
+    | '/cococare'
+    | '/eatgrim'
+    | '/powermatch'
+    | '/rokokobrand'
+    | '/rokokoweb'
+    | '/weld'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/project/cococare'
-  id: '__root__' | '/' | '/project/cococare'
+  to:
+    | '/'
+    | '/ageras'
+    | '/cococare'
+    | '/eatgrim'
+    | '/powermatch'
+    | '/rokokobrand'
+    | '/rokokoweb'
+    | '/weld'
+  id:
+    | '__root__'
+    | '/'
+    | '/ageras'
+    | '/cococare'
+    | '/eatgrim'
+    | '/powermatch'
+    | '/rokokobrand'
+    | '/rokokoweb'
+    | '/weld'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ProjectCococareRoute: typeof ProjectCococareRoute
+  AgerasRoute: typeof AgerasRoute
+  CococareRoute: typeof CococareRoute
+  EatgrimRoute: typeof EatgrimRoute
+  PowermatchRoute: typeof PowermatchRoute
+  RokokobrandRoute: typeof RokokobrandRoute
+  RokokowebRoute: typeof RokokowebRoute
+  WeldRoute: typeof WeldRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/weld': {
+      id: '/weld'
+      path: '/weld'
+      fullPath: '/weld'
+      preLoaderRoute: typeof WeldRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rokokoweb': {
+      id: '/rokokoweb'
+      path: '/rokokoweb'
+      fullPath: '/rokokoweb'
+      preLoaderRoute: typeof RokokowebRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rokokobrand': {
+      id: '/rokokobrand'
+      path: '/rokokobrand'
+      fullPath: '/rokokobrand'
+      preLoaderRoute: typeof RokokobrandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/powermatch': {
+      id: '/powermatch'
+      path: '/powermatch'
+      fullPath: '/powermatch'
+      preLoaderRoute: typeof PowermatchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eatgrim': {
+      id: '/eatgrim'
+      path: '/eatgrim'
+      fullPath: '/eatgrim'
+      preLoaderRoute: typeof EatgrimRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cococare': {
+      id: '/cococare'
+      path: '/cococare'
+      fullPath: '/cococare'
+      preLoaderRoute: typeof CococareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ageras': {
+      id: '/ageras'
+      path: '/ageras'
+      fullPath: '/ageras'
+      preLoaderRoute: typeof AgerasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -58,19 +192,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/project/cococare': {
-      id: '/project/cococare'
-      path: '/project/cococare'
-      fullPath: '/project/cococare'
-      preLoaderRoute: typeof ProjectCococareRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ProjectCococareRoute: ProjectCococareRoute,
+  AgerasRoute: AgerasRoute,
+  CococareRoute: CococareRoute,
+  EatgrimRoute: EatgrimRoute,
+  PowermatchRoute: PowermatchRoute,
+  RokokobrandRoute: RokokobrandRoute,
+  RokokowebRoute: RokokowebRoute,
+  WeldRoute: WeldRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

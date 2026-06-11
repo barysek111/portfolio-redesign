@@ -1,5 +1,5 @@
 import { useCocoCareContent } from "@/lib/cocoCareContentContext";
-import { screenTitle, subsectionTitle } from "../constants";
+import { heroIntroBody, subsectionTitle } from "../constants";
 import {
   ContentBlock,
   EditorialSplit,
@@ -22,49 +22,48 @@ export function PrototypeSection() {
         <Prose>{s.translatingConcepts.body}</Prose>
       </ContentBlock>
       <ContentBlock label={s.designSystem.heading}>
-        <Prose>{s.designSystem.body}</Prose>
-        <div className="space-y-8">
+        <h3 className={heroIntroBody}>{s.designSystem.body}</h3>
+        <div className="case-prose-follow-full flex w-full flex-col gap-09">
           {s.designSystem.images.map((img) => (
-            <Figure key={img} src={img} />
+            <Figure key={img} src={img} callout />
           ))}
         </div>
       </ContentBlock>
       <EditorialSplit label={s.highFidelity.heading}>
-        <Prose>{s.highFidelity.intro}</Prose>
-        <div className="pt-8">
-          <h3 className={`${subsectionTitle} mb-4`}>
-            {s.highFidelity.mobileApp.sectionLabel}
-          </h3>
-          <div className="space-y-10">
-            {s.highFidelity.mobileApp.screens.map((screen, i) => (
-              <div key={i} className={i > 0 ? "pt-10" : ""}>
-                {"heading" in screen && screen.heading ? (
-                  <h5 className={`${screenTitle} mb-3`}>{screen.heading}</h5>
-                ) : null}
-                <Figure src={screen.image} />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="pt-8">
-          <h3 className={`${subsectionTitle} mb-4`}>
-            {s.highFidelity.desktopPortal.sectionLabel}
-          </h3>
-          <div className="space-y-10">
-            {s.highFidelity.desktopPortal.screens.map((screen, i) => (
-              <div key={i} className={i > 0 ? "pt-10" : ""}>
+        <h3 className={heroIntroBody}>{s.highFidelity.intro}</h3>
+        <div className="case-prose-follow-full flex w-full flex-col">
+          <div className="case-prose-follow-half flex w-full flex-col">
+            <h3 className={subsectionTitle}>
+              {s.highFidelity.mobileApp.sectionLabel}
+            </h3>
+            <div className="case-prose-follow-full flex flex-col">
+              {s.highFidelity.mobileApp.screens.map((screen, i) => (
                 <Figure
+                  key={i}
+                  src={screen.image}
+                  title={"heading" in screen ? screen.heading : undefined}
+                  callout
+                  calloutTitleAs="h5"
+                />
+              ))}
+            </div>
+          </div>
+          <div className="case-prose-follow-half flex w-full flex-col">
+            <h3 className={subsectionTitle}>
+              {s.highFidelity.desktopPortal.sectionLabel}
+            </h3>
+            <div className="case-prose-follow-full flex flex-col">
+              {s.highFidelity.desktopPortal.screens.map((screen, i) => (
+                <Figure
+                  key={i}
                   src={screen.image}
                   title={"heading" in screen ? screen.heading : undefined}
                   caption={"caption" in screen ? screen.caption : undefined}
-                  callout={Boolean(
-                    ("heading" in screen && screen.heading) ||
-                      ("caption" in screen && screen.caption),
-                  )}
+                  callout
                   calloutTitleAs="h5"
                 />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </EditorialSplit>

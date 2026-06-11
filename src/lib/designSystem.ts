@@ -1,35 +1,29 @@
 // ─── Color Palette ───────────────────────────────────────────────────────────
-// All values extracted from styles.css @theme / :root / .dark
+// CSS var references — source of truth is src/styles.css :root / .dark.
+// Use these when passing a color to a JS context (e.g. Three.js, inline style).
+// In Tailwind/CSS always use the semantic utilities directly (bg-background, etc.)
 
 export const colors = {
-  // Semantic alias tokens — light mode
-  background:      "#F6F6F6",
-  surface:         "oklch(0.955 0.003 90)",
-  card:            "oklch(0.99 0.002 90)",
-  foreground:      "oklch(0.22 0.008 260)",
-  secondary:       "oklch(0.93 0.004 90)",
-  muted:           "oklch(0.94 0.004 90)",
-  mutedForeground: "oklch(0.52 0.008 260)",
-  accent:          "oklch(0.62 0.18 25)",
-  accentDot:       "oklch(0.66 0.2 25)",
-  destructive:     "oklch(0.55 0.22 25)",
-  border:          "oklch(0.22 0.008 260 / 0.08)",
-  input:           "oklch(0.22 0.008 260 / 0.1)",
-  ring:            "oklch(0.62 0.18 25 / 0.4)",
+  background:      "var(--background)",
+  surface:         "var(--surface)",
+  card:            "var(--card)",
+  foreground:      "var(--foreground)",
+  secondary:       "var(--secondary)",
+  muted:           "var(--muted)",
+  mutedForeground: "var(--muted-foreground)",
+  accent:          "var(--accent)",
+  accentDot:       "var(--accent-dot)",
+  destructive:     "var(--destructive)",
+  border:          "var(--border)",
+  input:           "var(--input)",
+  ring:            "var(--ring)",
 
-  // Dark mode overrides
-  dark: {
-    background: "oklch(0.16 0.008 260)",
-    surface:    "oklch(0.2 0.008 260)",
-    foreground: "oklch(0.96 0.002 90)",
-  },
-
-  // Project card tinted backgrounds
+  // Project card tinted backgrounds — defined in styles.css :root
   projectCards: {
-    ageras:      "oklch(0.94 0.04 145)",
-    cococare:    "oklch(0.93 0.05 60)",
-    rokoko:      "oklch(0.92 0.04 30)",
-    rokokoBrand: "oklch(0.93 0.03 280)",
+    ageras:      "var(--color-project-ageras)",
+    cococare:    "var(--color-project-cococare)",
+    rokoko:      "var(--color-project-rokoko)",
+    rokokoBrand: "var(--color-project-rokoko-brand)",
   },
 } as const;
 
@@ -50,12 +44,9 @@ export const typography = {
     h3: "var(--text-h3)",       // 22px laptop → 24px @ 1728+
     h4: "var(--text-h4)",       // 18px (both tiers)
     h5: "var(--text-h5)",       // 16px (both tiers)
-    body: "var(--text-body)",   // clamp(12px, 2vw, 14px) — cards / UI
-    bodyProse: "var(--text-body-prose)", // 16px — case study prose outside cards
-    bodyL: "var(--text-body-l)", // = h4 (18px laptop)
-    bodyS: "var(--text-body-s)",
-    xs: "var(--text-xs)",       // 12px fixed
-    mono: "var(--text-mono)",
+    s: "var(--text-body)",         // clamp(12px, 2vw, 14px) — merged: body / body-s / mono
+    body: "var(--text-body-prose)", // 16px — prose (class: text-body)
+    xs: "var(--text-xs)",          // 12px fixed
   },
 
   lineHeights: {
@@ -64,9 +55,7 @@ export const typography = {
     h3: "120%",
     h4: "125%",
     h5: "120%",
-    body: "120%",
-    bodyL: "125%",
-    bodyS: "120%",
+    s: "120%",
     xs: "120%",
     base: "120%",
   },
@@ -76,9 +65,7 @@ export const typography = {
     h2: "-0.008em",
     h3: "-0.008em",
     h4: "-0.005em",
-    body: "-0.005em",
-    bodyL: "-0.005em",
-    bodyS: "-0.005em",
+    s: "-0.005em",
   },
 
   weight: 400,
@@ -89,45 +76,85 @@ export const typography = {
     h3: "text-h3",
     h4: "text-h4",
     h5: "text-h5",
+    s: "text-s",
     body: "text-body",
-    bodyL: "text-body-l",
-    bodyS: "text-body-s",
     xs: "text-xs",
-    mono: "text-mono",
   },
 } as const;
 
-// ─── Spacing & Sizing ─────────────────────────────────────────────────────────
+// ─── Spacing (strict 13-step scale) ───────────────────────────────────────────
+// Tokens: spacing-01 … spacing-13. Tailwind: gap-05, p-06, mt-12, etc.
+// CSS vars: var(--spacing-05). Do not use arbitrary spacing outside this scale.
+// Px below assume html { font-size: 16px } — rem must not be tied to fluid --text-body.
 
+export const spacingTokens = {
+  "01": { rem: "0.125rem", px: 2 },
+  "02": { rem: "0.25rem", px: 4 },
+  "03": { rem: "0.5rem", px: 8 },
+  "04": { rem: "0.75rem", px: 12 },
+  "05": { rem: "1rem", px: 16 },
+  "06": { rem: "1.5rem", px: 24 },
+  "07": { rem: "2rem", px: 32 },
+  "08": { rem: "2.5rem", px: 40 },
+  "09": { rem: "3rem", px: 48 },
+  "10": { rem: "4rem", px: 64 },
+  "11": { rem: "5rem", px: 80 },
+  "12": { rem: "6rem", px: 96 },
+  "13": { rem: "10rem", px: 160 },
+} as const;
+
+export type SpacingToken = keyof typeof spacingTokens;
+
+/** CSS variable for a token, e.g. `var(--spacing-05)` */
+export function spacingVar(token: SpacingToken): string {
+  return `var(--spacing-${token})`;
+}
+
+/** Semantic layout aliases → token (homepage + case study) */
 export const spacing = {
-  // Page layout
-  containerMaxWidth:       "920px",
-  containerPaddingX:       "1.5rem",    // px-6
-  containerPaddingTopMd:   "7rem",      // pt-28
-  containerPaddingTopLg:   "9rem",      // md:pt-36
-  containerPaddingBottom:  "8rem",      // pb-32
+  containerMaxWidth: "920px",
+
+  // Page shell
+  containerPaddingX: spacingTokens["05"].rem,       // was px-4 (16px)
+  containerPaddingXMd: spacingTokens["06"].rem,     // was md:px-6 (24px)
+  containerPaddingBottom: spacingTokens["12"].rem,  // was pb-32 (128px → 96)
+  containerPaddingBottomMd: spacingTokens["13"].rem, // was md:pb-40 (160px)
 
   // Section rhythm
-  sectionGap:  "6rem",    // mb-24
-  footerPadT:  "3rem",    // pt-12
+  sectionGap: spacingTokens["12"].rem,
+  footerPadT: spacingTokens["09"].rem,
 
   // Nav
-  navTopOffset: "1.25rem", // top-5
+  navTopOffset: spacingTokens["05"].rem, // was top-5 (20px → 16)
+
+  /** Page shell — fluid column-based side padding (see --page-pad in styles.css) */
+  homeShell: "page-shell",
+  caseStudyShell: "page-shell",
 
   // Component inner spacing
-  tagPaddingX:     "0.75rem",   // px-3  — skill tags
-  tagPaddingY:     "0.25rem",   // py-1
-  tagSmPaddingX:   "0.625rem",  // px-2.5 — card overlay tags
-  tagSmPaddingY:   "0.25rem",   // py-1
-  pillPaddingX:    "1rem",      // px-4  — "View archive" button
-  pillPaddingY:    "0.5rem",    // py-2
-  pillSmPaddingX:  "0.75rem",   // px-3  — social link pills
-  pillSmPaddingY:  "0.375rem",  // py-1.5
+  tagPaddingX: spacingTokens["04"].rem,   // was px-3 (12px)
+  tagPaddingY: spacingTokens["02"].rem,
+  tagSmPaddingX: spacingTokens["04"].rem, // was px-2.5 (10px → 12)
+  tagSmPaddingY: spacingTokens["02"].rem,
+  pillPaddingX: spacingTokens["05"].rem,
+  pillPaddingY: spacingTokens["03"].rem,
+  pillSmPaddingX: spacingTokens["04"].rem,
+  pillSmPaddingY: spacingTokens["03"].rem, // was py-1.5 (6px → 8)
 
   // Gaps
-  gridGap:    "1rem",    // gap-4 — project grid
-  tagGap:     "0.5rem",  // gap-2 — skill tags row
-  navItemGap: "0.25rem", // gap-1 — nav pills
+  gridGap: spacingTokens["05"].rem,
+  /** Gutter between columns in 12-col case study grids */
+  grid12ColumnGap: spacingTokens["03"].rem,
+  tagGap: spacingTokens["03"].rem,
+  navItemGap: spacingTokens["02"].rem,
+
+  // Case study (CSS custom properties on .case-study)
+  caseSectionStack: spacingTokens["13"].rem,      // was 200px between sections
+  caseMajorBlock: spacingTokens["13"].rem,        // was gap-[160px]
+  caseHeroStack: spacingTokens["11"].rem,         // was gap-[80px]
+  caseProseToMediaHalf: spacingTokens["07"].rem,  // was 34px
+  caseProseToMediaFull: spacingTokens["10"].rem,  // was 64px
+  caseHeadlineToCards: spacingTokens["06"].rem,   // was 24px
 } as const;
 
 // ─── Border Radius ────────────────────────────────────────────────────────────
@@ -147,7 +174,7 @@ export const radius = {
 
 export const buttonStyles = {
   base: [
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md",
+    "inline-flex items-center justify-center gap-03 whitespace-nowrap rounded-md",
     "text-sm font-medium cursor-pointer transition-colors",
     "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
     "disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed",
@@ -165,12 +192,12 @@ export const buttonStyles = {
   },
 
   sizes: {
-    default: "h-9 px-4 py-2",
-    sm:      "h-8 px-3 text-xs",
-    lg:      "h-10 px-8",
+    default: "h-9 px-05 py-03",
+    sm:      "h-8 px-04 text-xs",
+    lg:      "h-10 px-08",
     icon:    "h-9 w-9",
-    pillMd:  "px-4 py-2 text-[13px]",    // "View archive"
-    pillSm:  "px-3 py-1.5 text-[12px]",  // social links
+    pillMd:  "px-05 py-03 text-[13px]",
+    pillSm:  "px-04 py-03 text-[12px]",
   },
 } as const;
 
@@ -178,7 +205,7 @@ export const buttonStyles = {
 
 export const tagStyles = {
   // Shadcn badge base
-  badgeBase: "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors",
+  badgeBase: "inline-flex items-center rounded-md border px-04 py-01 text-xs font-semibold transition-colors",
 
   badgeVariants: {
     default:     "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
@@ -188,41 +215,18 @@ export const tagStyles = {
   },
 
   // Custom tag styles used in the homepage
-  skill:      "rounded-full border border-border bg-surface px-3 py-1 text-[12px] text-muted-foreground",
-  project:    "rounded-full border border-border bg-surface px-3 py-1 text-[12px] text-muted-foreground",
-  // Frosted overlay tags inside project card (visible on hover)
-  cardOverlay: "rounded-full bg-background/95 px-2.5 py-1 text-[11px] text-foreground backdrop-blur",
+  skill:      "rounded-full border border-border bg-surface px-04 py-02 text-[12px] text-muted-foreground",
+  project:    "rounded-full border border-border bg-surface px-04 py-02 text-[12px] text-muted-foreground",
+  cardOverlay: "rounded-full bg-background/95 px-04 py-02 text-[11px] text-foreground backdrop-blur",
 } as const;
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
 
 export const navStyles = {
-  // Floating pill nav — structural classes
-  wrapper:   "fixed inset-x-0 top-5 z-50 flex justify-center px-4",
-  container: "flex items-center gap-1 rounded-full border border-border bg-background/80 p-1 backdrop-blur-md shadow-[0_1px_2px_rgba(0,0,0,0.04)]",
-  item:      "relative rounded-full px-4 py-1.5 text-[13px] transition-colors cursor-pointer",
-
-  // Active / inactive text
-  activeText:   "relative z-10 text-background",
-  inactiveText: "relative z-10 text-muted-foreground hover:text-foreground",
-
-  // The framer-motion layoutId pill that slides between items
-  activePill: "absolute inset-0 rounded-full bg-foreground",
-
-  // Framer-motion spring config for the sliding pill
+  // Gentle.systems–style top nav: 16-col grid, separate pills, scroll fade
+  wrapper: "nav-blur-shell nav-top-header fixed inset-x-0 top-0 z-50",
+  grid: "nav-top-grid page-shell grid w-full pb-06 pt-06 md:pb-07 md:pt-07",
+  pill: "nav-pill",
   pillTransition: { type: "spring" as const, stiffness: 400, damping: 32 },
 } as const;
 
-// ─── Animation ────────────────────────────────────────────────────────────────
-
-export const animation = {
-  spring: {
-    default:  { type: "spring" as const, stiffness: 300, damping: 22 },
-    snappy:   { type: "spring" as const, stiffness: 400, damping: 32 },
-    soft:     { type: "spring" as const, stiffness: 200, damping: 25 },
-    tilt:     { type: "spring" as const, stiffness: 200, damping: 20 },
-    slideUp:  { type: "spring" as const, stiffness: 280, damping: 30 },
-    badge:    { type: "spring" as const, stiffness: 300, damping: 22 },
-  },
-  blink: "blink 1.2s step-end infinite",
-} as const;

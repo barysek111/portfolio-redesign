@@ -1,8 +1,11 @@
 import {
   Children,
   isValidElement,
+  useEffect,
+  useState,
   type ReactNode,
 } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import {
   ChapterIntroIcon,
   type ChapterIntroId,
@@ -11,6 +14,10 @@ import {
   resolveStickyNoteBoard,
 } from "@/components/project/CaseStickyNotes";
 import { resolveProjectGoalsDiagram } from "@/components/project/ProjectGoalsDiagram";
+import { CalloutGrid } from "@/components/project/CalloutGrid";
+import { CalloutStack } from "@/components/project/CalloutStack";
+import { NumberedCalloutGrid } from "@/components/project/NumberedCalloutGrid";
+import { NumberedCalloutStack } from "@/components/project/NumberedCalloutStack";
 import { cn } from "@/lib/utils";
 import {
   blockTitle,
@@ -18,15 +25,20 @@ import {
   calloutColumns,
   contentBlockLabel,
   editorialSplit,
+  figureRow12,
+  figureRow12Cell,
   halfColumns,
+  halfColumnsContent,
+  halfColumnsLabel,
   scenarioColumns,
   screenTitle,
   h1,
+  personaAltBySrc,
+  personaSizeBySrc,
   subsectionTitle,
 } from "./constants";
 import {
   asset,
-  displayCalloutNumber,
   figureAlt,
   parseLabeledItem,
   parseSectionTitle,
@@ -46,14 +58,14 @@ export function MajorSection({
   const { indexLine, subtitle } = parseSectionTitle(title);
 
   return (
-    <section id={id} className="scroll-mt-28 w-full">
+    <section id={id} className="scroll-mt-12 w-full">
       <div className="case-major-section-header">
         <h1 className={h1}>
           <span className="h1__index">{indexLine}</span>
           {subtitle ? <span className="h1__subtitle">{subtitle}</span> : null}
         </h1>
       </div>
-      <div className="flex flex-col gap-[160px]">{children}</div>
+      <div className="flex flex-col gap-13">{children}</div>
     </section>
   );
 }
@@ -93,78 +105,68 @@ function CaseCallout({
   return (
     <div className="case-callout h-full">
       {layout === "stacked" ? (
-        <div className="flex h-full flex-col gap-[1.125rem]">
+        <div className="flex h-full flex-col gap-05">
           <TitleTag className={titleClass}>{title}</TitleTag>
           <div className="min-w-0 w-full">{children}</div>
         </div>
       ) : (
         <div className={calloutColumns}>
           <TitleTag className={titleClass}>{title}</TitleTag>
-          <div className="min-w-0 w-full space-y-8">{children}</div>
+          <div className="min-w-0 w-full space-y-07">{children}</div>
         </div>
       )}
     </div>
   );
 }
 
-export function NumberedCalloutRows({
-  rows,
-  parseTitles = false,
-  columns = 1,
-  className,
-  variant = "default",
-}: {
-  rows: readonly { number: string; text: string }[];
-  parseTitles?: boolean;
-  columns?: 1 | 2;
-  className?: string;
-  variant?: "default" | "hero";
-}) {
-  return (
-    <div
-      className={cn(
-        columns === 2
-          ? "grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4"
-          : "flex flex-col gap-4",
-        variant === "hero" && "case-hero-numbered-callouts",
-        className,
-      )}
-    >
-      {rows.map((row) => {
-        const parsed = parseTitles
-          ? parseLabeledItem(row.text)
-          : { title: undefined, body: row.text };
+function rowsToGridItems(
+  rows: readonly { number: string; text: string }[],
+  parseTitles: boolean,
+) {
+  return rows.map((row) => {
+    const parsed = parseTitles
+      ? parseLabeledItem(row.text)
+      : { title: undefined, body: row.text };
+    return {
+      key: `${row.number}-${row.text}`,
+      number: row.number,
+      title: parsed.title,
+      text: parsed.body,
+    };
+  });
+}
 
-        if (variant === "hero") {
-          return (
-            <div key={row.number} className="case-callout case-numbered-item">
-              <h2 className="case-index">{displayCalloutNumber(row.number)}</h2>
-              <div className="case-numbered-item-content min-w-0">
-                {parsed.title ? (
-                  <h5 className={screenTitle}>{parsed.title}</h5>
-                ) : null}
-                <p className={body}>{parsed.body}</p>
-              </div>
-            </div>
-          );
-        }
+function rowsToCalloutGridItems(
+  rows: readonly { number: string; text: string }[],
+  parseTitles: boolean,
+) {
+  return rows.map((row) => {
+    const parsed = parseTitles
+      ? parseLabeledItem(row.text)
+      : { title: undefined, body: row.text };
+    return {
+      key: `${row.number}-${row.text}`,
+      title: parsed.title,
+      text: parsed.body,
+    };
+  });
+}
 
-        return (
-          <div key={row.number} className="case-callout case-numbered-item">
-            {parsed.title ? (
-              <div className="case-numbered-item-heading">
-                <h2 className="case-index">{displayCalloutNumber(row.number)}</h2>
-                <h5 className={screenTitle}>{parsed.title}</h5>
-              </div>
-            ) : (
-              <h2 className="case-index">{displayCalloutNumber(row.number)}</h2>
-            )}
-            <p className={body}>{parsed.body}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
+function rowsToStackItems(
+  rows: readonly { number: string; text: string }[],
+  parseTitles: boolean,
+) {
+  return rows.map((row) => {
+    const parsed = parseTitles
+      ? parseLabeledItem(row.text)
+      : { title: undefined, body: row.text };
+    return {
+      key: `${row.number}-${row.text}`,
+      number: row.number,
+      title: parsed.title,
+      text: parsed.body,
+    };
+  });
 }
 
 export function NumberedCalloutSection({
@@ -173,9 +175,10 @@ export function NumberedCalloutSection({
   rows,
   parseTitles = false,
   layout = "stacked",
-  columns = 1,
   splitTemplate = "scenario",
-  rowsVariant = "default",
+  cardLayout = "stack",
+  gridColumns = 3,
+  rowsGap = "03",
   headingTone = "block",
 }: {
   heading: string;
@@ -183,9 +186,12 @@ export function NumberedCalloutSection({
   rows: readonly { number: string; text: string }[];
   parseTitles?: boolean;
   layout?: "stacked" | "split";
-  columns?: 1 | 2;
   splitTemplate?: "callout" | "half" | "scenario";
-  rowsVariant?: "default" | "hero";
+  /** `grid` = numbered squares; `callout-grid` = title top / body bottom; `callout-stack` = unnumbered stack; `stack` = numbered stack */
+  cardLayout?: "grid" | "callout-grid" | "callout-stack" | "stack";
+  gridColumns?: 2 | 3;
+  /** Stack gap between callout cards — `06` = 24px */
+  rowsGap?: "03" | "06";
   headingTone?: "block" | "subsection";
 }) {
   const HeadingTag = headingAs;
@@ -196,14 +202,30 @@ export function NumberedCalloutSection({
         ? subsectionTitle
         : blockTitle;
 
-  const items = (
-    <NumberedCalloutRows
-      rows={rows}
-      parseTitles={parseTitles}
-      columns={columns}
-      variant={rowsVariant}
-    />
-  );
+  const stackGapClass =
+    cardLayout === "stack" && rowsGap === "06"
+      ? "case-hero-numbered-callouts--gap-06"
+      : undefined;
+
+  const items =
+    cardLayout === "callout-grid" ? (
+      <CalloutGrid
+        items={rowsToCalloutGridItems(rows, parseTitles)}
+        columns={gridColumns}
+      />
+    ) : cardLayout === "callout-stack" ? (
+      <CalloutStack items={rowsToCalloutGridItems(rows, parseTitles)} />
+    ) : cardLayout === "grid" ? (
+      <NumberedCalloutGrid
+        items={rowsToGridItems(rows, parseTitles)}
+        columns={gridColumns}
+      />
+    ) : (
+      <NumberedCalloutStack
+        items={rowsToStackItems(rows, parseTitles)}
+        className={stackGapClass}
+      />
+    );
 
   if (layout === "split") {
     const splitColumns =
@@ -213,16 +235,24 @@ export function NumberedCalloutSection({
           ? halfColumns
           : scenarioColumns;
 
+    const useHalfColSpans = splitTemplate === "half";
+
     return (
       <div className={splitColumns}>
-        <HeadingTag className={headingClass}>{toSentenceCase(heading)}</HeadingTag>
-        <div className="min-w-0 w-full">{items}</div>
+        <HeadingTag
+          className={cn(headingClass, useHalfColSpans && halfColumnsLabel)}
+        >
+          {toSentenceCase(heading)}
+        </HeadingTag>
+        <div className={cn(useHalfColSpans ? halfColumnsContent : "min-w-0 w-full")}>
+          {items}
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-05">
       <HeadingTag className={headingClass}>{toSentenceCase(heading)}</HeadingTag>
       {items}
     </div>
@@ -239,7 +269,7 @@ function containsFigure(node: ReactNode): boolean {
 
 function isMediaChild(child: ReactNode): boolean {
   if (!isValidElement(child)) return false;
-  if (child.type === Figure || child.type === FigureRow || child.type === PersonaFigureRow) {
+  if (child.type === Figure || child.type === FigureRow) {
     return true;
   }
   if (child.type === "div" && containsFigure(child)) return true;
@@ -273,13 +303,13 @@ export function EditorialSplit({
         <h2 className={contentBlockLabel}>{toSentenceCase(label)}</h2>
       ) : null}
       {prose.length > 0 ? (
-        <div className="case-editorial-split__prose min-w-0 w-full space-y-10">
+        <div className="case-editorial-split__prose min-w-0 w-full">
           {prose}
         </div>
       ) : null}
       {media.length > 0 ? (
         <div className="case-editorial-split__media w-full">
-          <div className="flex w-full flex-col gap-10">{media}</div>
+          <div className="flex w-full flex-col gap-08">{media}</div>
         </div>
       ) : null}
     </div>
@@ -318,11 +348,11 @@ export function ContentBlock({
 
   if (!editorial) {
     return (
-      <div className="flex w-full flex-col gap-3">
+      <div className="flex w-full flex-col gap-04">
         {label ? (
           <h2 className={contentBlockLabel}>{toSentenceCase(label)}</h2>
         ) : null}
-        <div className="min-w-0 w-full space-y-10">{children}</div>
+        <div className="case-prose-follow-full min-w-0 w-full">{children}</div>
       </div>
     );
   }
@@ -331,14 +361,66 @@ export function ContentBlock({
 }
 
 export function Prose({ children }: { children: ReactNode }) {
-  return <p className={`${body} text-body`}>{children}</p>;
+  return <p className={`${body} text-s`}>{children}</p>;
 }
 
-function FigureCaptionCallout({ media }: { media?: ReactNode }) {
-  if (!media) return null;
+function FigureCaptionCallout({
+  media,
+  titleNode,
+  caption,
+  mediaOnly = false,
+  copyBelowMedia = false,
+}: {
+  media?: ReactNode;
+  titleNode?: ReactNode;
+  caption?: string;
+  mediaOnly?: boolean;
+  /** Image first, then title + caption (4px gap between them). */
+  copyBelowMedia?: boolean;
+}) {
+  if (!media && !titleNode && !caption) return null;
+
+  const copyBlock =
+    titleNode || caption ? (
+      <div className="case-figure-caption-callout__copy">
+        {titleNode}
+        {caption ? (
+          <p className={cn("case-figure-caption-callout__text", body)}>{caption}</p>
+        ) : null}
+      </div>
+    ) : null;
+
+  const mediaBlock = media ? (
+    <div
+      className={cn(
+        "case-figure-caption-callout__media",
+        mediaOnly && "case-figure-caption-callout__media--solo",
+      )}
+    >
+      {media}
+    </div>
+  ) : null;
+
+  if (copyBelowMedia) {
+    return (
+      <div
+        className={cn(
+          "case-figure-caption-callout case-figure-caption-callout--copy-below w-full min-h-0 flex-1",
+        )}
+      >
+        {mediaBlock}
+        {copyBlock}
+      </div>
+    );
+  }
+
   return (
     <div className="case-figure-caption-callout w-full min-h-0 flex-1">
-      <div className="case-figure-caption-callout__media">{media}</div>
+      {titleNode}
+      {caption ? (
+        <p className={cn("case-figure-caption-callout__text", body)}>{caption}</p>
+      ) : null}
+      {mediaBlock}
     </div>
   );
 }
@@ -352,6 +434,7 @@ export function Figure({
   callout = false,
   calloutFrame = true,
   calloutTitleAs = "p",
+  calloutCopyBelowMedia = false,
 }: {
   src: string;
   caption?: string;
@@ -361,6 +444,7 @@ export function Figure({
   callout?: boolean;
   calloutFrame?: boolean;
   calloutTitleAs?: "p" | "h2" | "h3" | "h5";
+  calloutCopyBelowMedia?: boolean;
 }) {
   const imageAlt = figureAlt(src, alt ?? caption ?? title);
   const stickyNoteBoard = resolveStickyNoteBoard(src);
@@ -376,6 +460,46 @@ export function Figure({
       />
     );
 
+  const isStickyNoteFigure = stickyNoteBoard != null;
+  const pairSplitLayout =
+    layout === "pair" &&
+    (title || caption) &&
+    (!callout || !calloutFrame || isStickyNoteFigure);
+
+  if (pairSplitLayout) {
+    const TitleTag = calloutTitleAs;
+    const titleClass =
+      calloutTitleAs === "h2"
+        ? contentBlockLabel
+        : calloutTitleAs === "h5"
+          ? `${screenTitle} case-figure-callout-headline`
+          : calloutTitleAs === "h3"
+            ? `${blockTitle} case-figure-callout-headline`
+            : "case-figure-callout-headline";
+
+    return (
+      <figure className="case-figure-split h-full min-h-0">
+        {title ? <TitleTag className={titleClass}>{title}</TitleTag> : null}
+        <div className="case-figure-split__content min-h-0">
+          {caption ? <p className={body}>{caption}</p> : null}
+          <div className="case-figure-media w-full min-h-0 flex-1">{image}</div>
+        </div>
+      </figure>
+    );
+  }
+
+  if (callout && calloutFrame && !title && !caption) {
+    return (
+      <figure className={layout === "pair" ? "min-w-0 h-full" : "w-full"}>
+        <FigureCaptionCallout
+          media={image}
+          mediaOnly
+          copyBelowMedia={calloutCopyBelowMedia}
+        />
+      </figure>
+    );
+  }
+
   if (callout && (title || caption)) {
     const TitleTag = calloutTitleAs;
     const titleClass =
@@ -387,26 +511,45 @@ export function Figure({
             ? `${blockTitle} case-figure-callout-headline`
             : "case-figure-callout-headline";
 
-    if (layout === "pair") {
+    const titleNode = title ? (
+      <TitleTag
+        className={cn(
+          titleClass,
+          calloutTitleAs !== "h5" && "case-figure-caption-callout__title",
+        )}
+      >
+        {title}
+      </TitleTag>
+    ) : null;
+
+    if (layout === "pair" && calloutFrame) {
       return (
-        <figure className="case-figure-split h-full min-h-0">
-          {title ? <TitleTag className={titleClass}>{title}</TitleTag> : null}
-          <div className="case-figure-split__content flex min-h-0 flex-col gap-[75px]">
-            {caption ? <p className={body}>{caption}</p> : null}
-            <div className="case-figure-media w-full min-h-0 flex-1">{image}</div>
-          </div>
+        <figure className="case-figure-pair min-w-0 h-full w-full">
+          <FigureCaptionCallout
+            media={image}
+            titleNode={titleNode}
+            caption={caption}
+            copyBelowMedia={calloutCopyBelowMedia}
+          />
         </figure>
       );
     }
 
     return (
-      <figure className="flex w-full flex-col gap-3">
-        {title ? <TitleTag className={titleClass}>{title}</TitleTag> : null}
-        {caption ? <p className={body}>{caption}</p> : null}
+      <figure className="w-full">
         {calloutFrame ? (
-          <FigureCaptionCallout media={image} />
+          <FigureCaptionCallout
+            media={image}
+            titleNode={titleNode}
+            caption={caption}
+            copyBelowMedia={calloutCopyBelowMedia}
+          />
         ) : (
-          <div className="w-full">{image}</div>
+          <div className="flex w-full flex-col gap-04">
+            {titleNode}
+            {caption ? <p className={body}>{caption}</p> : null}
+            <div className="w-full">{image}</div>
+          </div>
         )}
       </figure>
     );
@@ -416,7 +559,7 @@ export function Figure({
     <figure className={layout === "pair" ? "min-w-0" : "w-full"}>
       <div className="overflow-hidden">{image}</div>
       {caption ? (
-        <figcaption className="case-caption mt-3">{caption}</figcaption>
+        <figcaption className="case-caption mt-04">{caption}</figcaption>
       ) : null}
     </figure>
   );
@@ -424,24 +567,148 @@ export function Figure({
 
 export function FigureRow({ children }: { children: ReactNode }) {
   return (
-    <div className="case-figure-row grid w-full items-stretch gap-8 md:grid-cols-2">
-      {children}
+    <div className={figureRow12}>
+      {Children.map(children, (child, index) => (
+        <div key={index} className={figureRow12Cell}>
+          {child}
+        </div>
+      ))}
     </div>
   );
 }
 
-export function PersonaFigureRow({ slots = 2 }: { slots?: number }) {
+function PersonaCarouselNavIcon({
+  flipped,
+  duration,
+}: {
+  flipped: boolean;
+  duration: number;
+}) {
   return (
-    <div className="case-persona-figure-row">
-      {Array.from({ length: slots }, (_, index) => (
-        <figure
-          key={`persona-slot-${index}`}
-          className="case-persona-figure-row__item m-0 min-w-0"
-          aria-label={`Persona placeholder ${index + 1}`}
-        >
-          <div className="case-callout case-persona-callout case-persona-callout--empty" />
-        </figure>
-      ))}
+    <motion.svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      className="case-persona-carousel__nav-icon"
+      initial={false}
+      animate={{ scaleX: flipped ? -1 : 1 }}
+      transition={{
+        duration,
+        ease: [0.45, 0, 0.55, 1],
+      }}
+      style={{ transformOrigin: "center" }}
+    >
+      <path
+        d="M6 3.5 10.5 8 6 12.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </motion.svg>
+  );
+}
+
+export function PersonaFigureRow({ images }: { images: readonly string[] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [loadedIndices, setLoadedIndices] = useState(() => new Set([0]));
+  const reduceMotion = useReducedMotion();
+  const lastIndex = images.length - 1;
+  const atLast = activeIndex >= lastIndex;
+  const crossfadeDuration = reduceMotion ? 0 : 0.9;
+
+  // Prefetch remaining personas so crossfade can blend both layers in-place.
+  useEffect(() => {
+    images.forEach((src, index) => {
+      if (index === 0) return;
+      const preload = new Image();
+      preload.src = asset(src);
+      preload.onload = () => {
+        setLoadedIndices((prev) => {
+          if (prev.has(index)) return prev;
+          const next = new Set(prev);
+          next.add(index);
+          return next;
+        });
+      };
+    });
+  }, [images]);
+
+  useEffect(() => {
+    setLoadedIndices((prev) => {
+      if (prev.has(activeIndex)) return prev;
+      const next = new Set(prev);
+      next.add(activeIndex);
+      return next;
+    });
+  }, [activeIndex]);
+
+  const handleNav = () => {
+    setActiveIndex((current) => (current >= lastIndex ? current - 1 : current + 1));
+  };
+
+  return (
+    <div className="case-persona-carousel w-full max-w-[50%] md:max-w-full">
+      <div className="case-callout case-persona-callout case-persona-carousel__frame">
+        {images.length > 1 ? (
+          <div className="case-persona-carousel__nav-row">
+            <button
+              type="button"
+              className="case-persona-carousel__nav"
+              onClick={handleNav}
+              aria-label={atLast ? "Show previous persona" : "Show next persona"}
+            >
+              <PersonaCarouselNavIcon flipped={atLast} duration={crossfadeDuration} />
+            </button>
+          </div>
+        ) : null}
+        <div className="case-persona-carousel__stage">
+          {images.map((src, index) => {
+            const isActive = index === activeIndex;
+            return (
+            <motion.figure
+              key={src}
+              className="case-persona-carousel__slide m-0 min-w-0"
+              initial={false}
+              animate={{ opacity: isActive ? 1 : 0 }}
+              transition={{
+                duration: crossfadeDuration,
+                ease: [0.45, 0, 0.55, 1],
+              }}
+              aria-hidden={!isActive}
+              style={{
+                pointerEvents: isActive ? "auto" : "none",
+                zIndex: isActive ? 2 : 1,
+              }}
+            >
+              {loadedIndices.has(index) ? (
+                <img
+                  src={asset(src)}
+                  alt={personaAltBySrc[src] ?? figureAlt(src, `Persona ${index + 1}`)}
+                  className="case-persona-callout__img"
+                  width={personaSizeBySrc[src]?.width}
+                  height={personaSizeBySrc[src]?.height}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              ) : (
+                <div
+                  className="case-persona-callout__img case-persona-callout__placeholder"
+                  style={{
+                    aspectRatio: personaSizeBySrc[src]
+                      ? `${personaSizeBySrc[src].width} / ${personaSizeBySrc[src].height}`
+                      : "975 / 1234",
+                  }}
+                  aria-hidden
+                />
+              )}
+            </motion.figure>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

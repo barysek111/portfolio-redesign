@@ -1,5 +1,6 @@
 import { InterviewCalloutsSection } from "@/components/project/CaseStickyNotes";
 import { useCocoCareContent } from "@/lib/cocoCareContentContext";
+import { heroIntroBody, subsectionStack64 } from "../constants";
 import {
   ContentBlock,
   MajorSection,
@@ -21,14 +22,16 @@ export function ResearchSection() {
         <Prose>{s.researchIntro.body}</Prose>
       </ContentBlock>
       <ContentBlock label={s.stakeholderInterviews.heading}>
-        <div className="flex w-full flex-col gap-[75px]">
-          <Prose>{s.stakeholderInterviews.body}</Prose>
+        <div className={subsectionStack64}>
+          <h4 className={heroIntroBody}>{s.stakeholderInterviews.body}</h4>
           <InterviewCalloutsSection />
         </div>
       </ContentBlock>
       <ContentBlock label={s.userPersonas.heading}>
-        <Prose>{s.userPersonas.body}</Prose>
-        <PersonaFigureRow slots={s.userPersonas.slots} />
+        <div className="case-prose-follow-half w-full">
+          <Prose>{s.userPersonas.body}</Prose>
+          <PersonaFigureRow images={s.userPersonas.images} />
+        </div>
       </ContentBlock>
     </MajorSection>
   );

@@ -7,7 +7,6 @@ import { IdeateSection } from "./cococare/chapters/IdeateSection";
 import { PrototypeSection } from "./cococare/chapters/PrototypeSection";
 import { ResearchSection } from "./cococare/chapters/ResearchSection";
 import { TestSection } from "./cococare/chapters/TestSection";
-import { ProjectFooterCta } from "./cococare/ProjectFooterCta";
 import { ProjectHero } from "./cococare/ProjectHero";
 import { ProjectNav } from "./cococare/ProjectNav";
 
@@ -16,16 +15,15 @@ export function CocoCareProjectPage({ content }: { content: CocoCareContent }) {
     <CocoCareContentProvider content={content}>
       <main className="case-study min-h-screen antialiased">
         <ProjectNav />
-        <div className="mx-auto w-full max-w-[1280px] px-4 pb-24 pt-24 md:px-6 md:pb-32 md:pt-32">
+        <div className="case-page-shell page-shell pb-12">
           <ProjectHero />
-          <div className="mt-[120px]">
+          <div className="mt-12">
             <article className="min-w-0 w-full">
               <ResearchSection />
               <DefineSection />
               <IdeateSection />
               <PrototypeSection />
               <TestSection />
-              <ProjectFooterCta />
             </article>
           </div>
         </div>

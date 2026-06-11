@@ -1,9 +1,14 @@
+import { CalloutStack } from "@/components/project/CalloutStack";
 import { useCocoCareContent } from "@/lib/cocoCareContentContext";
+import { cn } from "@/lib/utils";
 import {
-  body,
   contentBlockLabel,
+  heroIntroBody,
+  figureRow12,
+  figureRow12Cell4,
   halfColumns,
-  screenTitle,
+  halfColumnsContent,
+  halfColumnsLabel,
   subsectionTitle,
 } from "../constants";
 import {
@@ -29,26 +34,30 @@ export function TestSection() {
       >
         <Prose>{s.definingNextSteps.body}</Prose>
       </ContentBlock>
-      <div className="flex w-full flex-col gap-[6.25rem]">
+      <div className="flex w-full flex-col gap-12">
         <div className={halfColumns}>
-          <h2 className={contentBlockLabel}>{toSentenceCase(ut.heading)}</h2>
-          <div className="flex min-w-0 flex-col gap-6">
-            <Prose>{ut.intro}</Prose>
-            {ut.scenarios.map((sc) => (
-              <div key={sc.heading} className="flex flex-col gap-2">
-                <h5 className={screenTitle}>{sc.heading}</h5>
-                <Prose>{sc.body}</Prose>
-              </div>
-            ))}
+          <h2 className={cn(contentBlockLabel, halfColumnsLabel)}>
+            {toSentenceCase(ut.heading)}
+          </h2>
+          <div className={cn(halfColumnsContent, "flex flex-col gap-07")}>
+            <h4 className={heroIntroBody}>{ut.intro}</h4>
+            <CalloutStack
+              items={ut.scenarios.map((sc) => ({
+                key: sc.heading,
+                title: sc.heading,
+                text: sc.body,
+              }))}
+            />
           </div>
         </div>
-        <div className="flex flex-col gap-[6.25rem]">
+        <div className="flex flex-col gap-12">
           <NumberedCalloutSection
             heading={ut.trackedMetrics.heading}
             headingAs="h3"
             headingTone="subsection"
-            columns={2}
-            rowsVariant="hero"
+            layout="split"
+            splitTemplate="half"
+            cardLayout="callout-stack"
             rows={numberedRowsFromItems(ut.trackedMetrics.items)}
             parseTitles
           />
@@ -56,34 +65,43 @@ export function TestSection() {
             heading={ut.successCriteria.heading}
             headingAs="h3"
             headingTone="subsection"
-            columns={2}
-            rowsVariant="hero"
+            layout="split"
+            splitTemplate="half"
+            cardLayout="callout-stack"
             rows={numberedRowsFromItems(ut.successCriteria.items, true)}
           />
         </div>
         <div className={halfColumns}>
-          <h3 className={subsectionTitle}>{ut.conclusion.heading}</h3>
-          <Prose>{ut.conclusion.body}</Prose>
+          <h3 className={cn(subsectionTitle, halfColumnsLabel)}>{ut.conclusion.heading}</h3>
+          <div className={halfColumnsContent}>
+            <Prose>{ut.conclusion.body}</Prose>
+          </div>
         </div>
       </div>
-      <ContentBlock label={s.priorityRevisions.heading}>
-        <div className="flex flex-col gap-6 pb-8">
-          {s.priorityRevisions.items.map((item) => {
-            const { title, body: itemBody } = parseLabeledItem(item);
+      <div className="flex w-full min-w-0 flex-col gap-10">
+        <h2 className={contentBlockLabel}>
+          {toSentenceCase(s.priorityRevisions.heading)}
+        </h2>
+        <div className={figureRow12}>
+          {s.priorityRevisions.images.map((img, index) => {
+            const item = s.priorityRevisions.items[index];
+            const { title, body: itemBody } = parseLabeledItem(item ?? "");
             return (
-              <div key={item.slice(0, 40)} className="flex flex-col gap-2">
-                {title ? <h5 className={screenTitle}>{title}</h5> : null}
-                <p className={body}>{itemBody}</p>
+              <div key={img} className={figureRow12Cell4}>
+                <Figure
+                  src={img}
+                  layout="pair"
+                  callout
+                  title={title}
+                  caption={itemBody}
+                  calloutTitleAs="h5"
+                  calloutCopyBelowMedia
+                />
               </div>
             );
           })}
         </div>
-        <div className="grid w-full gap-8 md:grid-cols-3">
-          {s.priorityRevisions.images.map((img) => (
-            <Figure key={img} src={img} layout="pair" />
-          ))}
-        </div>
-      </ContentBlock>
+      </div>
     </MajorSection>
   );
 }

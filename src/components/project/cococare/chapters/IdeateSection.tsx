@@ -1,4 +1,5 @@
 import { useCocoCareContent } from "@/lib/cocoCareContentContext";
+import { figureRow12, figureRow12Cell } from "../constants";
 import {
   ContentBlock,
   Figure,
@@ -22,15 +23,27 @@ export function IdeateSection() {
       </ContentBlock>
       <ContentBlock label={s.sitemap.heading}>
         <Prose>{s.sitemap.body}</Prose>
-        <Figure src={s.sitemap.image} />
+        <FigureRow>
+          {s.sitemap.items.map((item) => (
+            <Figure
+              key={item.image}
+              src={item.image}
+              title={item.title}
+              callout
+              calloutTitleAs="h5"
+            />
+          ))}
+        </FigureRow>
       </ContentBlock>
       <ContentBlock label={s.informationArchitecture.heading}>
         <Prose>{s.informationArchitecture.body}</Prose>
-        <FigureRow>
+        <div className={figureRow12}>
           {s.informationArchitecture.images.map((img) => (
-            <Figure key={img} src={img} layout="pair" />
+            <div key={img} className={figureRow12Cell}>
+              <Figure src={img} callout />
+            </div>
           ))}
-        </FigureRow>
+        </div>
       </ContentBlock>
       <ContentBlock label={s.userFlows.heading}>
         <Prose>{s.userFlows.body}</Prose>
@@ -42,9 +55,9 @@ export function IdeateSection() {
       </ContentBlock>
       <ContentBlock label={s.wireframes.heading}>
         <Prose>{s.wireframes.body}</Prose>
-        <div className="space-y-8">
+        <div className="case-prose-follow-full flex flex-col">
           {s.wireframes.images.map((img) => (
-            <Figure key={img} src={img} />
+            <Figure key={img} src={img} callout />
           ))}
         </div>
       </ContentBlock>

@@ -30,6 +30,7 @@ export function DefineSection() {
         rows={s.howMightWe.questions}
         layout="split"
         splitTemplate="half"
+        cardLayout="stack"
       />
       {s.userNeeds.items.map((item) => (
         <Figure
@@ -38,7 +39,6 @@ export function DefineSection() {
           layout="pair"
           title={item.title}
           caption={item.caption}
-          callout
           calloutTitleAs="h2"
         />
       ))}
@@ -50,7 +50,6 @@ export function DefineSection() {
             layout="pair"
             title={item.title}
             caption={item.caption}
-            callout
             calloutTitleAs="h2"
           />
         ))}
