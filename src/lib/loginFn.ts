@@ -1,10 +1,11 @@
 import { createServerFn } from "@tanstack/react-start";
+import { env } from "cloudflare:workers";
 
 export const loginFn = createServerFn({ method: "POST" })
   .inputValidator((data: { username: string; password: string }) => data)
   .handler(async (ctx) => {
-    const validLogin = process.env.LOGIN;
-    const validPassword = process.env.PASSWORD;
+    const validLogin = env.LOGIN;
+    const validPassword = env.PASSWORD;
 
     if (!validLogin || !validPassword) {
       return { ok: false as const, reason: "not_configured" as const };
