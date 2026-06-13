@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -6,11 +7,11 @@ import {
   useRouter,
   HeadContent,
   Scripts,
-  redirect,
 } from "@tanstack/react-router";
-import { isAuthenticated } from "@/lib/auth";
 
 import appCss from "../styles.css?url";
+import { isAuthenticated } from "@/lib/auth";
+import LoginPage from "@/components/auth/LoginPage";
 
 function NotFoundComponent() {
   return (
@@ -70,12 +71,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  beforeLoad: ({ location }) => {
-    if (location.pathname === "/login") return;
-    if (typeof window !== "undefined" && !isAuthenticated()) {
-      throw redirect({ to: "/login", search: { redirect: location.pathname } });
-    }
-  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -121,6 +116,17 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const [authed, setAuthed] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setAuthed(isAuthenticated());
+  }, []);
+
+  if (authed === null) return null;
+
+  if (!authed) {
+    return <LoginPage onSuccess={() => setAuthed(true)} />;
+  }
 
   return (
     <QueryClientProvider client={queryClient}>

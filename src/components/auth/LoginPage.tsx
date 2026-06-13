@@ -1,12 +1,12 @@
 import { useState, useId } from "react";
-import { useNavigate, useSearch } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { login } from "@/lib/auth";
+import { attemptLogin } from "@/lib/auth";
 
-export default function LoginPage() {
-  const navigate = useNavigate();
-  const search = useSearch({ strict: false }) as { redirect?: string };
+interface Props {
+  onSuccess: () => void;
+}
 
+export default function LoginPage({ onSuccess }: Props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -20,11 +20,10 @@ export default function LoginPage() {
     setSubmitting(true);
     setError(false);
 
-    await new Promise((r) => setTimeout(r, 300));
+    await new Promise((r) => setTimeout(r, 280));
 
-    const ok = login(username, password);
-    if (ok) {
-      navigate({ to: search.redirect ?? "/" });
+    if (attemptLogin(username, password)) {
+      onSuccess();
     } else {
       setError(true);
       setSubmitting(false);
@@ -36,7 +35,7 @@ export default function LoginPage() {
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
         className="w-full max-w-[360px]"
       >
         <div className="mb-10">
@@ -61,7 +60,10 @@ export default function LoginPage() {
               autoFocus
               required
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => {
+                setUsername(e.target.value);
+                setError(false);
+              }}
               className="w-full bg-transparent border-b border-border text-foreground text-s py-2 outline-none placeholder:text-muted-foreground/40 focus:border-foreground transition-colors duration-200"
               placeholder="your login"
             />
@@ -80,7 +82,10 @@ export default function LoginPage() {
               autoComplete="current-password"
               required
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError(false);
+              }}
               className="w-full bg-transparent border-b border-border text-foreground text-s py-2 outline-none placeholder:text-muted-foreground/40 focus:border-foreground transition-colors duration-200"
               placeholder="••••••••"
             />
