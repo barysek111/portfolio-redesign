@@ -13,6 +13,7 @@ import { Route as WeldRouteImport } from './routes/weld'
 import { Route as RokokowebRouteImport } from './routes/rokokoweb'
 import { Route as RokokobrandRouteImport } from './routes/rokokobrand'
 import { Route as PowermatchRouteImport } from './routes/powermatch'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as EatgrimRouteImport } from './routes/eatgrim'
 import { Route as CococareRouteImport } from './routes/cococare'
 import { Route as AgerasRouteImport } from './routes/ageras'
@@ -36,6 +37,11 @@ const RokokobrandRoute = RokokobrandRouteImport.update({
 const PowermatchRoute = PowermatchRouteImport.update({
   id: '/powermatch',
   path: '/powermatch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EatgrimRoute = EatgrimRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/ageras': typeof AgerasRoute
   '/cococare': typeof CococareRoute
   '/eatgrim': typeof EatgrimRoute
+  '/login': typeof LoginRoute
   '/powermatch': typeof PowermatchRoute
   '/rokokobrand': typeof RokokobrandRoute
   '/rokokoweb': typeof RokokowebRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/ageras': typeof AgerasRoute
   '/cococare': typeof CococareRoute
   '/eatgrim': typeof EatgrimRoute
+  '/login': typeof LoginRoute
   '/powermatch': typeof PowermatchRoute
   '/rokokobrand': typeof RokokobrandRoute
   '/rokokoweb': typeof RokokowebRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/ageras': typeof AgerasRoute
   '/cococare': typeof CococareRoute
   '/eatgrim': typeof EatgrimRoute
+  '/login': typeof LoginRoute
   '/powermatch': typeof PowermatchRoute
   '/rokokobrand': typeof RokokobrandRoute
   '/rokokoweb': typeof RokokowebRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/ageras'
     | '/cococare'
     | '/eatgrim'
+    | '/login'
     | '/powermatch'
     | '/rokokobrand'
     | '/rokokoweb'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/ageras'
     | '/cococare'
     | '/eatgrim'
+    | '/login'
     | '/powermatch'
     | '/rokokobrand'
     | '/rokokoweb'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/ageras'
     | '/cococare'
     | '/eatgrim'
+    | '/login'
     | '/powermatch'
     | '/rokokobrand'
     | '/rokokoweb'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   AgerasRoute: typeof AgerasRoute
   CococareRoute: typeof CococareRoute
   EatgrimRoute: typeof EatgrimRoute
+  LoginRoute: typeof LoginRoute
   PowermatchRoute: typeof PowermatchRoute
   RokokobrandRoute: typeof RokokobrandRoute
   RokokowebRoute: typeof RokokowebRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/powermatch'
       fullPath: '/powermatch'
       preLoaderRoute: typeof PowermatchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/eatgrim': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   AgerasRoute: AgerasRoute,
   CococareRoute: CococareRoute,
   EatgrimRoute: EatgrimRoute,
+  LoginRoute: LoginRoute,
   PowermatchRoute: PowermatchRoute,
   RokokobrandRoute: RokokobrandRoute,
   RokokowebRoute: RokokowebRoute,

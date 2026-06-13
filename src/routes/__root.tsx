@@ -6,7 +6,9 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  redirect,
 } from "@tanstack/react-router";
+import { isAuthenticated } from "@/lib/auth";
 
 import appCss from "../styles.css?url";
 
@@ -68,6 +70,12 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  beforeLoad: ({ location }) => {
+    if (location.pathname === "/login") return;
+    if (typeof window !== "undefined" && !isAuthenticated()) {
+      throw redirect({ to: "/login", search: { redirect: location.pathname } });
+    }
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
