@@ -11,6 +11,7 @@ export default function LoginPage({ onSuccess }: Props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [debug, setDebug] = useState<Record<string, unknown> | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
   const loginId = useId();
@@ -23,16 +24,17 @@ export default function LoginPage({ onSuccess }: Props) {
 
     try {
       const result = await loginFn({ data: { username, password } });
+      if ("debug" in result) setDebug(result.debug as Record<string, unknown>);
       if (result.ok) {
         setAuthenticated();
         onSuccess();
       } else if ("reason" in result && result.reason === "not_configured") {
-        setError("Login not configured — ask the admin.");
+        setError("not_configured");
       } else {
         setError("Wrong credentials — try again.");
       }
-    } catch {
-      setError("Something went wrong — try again.");
+    } catch (e) {
+      setError(`Error: ${e instanceof Error ? e.message : String(e)}`);
     } finally {
       setSubmitting(false);
     }
@@ -110,13 +112,18 @@ export default function LoginPage({ onSuccess }: Props) {
             </motion.button>
 
             {error && (
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-4 text-xs text-muted-foreground text-center"
+                className="mt-4 space-y-3"
               >
-                {error}
-              </motion.p>
+                <p className="text-xs text-muted-foreground text-center">{error}</p>
+                {debug && (
+                  <pre className="text-xs text-muted-foreground bg-surface rounded p-3 overflow-auto whitespace-pre-wrap break-all">
+                    {JSON.stringify(debug, null, 2)}
+                  </pre>
+                )}
+              </motion.div>
             )}
           </div>
         </form>
