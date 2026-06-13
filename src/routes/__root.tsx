@@ -116,21 +116,25 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AuthGate />
+    </QueryClientProvider>
+  );
+}
+
+function AuthGate() {
   const [authed, setAuthed] = useState<boolean | null>(null);
 
   useEffect(() => {
     setAuthed(isAuthenticated());
   }, []);
 
-  if (authed === null) return null;
-
-  if (!authed) {
-    return <LoginPage onSuccess={() => setAuthed(true)} />;
+  // null = SSR or first paint before check; render outlet so SSR pipeline stays intact
+  if (authed === null || authed === true) {
+    return <Outlet />;
   }
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Outlet />
-    </QueryClientProvider>
-  );
+  return <LoginPage onSuccess={() => setAuthed(true)} />;
 }
