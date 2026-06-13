@@ -10,17 +10,12 @@ import {
   ChapterIntroIcon,
   type ChapterIntroId,
 } from "@/components/project/CaseChapterIcons";
-import {
-  resolveStickyNoteBoard,
-} from "@/components/project/CaseStickyNotes";
-import { resolveProjectGoalsDiagram } from "@/components/project/ProjectGoalsDiagram";
 import { CalloutGrid } from "@/components/project/CalloutGrid";
 import { CalloutStack } from "@/components/project/CalloutStack";
 import { NumberedCalloutGrid } from "@/components/project/NumberedCalloutGrid";
 import { NumberedCalloutStack } from "@/components/project/NumberedCalloutStack";
 import { cn } from "@/lib/utils";
 import {
-  blockTitle,
   body,
   calloutColumns,
   contentBlockLabel,
@@ -31,11 +26,11 @@ import {
   halfColumnsContent,
   halfColumnsLabel,
   scenarioColumns,
-  screenTitle,
   h1,
   personaAltBySrc,
   personaSizeBySrc,
   subsectionTitle,
+  blockTitle,
 } from "./constants";
 import {
   asset,
@@ -44,6 +39,9 @@ import {
   parseSectionTitle,
   toSentenceCase,
 } from "./utils";
+
+import { Figure } from "./Figure";
+export { Figure };
 
 export function MajorSection({
   id,
@@ -362,207 +360,6 @@ export function ContentBlock({
 
 export function Prose({ children }: { children: ReactNode }) {
   return <p className={`${body} text-s`}>{children}</p>;
-}
-
-function FigureCaptionCallout({
-  media,
-  titleNode,
-  caption,
-  mediaOnly = false,
-  copyBelowMedia = false,
-}: {
-  media?: ReactNode;
-  titleNode?: ReactNode;
-  caption?: string;
-  mediaOnly?: boolean;
-  /** Image first, then title + caption (4px gap between them). */
-  copyBelowMedia?: boolean;
-}) {
-  if (!media && !titleNode && !caption) return null;
-
-  const copyBlock =
-    titleNode || caption ? (
-      <div className="case-figure-caption-callout__copy">
-        {titleNode}
-        {caption ? (
-          <p className={cn("case-figure-caption-callout__text", body)}>{caption}</p>
-        ) : null}
-      </div>
-    ) : null;
-
-  const mediaBlock = media ? (
-    <div
-      className={cn(
-        "case-figure-caption-callout__media",
-        mediaOnly && "case-figure-caption-callout__media--solo",
-      )}
-    >
-      {media}
-    </div>
-  ) : null;
-
-  if (copyBelowMedia) {
-    return (
-      <div
-        className={cn(
-          "case-figure-caption-callout case-figure-caption-callout--copy-below w-full min-h-0 flex-1",
-        )}
-      >
-        {mediaBlock}
-        {copyBlock}
-      </div>
-    );
-  }
-
-  return (
-    <div className="case-figure-caption-callout w-full min-h-0 flex-1">
-      {titleNode}
-      {caption ? (
-        <p className={cn("case-figure-caption-callout__text", body)}>{caption}</p>
-      ) : null}
-      {mediaBlock}
-    </div>
-  );
-}
-
-export function Figure({
-  src,
-  caption,
-  title,
-  alt,
-  layout = "full",
-  callout = false,
-  calloutFrame = true,
-  calloutTitleAs = "p",
-  calloutCopyBelowMedia = false,
-}: {
-  src: string;
-  caption?: string;
-  title?: string;
-  alt?: string;
-  layout?: "full" | "pair";
-  callout?: boolean;
-  calloutFrame?: boolean;
-  calloutTitleAs?: "p" | "h2" | "h3" | "h5";
-  calloutCopyBelowMedia?: boolean;
-}) {
-  const imageAlt = figureAlt(src, alt ?? caption ?? title);
-  const stickyNoteBoard = resolveStickyNoteBoard(src);
-  const projectGoalsDiagram = resolveProjectGoalsDiagram(src);
-  const image = stickyNoteBoard ??
-    projectGoalsDiagram ?? (
-      <img
-        src={asset(src)}
-        alt={imageAlt}
-        className="block h-auto w-full max-w-none"
-        loading="lazy"
-        decoding="async"
-      />
-    );
-
-  const isStickyNoteFigure = stickyNoteBoard != null;
-  const pairSplitLayout =
-    layout === "pair" &&
-    (title || caption) &&
-    (!callout || !calloutFrame || isStickyNoteFigure);
-
-  if (pairSplitLayout) {
-    const TitleTag = calloutTitleAs;
-    const titleClass =
-      calloutTitleAs === "h2"
-        ? contentBlockLabel
-        : calloutTitleAs === "h5"
-          ? `${screenTitle} case-figure-callout-headline`
-          : calloutTitleAs === "h3"
-            ? `${blockTitle} case-figure-callout-headline`
-            : "case-figure-callout-headline";
-
-    return (
-      <figure className="case-figure-split h-full min-h-0">
-        {title ? <TitleTag className={titleClass}>{title}</TitleTag> : null}
-        <div className="case-figure-split__content min-h-0">
-          {caption ? <p className={body}>{caption}</p> : null}
-          <div className="case-figure-media w-full min-h-0 flex-1">{image}</div>
-        </div>
-      </figure>
-    );
-  }
-
-  if (callout && calloutFrame && !title && !caption) {
-    return (
-      <figure className={layout === "pair" ? "min-w-0 h-full" : "w-full"}>
-        <FigureCaptionCallout
-          media={image}
-          mediaOnly
-          copyBelowMedia={calloutCopyBelowMedia}
-        />
-      </figure>
-    );
-  }
-
-  if (callout && (title || caption)) {
-    const TitleTag = calloutTitleAs;
-    const titleClass =
-      calloutTitleAs === "h2"
-        ? contentBlockLabel
-        : calloutTitleAs === "h5"
-          ? `${screenTitle} case-figure-callout-headline`
-          : calloutTitleAs === "h3"
-            ? `${blockTitle} case-figure-callout-headline`
-            : "case-figure-callout-headline";
-
-    const titleNode = title ? (
-      <TitleTag
-        className={cn(
-          titleClass,
-          calloutTitleAs !== "h5" && "case-figure-caption-callout__title",
-        )}
-      >
-        {title}
-      </TitleTag>
-    ) : null;
-
-    if (layout === "pair" && calloutFrame) {
-      return (
-        <figure className="case-figure-pair min-w-0 h-full w-full">
-          <FigureCaptionCallout
-            media={image}
-            titleNode={titleNode}
-            caption={caption}
-            copyBelowMedia={calloutCopyBelowMedia}
-          />
-        </figure>
-      );
-    }
-
-    return (
-      <figure className="w-full">
-        {calloutFrame ? (
-          <FigureCaptionCallout
-            media={image}
-            titleNode={titleNode}
-            caption={caption}
-            copyBelowMedia={calloutCopyBelowMedia}
-          />
-        ) : (
-          <div className="flex w-full flex-col gap-04">
-            {titleNode}
-            {caption ? <p className={body}>{caption}</p> : null}
-            <div className="w-full">{image}</div>
-          </div>
-        )}
-      </figure>
-    );
-  }
-
-  return (
-    <figure className={layout === "pair" ? "min-w-0" : "w-full"}>
-      <div className="overflow-hidden">{image}</div>
-      {caption ? (
-        <figcaption className="case-caption mt-04">{caption}</figcaption>
-      ) : null}
-    </figure>
-  );
 }
 
 export function FigureRow({ children }: { children: ReactNode }) {
