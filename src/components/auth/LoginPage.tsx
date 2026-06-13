@@ -1,6 +1,7 @@
 import { useState, useId } from "react";
 import { motion } from "motion/react";
-import { attemptLogin } from "@/lib/auth";
+import { loginFn } from "@/lib/loginFn";
+import { setAuthenticated } from "@/lib/auth";
 
 interface Props {
   onSuccess: () => void;
@@ -9,7 +10,7 @@ interface Props {
 export default function LoginPage({ onSuccess }: Props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
   const loginId = useId();
@@ -18,14 +19,21 @@ export default function LoginPage({ onSuccess }: Props) {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitting(true);
-    setError(false);
+    setError(null);
 
-    await new Promise((r) => setTimeout(r, 280));
-
-    if (attemptLogin(username, password)) {
-      onSuccess();
-    } else {
-      setError(true);
+    try {
+      const result = await loginFn({ data: { username, password } });
+      if (result.ok) {
+        setAuthenticated();
+        onSuccess();
+      } else if ("reason" in result && result.reason === "not_configured") {
+        setError("Login not configured — ask the admin.");
+      } else {
+        setError("Wrong credentials — try again.");
+      }
+    } catch {
+      setError("Something went wrong — try again.");
+    } finally {
       setSubmitting(false);
     }
   }
@@ -62,7 +70,7 @@ export default function LoginPage({ onSuccess }: Props) {
               value={username}
               onChange={(e) => {
                 setUsername(e.target.value);
-                setError(false);
+                setError(null);
               }}
               className="w-full bg-transparent border-b border-border text-foreground text-s py-2 outline-none placeholder:text-muted-foreground/40 focus:border-foreground transition-colors duration-200"
               placeholder="your login"
@@ -84,7 +92,7 @@ export default function LoginPage({ onSuccess }: Props) {
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
-                setError(false);
+                setError(null);
               }}
               className="w-full bg-transparent border-b border-border text-foreground text-s py-2 outline-none placeholder:text-muted-foreground/40 focus:border-foreground transition-colors duration-200"
               placeholder="••••••••"
@@ -107,7 +115,7 @@ export default function LoginPage({ onSuccess }: Props) {
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-4 text-xs text-muted-foreground text-center"
               >
-                Wrong credentials — try again
+                {error}
               </motion.p>
             )}
           </div>

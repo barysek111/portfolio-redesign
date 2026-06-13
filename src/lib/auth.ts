@@ -5,12 +5,6 @@ export function isAuthenticated(): boolean {
   return sessionStorage.getItem(AUTH_KEY) === "true";
 }
 
-export function attemptLogin(username: string, password: string): boolean {
-  const validLogin = import.meta.env.VITE_LOGIN;
-  const validPassword = import.meta.env.VITE_PASSWORD;
-  if (username === validLogin && password === validPassword) {
-    sessionStorage.setItem(AUTH_KEY, "true");
-    return true;
-  }
-  return false;
+export function setAuthenticated(): void {
+  sessionStorage.setItem(AUTH_KEY, "true");
 }
