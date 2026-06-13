@@ -1,28 +1,18 @@
 import { createServerFn } from "@tanstack/react-start";
 
 export const loginFn = createServerFn({ method: "POST" })
-  .validator((data: unknown) => {
-    if (
-      typeof data !== "object" ||
-      data === null ||
-      typeof (data as Record<string, unknown>).username !== "string" ||
-      typeof (data as Record<string, unknown>).password !== "string"
-    ) {
-      throw new Error("Invalid input");
-    }
-    return data as { username: string; password: string };
-  })
-  .handler(async ({ data }) => {
+  .inputValidator((data: { username: string; password: string }) => data)
+  .handler(async (ctx) => {
     const validLogin = process.env.LOGIN;
     const validPassword = process.env.PASSWORD;
 
     if (!validLogin || !validPassword) {
-      return { ok: false, reason: "not_configured" as const };
+      return { ok: false as const, reason: "not_configured" as const };
     }
 
-    if (data.username === validLogin && data.password === validPassword) {
-      return { ok: true };
+    if (ctx.data.username === validLogin && ctx.data.password === validPassword) {
+      return { ok: true as const };
     }
 
-    return { ok: false, reason: "wrong_credentials" as const };
+    return { ok: false as const, reason: "wrong_credentials" as const };
   });
