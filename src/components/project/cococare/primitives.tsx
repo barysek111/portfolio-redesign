@@ -15,6 +15,7 @@ import { CalloutStack } from "@/components/project/CalloutStack";
 import { NumberedCalloutGrid } from "@/components/project/NumberedCalloutGrid";
 import { NumberedCalloutStack } from "@/components/project/NumberedCalloutStack";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/Pill";
 import {
   body,
   calloutColumns,
@@ -374,39 +375,6 @@ export function FigureRow({ children }: { children: ReactNode }) {
   );
 }
 
-function PersonaCarouselNavIcon({
-  flipped,
-  duration,
-}: {
-  flipped: boolean;
-  duration: number;
-}) {
-  return (
-    <motion.svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-      className="case-persona-carousel__nav-icon"
-      initial={false}
-      animate={{ scaleX: flipped ? -1 : 1 }}
-      transition={{
-        duration,
-        ease: [0.45, 0, 0.55, 1],
-      }}
-      style={{ transformOrigin: "center" }}
-    >
-      <path
-        d="M6 3.5 10.5 8 6 12.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </motion.svg>
-  );
-}
 
 export function PersonaFigureRow({ images }: { images: readonly string[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -451,14 +419,11 @@ export function PersonaFigureRow({ images }: { images: readonly string[] }) {
       <div className="case-callout case-persona-callout case-persona-carousel__frame">
         {images.length > 1 ? (
           <div className="case-persona-carousel__nav-row">
-            <button
-              type="button"
-              className="case-persona-carousel__nav"
-              onClick={handleNav}
-              aria-label={atLast ? "Show previous persona" : "Show next persona"}
-            >
-              <PersonaCarouselNavIcon flipped={atLast} duration={crossfadeDuration} />
-            </button>
+            {atLast ? (
+              <Button variant="arrow" direction="left" onClick={handleNav} type="button">Previous</Button>
+            ) : (
+              <Button variant="arrow" onClick={handleNav} type="button">Next</Button>
+            )}
           </div>
         ) : null}
         <div className="case-persona-carousel__stage">

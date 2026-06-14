@@ -1,5 +1,4 @@
-import { Link } from "@tanstack/react-router";
-import { NavPillArrow } from "@/components/nav/NavPillArrow";
+import { Button } from "@/components/ui/Pill";
 import { spacing } from "@/lib/designSystem";
 import { cn } from "@/lib/utils";
 
@@ -29,36 +28,6 @@ type PortfolioTopNavProps = {
   shellClassName?: string;
 };
 
-
-function NavAnchor({
-  item,
-  className,
-  showArrow = true,
-}: {
-  item: TopNavItem;
-  className: string;
-  showArrow?: boolean;
-}) {
-  const inner = (
-    <>
-      <span className="nav-pill__label">{item.label}</span>
-      {showArrow ? <NavPillArrow /> : null}
-    </>
-  );
-  if (item.routerLink) {
-    return (
-      <Link to={item.href} className={className}>
-        {inner}
-      </Link>
-    );
-  }
-  return (
-    <a href={item.href} className={className}>
-      {inner}
-    </a>
-  );
-}
-
 function gridSpanClass(span: number, breakpoint: "mobile" | "desktop") {
   return breakpoint === "mobile"
     ? `nav-pill-span-mobile-${span}`
@@ -71,8 +40,6 @@ export function PortfolioTopNav({
   className,
   shellClassName = spacing.caseStudyShell,
 }: PortfolioTopNavProps) {
-  const pillBase = "nav-pill";
-
   return (
     <header
       className={cn(
@@ -83,33 +50,38 @@ export function PortfolioTopNav({
       <div className={cn("w-full", shellClassName)}>
         <div className="nav-top-grid relative z-10 grid w-full pb-04 pt-03 md:pb-07 md:pt-07">
           {brand ? (
-            <NavAnchor
-              item={brand}
-              showArrow={false}
+            <Button
+              variant="default"
+              to={brand.routerLink ? brand.href : undefined}
+              href={brand.routerLink ? undefined : brand.href}
               className={cn(
-                pillBase,
                 gridSpanClass(brand.mobileSpan ?? brand.desktopSpan, "mobile"),
                 gridSpanClass(brand.desktopSpan, "desktop"),
                 brand.desktopOnly && "max-md:hidden",
                 brand.mobileOnly && "md:hidden",
               )}
-            />
+            >
+              {brand.label}
+            </Button>
           ) : null}
 
           {items.map((item) => {
             const mobileSpan = item.mobileSpan ?? item.desktopSpan;
             return (
-              <NavAnchor
+              <Button
                 key={`${item.href}-${item.label}`}
-                item={item}
+                variant="arrow"
+                to={item.routerLink ? item.href : undefined}
+                href={item.routerLink ? undefined : item.href}
                 className={cn(
-                  pillBase,
                   gridSpanClass(mobileSpan, "mobile"),
                   gridSpanClass(item.desktopSpan, "desktop"),
                   item.desktopOnly && "max-md:hidden",
                   item.mobileOnly && "md:hidden",
                 )}
-              />
+              >
+                {item.label}
+              </Button>
             );
           })}
         </div>

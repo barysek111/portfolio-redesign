@@ -8,13 +8,13 @@ import { PrototypeSection } from "./cococare/chapters/PrototypeSection";
 import { ResearchSection } from "./cococare/chapters/ResearchSection";
 import { TestSection } from "./cococare/chapters/TestSection";
 import { ProjectHero } from "./cococare/ProjectHero";
-import { ProjectNav } from "./cococare/ProjectNav";
+import { SiteTopNav } from "@/components/nav/SiteTopNav";
 
 export function CocoCareProjectPage({ content }: { content: CocoCareContent }) {
   return (
     <CocoCareContentProvider content={content}>
       <main className="case-study min-h-screen antialiased">
-        <ProjectNav />
+        <SiteTopNav />
         <div className="case-page-shell page-shell pb-12">
           <ProjectHero />
           <div className="mt-12">

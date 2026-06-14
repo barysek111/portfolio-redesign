@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
-  Link,
   createRootRouteWithContext,
   useRouter,
   HeadContent,
@@ -12,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { isAuthenticated } from "@/lib/auth";
 import LoginPage from "@/components/auth/LoginPage";
+import { Button } from "@/components/ui/Pill";
 
 function NotFoundComponent() {
   return (
@@ -23,12 +23,7 @@ function NotFoundComponent() {
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-06">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-s text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
+          <Button variant="arrow" to="/" className="w-auto">Go home</Button>
         </div>
       </div>
     </div>
@@ -49,21 +44,16 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
         <div className="mt-06 flex flex-wrap justify-center gap-03">
-          <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-s text-primary-foreground transition-colors hover:bg-primary/90"
+          <Button
+            variant="default"
+            onClick={() => { router.invalidate(); reset(); }}
+            className="w-auto justify-center"
           >
             Try again
-          </button>
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-s text-foreground transition-colors hover:bg-accent"
-          >
+          </Button>
+          <Button variant="arrow" to="/" className="w-auto">
             Go home
-          </Link>
+          </Button>
         </div>
       </div>
     </div>

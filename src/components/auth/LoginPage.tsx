@@ -1,5 +1,6 @@
 import { useState, useId } from "react";
 import { motion } from "motion/react";
+import { Button } from "@/components/ui/Pill";
 import { loginFn } from "@/lib/loginFn";
 import { setAuthenticated } from "@/lib/auth";
 
@@ -102,14 +103,14 @@ export default function LoginPage({ onSuccess }: Props) {
           </div>
 
           <div className="pt-2">
-            <motion.button
+            <Button
+              variant="default"
               type="submit"
               disabled={submitting || !username || !password}
-              whileTap={{ scale: 0.98 }}
-              className="w-full bg-primary text-primary-foreground text-s py-3 rounded-sm font-medium transition-opacity disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
+              className="w-full justify-center"
             >
               {submitting ? "Checking…" : "Enter"}
-            </motion.button>
+            </Button>
 
             {error && (
               <motion.div

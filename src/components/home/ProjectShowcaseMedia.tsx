@@ -1,11 +1,11 @@
-import type { ShowcaseMedia, ShowcaseMediaItem } from "@/components/home/projectShowcaseEntries";
+import type { ShowcaseMedia, ImgLayout } from "@/components/home/projectShowcaseEntries";
 
-function MediaImg({ item, className }: { item: ShowcaseMedia; className?: string }) {
+function MediaImg({ item }: { item: ShowcaseMedia }) {
   return (
     <img
       src={item.src}
       alt={item.alt}
-      className={`project-showcase__img${className ? ` ${className}` : ""}`}
+      className="project-showcase__img"
       width={item.width}
       height={item.height}
       loading="lazy"
@@ -15,38 +15,24 @@ function MediaImg({ item, className }: { item: ShowcaseMedia; className?: string
 }
 
 export function ProjectShowcaseMedia({
-  mediaItems,
-  mediaLeft,
-  mediaRight,
+  layout,
+  images,
 }: {
-  mediaItems?: readonly ShowcaseMediaItem[];
-  mediaLeft?: ShowcaseMedia;
-  mediaRight?: ShowcaseMedia;
+  layout: ImgLayout;
+  images: readonly ShowcaseMedia[];
 }) {
-  if (mediaItems) {
-    return (
-      <div className="project-showcase__media-pair flex w-full min-w-0 items-start gap-03">
-        {mediaItems.map((item) => (
-          <div
-            key={item.src}
-            className="project-showcase__frame min-w-0"
-            style={{ flex: item.span }}
-          >
-            <MediaImg item={item} />
-          </div>
-        ))}
-      </div>
-    );
-  }
-
+  const spans = layout.split(" ").map(Number);
   return (
     <div className="project-showcase__media-pair flex w-full min-w-0 items-start gap-03">
-      <div className="project-showcase__frame min-w-0 flex-[2]">
-        {mediaLeft && <MediaImg item={mediaLeft} />}
-      </div>
-      <div className="project-showcase__frame min-w-0 flex-[6]">
-        {mediaRight && <MediaImg item={mediaRight} />}
-      </div>
+      {images.map((item, i) => (
+        <div
+          key={item.src}
+          className="project-showcase__frame min-w-0"
+          style={{ flex: spans[i] ?? 1 }}
+        >
+          <MediaImg item={item} />
+        </div>
+      ))}
     </div>
   );
 }

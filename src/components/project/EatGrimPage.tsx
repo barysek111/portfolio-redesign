@@ -7,13 +7,13 @@ import { DesignSection } from "./eatgrim/chapters/DesignSection";
 import { LaunchSection } from "./eatgrim/chapters/LaunchSection";
 import { ResearchSection } from "./eatgrim/chapters/ResearchSection";
 import { ProjectHero } from "./eatgrim/ProjectHero";
-import { ProjectNav } from "./eatgrim/ProjectNav";
+import { SiteTopNav } from "@/components/nav/SiteTopNav";
 
 export function EatGrimProjectPage({ content }: { content: EatGrimContent }) {
   return (
     <EatGrimContentProvider content={content}>
       <main className="case-study min-h-screen antialiased">
-        <ProjectNav />
+        <SiteTopNav />
         <div className="case-page-shell page-shell pb-12">
           <ProjectHero />
           <div className="mt-12">

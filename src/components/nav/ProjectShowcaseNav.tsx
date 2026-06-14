@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { NavPillArrow } from "@/components/nav/NavPillArrow";
+import { Button } from "@/components/ui/Pill";
 import { cn } from "@/lib/utils";
 
 export type ProjectShowcaseNavProps = {
@@ -15,8 +15,6 @@ export type ProjectShowcaseNavProps = {
   routerLink?: boolean;
   className?: string;
 };
-
-const pillBase = "nav-pill";
 
 /** One row: 8 + 2 + 2 on the 12-column showcase grid (all breakpoints). */
 export const projectShowcaseSpan8 = "project-showcase-span-8";
@@ -41,25 +39,9 @@ export function ProjectShowcaseNav({
 
   const inner = (
     <>
-      <div className={cn(pillBase, projectShowcaseSpan8, "justify-between")}>
-        <span className="nav-pill__label min-w-0 truncate">{meta}</span>
-        <span className="nav-pill__label shrink-0 tabular-nums">{year}</span>
-      </div>
-
-      <div className={cn(pillBase, projectShowcaseSpan2, "justify-center")}>
-        <span className="nav-pill__label">{secondaryLabel}</span>
-      </div>
-
-      <div
-        className={cn(
-          pillBase,
-          projectShowcaseSpan2,
-          "project-showcase-nav__explore justify-between",
-        )}
-      >
-        <span className="nav-pill__label">{exploreLabel}</span>
-        <NavPillArrow />
-      </div>
+      <Button variant="dual" left={meta} right={year} className={projectShowcaseSpan8} />
+      <Button variant="static" className={projectShowcaseSpan2}>{secondaryLabel}</Button>
+      <Button variant="arrow" className={cn(projectShowcaseSpan2, "project-showcase-nav__explore")}>{exploreLabel}</Button>
     </>
   );
 

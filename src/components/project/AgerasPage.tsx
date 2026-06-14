@@ -8,13 +8,13 @@ import { PrototypeSection } from "./ageras/chapters/PrototypeSection";
 import { ResearchSection } from "./ageras/chapters/ResearchSection";
 import { SystemSection } from "./ageras/chapters/SystemSection";
 import { ProjectHero } from "./ageras/ProjectHero";
-import { ProjectNav } from "./ageras/ProjectNav";
+import { SiteTopNav } from "@/components/nav/SiteTopNav";
 
 export function AgerasProjectPage({ content }: { content: AgerasContent }) {
   return (
     <AgerasContentProvider content={content}>
       <main className="case-study min-h-screen antialiased">
-        <ProjectNav />
+        <SiteTopNav />
         <div className="case-page-shell page-shell pb-12">
           <ProjectHero />
           <div className="mt-12">

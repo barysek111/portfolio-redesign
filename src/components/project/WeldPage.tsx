@@ -6,13 +6,13 @@ import { DefineSection } from "./weld/chapters/DefineSection";
 import { ImplementSection } from "./weld/chapters/ImplementSection";
 import { ResearchSection } from "./weld/chapters/ResearchSection";
 import { ProjectHero } from "./weld/ProjectHero";
-import { ProjectNav } from "./weld/ProjectNav";
+import { SiteTopNav } from "@/components/nav/SiteTopNav";
 
 export function WeldProjectPage({ content }: { content: WeldContent }) {
   return (
     <WeldContentProvider content={content}>
       <main className="case-study min-h-screen antialiased">
-        <ProjectNav />
+        <SiteTopNav />
         <div className="case-page-shell page-shell pb-12">
           <ProjectHero />
           <div className="mt-12">

@@ -367,7 +367,18 @@
 
   .nav-top-grid > .nav-pill {
     min-width: 0;
-  }  @media (min-width: 768px) {  }  @media (min-width: 768px) {}  /* Project showcase: one nav row (8 + 2 + 2), content row matches below */
+  }
+
+  /* Top nav column spans — mobile baseline, desktop override at md+ */
+  .nav-pill-span-mobile-2 { grid-column: span 2; }
+  .nav-pill-span-mobile-6 { grid-column: span 6; }
+
+  @media (min-width: 768px) {
+    .nav-pill-span-desktop-2 { grid-column: span 2; }
+    .nav-pill-span-desktop-6 { grid-column: span 6; }
+  }
+
+  /* Project showcase: one nav row (8 + 2 + 2), content row matches below */
   .project-showcase-span-8 {
     grid-column: span 8;
   }
@@ -376,21 +387,19 @@
     grid-column: span 2;
   }
 
+  /* How I work: 12-column content grid */
+  .how-i-work-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: calc(var(--spacing-02) + var(--spacing-01));
+    width: 100%;
+  }
+
   /* How I work: principles 6 + focus 3 + tools 3 */
   .how-i-work-span-6,
   .how-i-work-span-3 {
     min-width: 0;
     grid-column: span 12;
-  }
-
-  @media (min-width: 768px) {
-    .how-i-work-span-6 {
-      grid-column: span 6;
-    }
-
-    .how-i-work-span-3 {
-      grid-column: span 3;
-    }
   }
 
   @media (min-width: 768px) {
@@ -444,44 +453,42 @@
     .project-showcase-col-3 { grid-column: span 3; }
   }
 
-  @media (min-width: 768px) {
-    .project-showcase-col-9 { grid-column: span 9; }
-    .project-showcase-col-3 { grid-column: span 3; }
-  }
-
   /* Media frame: 8/9 of the parent 9-col width, aligned left (1 col gap on right) */
   .project-showcase-media-frame {
     width: calc(8 / 9 * 100%);
   }
 
-  /* Group hover: any hover/focus on the entry link lights up all pills */
+  /* Entry group: 12-col grid, full width, relative for block-link */
+  .project-showcase__entry-group {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: calc(var(--spacing-02) + var(--spacing-01));
+    width: 100%;
+    position: relative;
+  }
+
+  /* All pills inside the showcase are decorative — background link handles clicks */
   .project-showcase__entry-group .nav-pill {
     pointer-events: none;
   }
 
-  /* Hover only when cursor is over a designated zone (title col, explore block) */
+  /* Hover state triggered by hovering a designated zone or focusing the block link */
   .project-showcase__entry-group:has(.project-showcase-hover-zone:hover) .nav-pill:not(.nav-pill--static),
-  .project-showcase__entry-group:focus-visible .nav-pill:not(.nav-pill--static) {
+  .project-showcase__entry-group:has(a:focus-visible) .nav-pill:not(.nav-pill--static) {
     background-color: var(--card);
   }
 
   .case-study .project-showcase__entry-group:has(.project-showcase-hover-zone:hover) .nav-pill:not(.nav-pill--static),
-  .case-study .project-showcase__entry-group:focus-visible .nav-pill:not(.nav-pill--static) {
+  .case-study .project-showcase__entry-group:has(a:focus-visible) .nav-pill:not(.nav-pill--static) {
     background-color: var(--card);
     color: var(--foreground);
   }
 
   /* Arrow reveals only on the explore pill */
   .project-showcase__entry-group:has(.project-showcase-hover-zone:hover) .project-showcase-explore-pill .nav-pill__arrow,
-  .project-showcase__entry-group:focus-visible .project-showcase-explore-pill .nav-pill__arrow {
+  .project-showcase__entry-group:has(a:focus-visible) .project-showcase-explore-pill .nav-pill__arrow {
     opacity: 1;
     transform: translateX(0);
-  }
-
-  .project-showcase__entry-group:focus-visible {
-    outline: 2px solid var(--foreground);
-    outline-offset: 2px;
-    border-radius: 2.5rem;
   }
 
   /* Gentle /work-style featured project block (homepage) */
@@ -510,17 +517,6 @@
 
   .project-showcase__media-pair {
     width: 100%;
-  }
-
-  @media (max-width: 767px) {
-    .project-showcase__media-pair {
-      flex-direction: column;
-    }
-
-    .project-showcase__media-pair > .project-showcase__frame {
-      flex: none;
-      width: 100%;
-    }
   }
 
   @media (max-width: 767px) {
@@ -580,6 +576,23 @@
   .nav-pill--static:hover {
     background-color: var(--surface);
     color: var(--foreground);
+  }
+
+  .nav-pill--staticdark {
+    cursor: default;
+    pointer-events: none;
+    background-color: var(--foreground);
+    color: var(--card);
+  }
+
+  .nav-pill--staticdark:hover {
+    background-color: var(--foreground);
+    color: var(--card);
+  }
+
+  button.nav-pill:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 
   .nav-pill:hover {
@@ -1608,6 +1621,10 @@
     margin-bottom: var(--case-persona-pad, 18px);
   }
 
+  .case-persona-carousel__nav-row .nav-pill {
+    width: fit-content;
+  }
+
   .case-persona-carousel__stage {
     display: grid;
     width: 100%;
@@ -1620,35 +1637,6 @@
     will-change: opacity;
     backface-visibility: hidden;
     transform: translateZ(0);
-  }
-
-  .case-persona-carousel__nav {
-    display: flex;
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 9999px;
-    background-color: var(--foreground);
-    color: var(--card);
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-
-  .case-persona-carousel__nav:hover {
-    background-color: var(--foreground);
-    color: var(--muted-foreground);
-  }
-
-  .case-persona-carousel__nav:focus-visible {
-    outline: 2px solid var(--foreground);
-    outline-offset: 2px;
-  }
-
-  .case-persona-carousel__nav-icon {
-    display: block;
   }
 
   .case-persona-callout {
@@ -2083,28 +2071,6 @@
     margin: 0;
     padding: 0;
     list-style: none;
-  }
-
-  /* meta-pill: small label pill — text-xs, no hover, two variants */
-  .meta-pill {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 9999px;
-    border: none;
-    padding: var(--spacing-03) var(--spacing-04);
-    font-family: var(--font-text);
-    font-size: var(--text-xs);
-    font-weight: 400;
-    line-height: 120%;
-    letter-spacing: -0.005em;
-    background-color: var(--surface);
-    color: var(--muted-foreground);
-    pointer-events: none;
-  }
-
-  .meta-pill--dark {
-    background-color: var(--foreground);
-    color: var(--card);
   }
 
   .case-meta-item-label {

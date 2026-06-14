@@ -7,13 +7,13 @@ import { IdeateSection } from "./rokoko/chapters/IdeateSection";
 import { ImplementSection } from "./rokoko/chapters/ImplementSection";
 import { ResearchSection } from "./rokoko/chapters/ResearchSection";
 import { ProjectHero } from "./rokoko/ProjectHero";
-import { ProjectNav } from "./rokoko/ProjectNav";
+import { SiteTopNav } from "@/components/nav/SiteTopNav";
 
 export function RokokoProjectPage({ content }: { content: RokokoContent }) {
   return (
     <RokokoContentProvider content={content}>
       <main className="case-study min-h-screen antialiased">
-        <ProjectNav />
+        <SiteTopNav />
         <div className="case-page-shell page-shell pb-12">
           <ProjectHero />
           <div className="mt-12">

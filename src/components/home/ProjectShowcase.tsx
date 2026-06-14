@@ -1,41 +1,30 @@
 import { Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
-import { ContentPill } from "@/components/home/ContentPill";
-import { NavPillArrow } from "@/components/nav/NavPillArrow";
-import { PROJECT_SHOWCASE_ENTRIES, type ShowcaseMedia, type ShowcaseMediaItem } from "@/components/home/projectShowcaseEntries";
+import { Button } from "@/components/ui/Pill";
+import { PROJECT_SHOWCASE_ENTRIES, type ShowcaseMedia, type ImgLayout } from "@/components/home/projectShowcaseEntries";
 import { ProjectShowcaseMedia } from "@/components/home/ProjectShowcaseMedia";
 
-function ProjectDivTitle({
+export function ProjectShowcaseImages({
   meta,
   year,
-  mediaItems,
-  mediaLeft,
-  mediaRight,
+  layout,
+  images,
 }: {
   meta: string;
   year: string;
-  mediaItems?: readonly ShowcaseMediaItem[];
-  mediaLeft?: ShowcaseMedia;
-  mediaRight?: ShowcaseMedia;
+  layout: ImgLayout;
+  images: readonly ShowcaseMedia[];
 }) {
   return (
     <div className="project-showcase-col-9 project-showcase-hover-zone flex min-w-0 flex-col gap-03">
-      <ContentPill className="justify-between">
-        <span className="nav-pill__label min-w-0 truncate">{meta}</span>
-        <span className="nav-pill__label shrink-0 tabular-nums">{year}</span>
-      </ContentPill>
+      <Button variant="dual" left={meta} right={year} />
       <div className="project-showcase-media-frame">
-        <ProjectShowcaseMedia mediaItems={mediaItems} mediaLeft={mediaLeft} mediaRight={mediaRight} />
+        <ProjectShowcaseMedia layout={layout} images={images} />
       </div>
     </div>
   );
 }
 
-/**
- * 3-column right column: Explore block stacked above My Role block.
- * Role items rendered as comma-separated inline text.
- */
-function ProjectDivRight({
+export function ProjectShowcaseInfo({
   copy,
   lines,
 }: {
@@ -44,20 +33,13 @@ function ProjectDivRight({
 }) {
   return (
     <div className="project-showcase-col-3 flex min-w-0 flex-col gap-09">
-      {/* Explore */}
       <div className="project-showcase-hover-zone flex flex-col gap-03">
-        <ContentPill className="project-showcase-explore-pill justify-between">
-          <span className="nav-pill__label">Explore</span>
-          <NavPillArrow />
-        </ContentPill>
+        <Button variant="arrow" className="project-showcase-explore-pill">Explore</Button>
         <p className="project-showcase__copy text-body">{copy}</p>
       </div>
 
-      {/* My Role */}
       <div className="flex flex-col gap-03">
-        <ContentPill isStatic className="justify-center">
-          <span className="nav-pill__label">My Role</span>
-        </ContentPill>
+        <Button variant="static">My Role</Button>
         <p className="project-showcase__copy text-s">
           {lines.join(", ")}
         </p>
@@ -73,33 +55,24 @@ export function ProjectShowcase() {
         Featured projects
       </h2>
 
-      <div className="project-showcase__list flex w-full flex-col gap-13">
-        {PROJECT_SHOWCASE_ENTRIES.map((entry, index) => (
-          <motion.div
-            key={`${entry.meta}-${entry.year}`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: index === 0 ? 0 : 0.05 }}
-          >
-            {entry.routerLink ? (
-              <Link
-                to={entry.href}
-                className="project-showcase__entry-group nav-top-grid grid w-full text-inherit no-underline"
-              >
-                <ProjectDivTitle meta={entry.meta} year={entry.year} mediaItems={entry.mediaItems} mediaLeft={entry.mediaLeft} mediaRight={entry.mediaRight} />
-                <ProjectDivRight copy={entry.exploreCopy} lines={entry.roleLines} />
-              </Link>
-            ) : (
-              <a
-                href={entry.href}
-                className="project-showcase__entry-group nav-top-grid grid w-full text-inherit no-underline"
-              >
-                <ProjectDivTitle meta={entry.meta} year={entry.year} mediaItems={entry.mediaItems} mediaLeft={entry.mediaLeft} mediaRight={entry.mediaRight} />
-                <ProjectDivRight copy={entry.exploreCopy} lines={entry.roleLines} />
-              </a>
-            )}
-          </motion.div>
+      <div className="flex w-full flex-col gap-13">
+        {PROJECT_SHOWCASE_ENTRIES.map((entry) => (
+          <div key={`${entry.meta}-${entry.year}`} className="project-showcase__entry-group relative">
+            {entry.routerLink
+              ? <Link to={entry.href} className="absolute inset-0" aria-label={entry.meta} />
+              : <a href={entry.href} className="absolute inset-0" aria-label={entry.meta} />
+            }
+            <ProjectShowcaseImages
+              meta={entry.meta}
+              year={entry.year}
+              layout={entry.layout}
+              images={entry.images}
+            />
+            <ProjectShowcaseInfo
+              copy={entry.exploreCopy}
+              lines={entry.roleLines}
+            />
+          </div>
         ))}
       </div>
     </section>

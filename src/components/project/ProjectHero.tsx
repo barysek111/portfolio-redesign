@@ -1,5 +1,4 @@
-import { Link } from "@tanstack/react-router";
-import { NavPillArrow } from "@/components/nav/NavPillArrow";
+import { Button } from "@/components/ui/Pill";
 import { NumberedCalloutStack } from "@/components/project/NumberedCalloutStack";
 import {
   contentBlockLabel,
@@ -37,54 +36,17 @@ export interface CaseStudyHeroData {
   };
 }
 
-function MetaItem({
-  label,
-  value,
-  items,
-  align = "start",
-  colSpan,
-  plain = false,
-}: {
-  label: string;
-  value?: string;
-  items?: readonly string[];
-  align?: "start" | "end";
-  colSpan?: 2;
-  plain?: boolean;
-}) {
-  const tagsClass = align === "end" ? "meta-pills justify-end" : "meta-pills";
-  const ddClass = align === "end" ? "mt-03 flex justify-end" : "mt-03";
-
+function MetaItem({ label, items }: { label: string; items: readonly string[] }) {
   return (
-    <div
-      className={`${plain ? "" : "min-w-0"} ${colSpan === 2 ? "col-span-2" : ""} ${align === "end" ? "w-full" : ""}`}
-    >
+    <div>
       <dt className={metaItemLabel}>{label}</dt>
-      {items ? (
-        plain ? (
-          <dd className="mt-03">
-            <ul className="case-meta-plain-list">
-              {items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </dd>
-        ) : (
-          <dd className={ddClass}>
-            <ul className={tagsClass}>
-              {items.map((item) => (
-                <li key={item}>
-                  <span className="meta-pill">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </dd>
-        )
-      ) : (
-        <dd className={ddClass}>
-          <span className="meta-pill">{value}</span>
-        </dd>
-      )}
+      <dd className="mt-03">
+        <ul className="case-meta-plain-list">
+          {items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </dd>
     </div>
   );
 }
@@ -99,10 +61,9 @@ export function ProjectHero({
   const { hero, projectBackground, theChallenge } = data;
   return (
     <header className="flex flex-col gap-11 overflow-visible">
-      <Link to="/" className="case-back-link nav-pill w-fit">
-        <NavPillArrow direction="left" />
-        <span className="nav-pill__label">{hero.backLink}</span>
-      </Link>
+      <Button variant="arrow" direction="left" to="/" className="case-back-link">
+        {hero.backLink}
+      </Button>
       <div className="flex flex-col gap-07 lg:flex-row lg:items-start lg:gap-13">
         <div className="flex min-w-0 w-full flex-1 flex-col gap-09">
           <h1 className={`${heroLead} mt-0 max-w-[80%]`}>
@@ -111,26 +72,24 @@ export function ProjectHero({
           </h1>
           <ul className="meta-pills meta-pills--hero-lead">
             <li>
-              <span className="meta-pill meta-pill--dark">Shipped</span>
+              <Button variant="staticdark">Shipped</Button>
             </li>
             <li>
-              <span className="meta-pill">
-                {hero.metadata.client.label}: {hero.metadata.client.value}
-              </span>
+              <Button variant="static">{hero.metadata.client.label}: {hero.metadata.client.value}</Button>
             </li>
             <li>
-              <span className="meta-pill">{hero.metadata.year.value}</span>
+              <Button variant="static">{hero.metadata.year.value}</Button>
             </li>
             {packTagItems(hero.metadata.field.items, 640).map((item) => (
               <li key={item}>
-                <span className="meta-pill">{item}</span>
+                <Button variant="static">{item}</Button>
               </li>
             ))}
           </ul>
         </div>
         <dl className="case-hero-meta grid w-fit shrink-0 grid-cols-1 gap-x-08 gap-y-04 sm:grid-cols-2 sm:gap-y-05 lg:grid-cols-2 max-lg:w-full lg:ml-auto">
-          <MetaItem label={hero.metadata.role.label} items={hero.metadata.role.items} plain />
-          <MetaItem label={hero.metadata.tools.label} items={hero.metadata.tools.items} plain />
+          <MetaItem label={hero.metadata.role.label} items={hero.metadata.role.items} />
+          <MetaItem label={hero.metadata.tools.label} items={hero.metadata.tools.items} />
         </dl>
       </div>
       <figure className="overflow-hidden">
