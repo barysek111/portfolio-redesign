@@ -7,25 +7,29 @@ import { ImplementSection } from "./rokokobrand/chapters/ImplementSection";
 import { ReflectSection } from "./rokokobrand/chapters/ReflectSection";
 import { ResearchSection } from "./rokokobrand/chapters/ResearchSection";
 import { ProjectHero } from "./rokokobrand/ProjectHero";
-import { SiteTopNav } from "@/components/nav/SiteTopNav";
+import { CaseStudyShell } from "@/components/project/CaseStudyShell";
+import { CaseChapterNav } from "@/components/project/CaseChapterNav";
+
+const chapters = [
+  { id: "research", label: "Research" },
+  { id: "define", label: "Define" },
+  { id: "implement", label: "Implement" },
+  { id: "reflect", label: "Reflect" },
+];
 
 export function RokokoBrandProjectPage({ content }: { content: RokokoBrandContent }) {
   return (
     <RokokoBrandContentProvider content={content}>
-      <main className="case-study min-h-screen antialiased">
-        <SiteTopNav />
-        <div className="case-page-shell page-shell pb-12">
-          <ProjectHero />
-          <div className="mt-12">
-            <article className="min-w-0 w-full">
-              <ResearchSection />
-              <DefineSection />
-              <ImplementSection />
-              <ReflectSection />
-            </article>
-          </div>
-        </div>
-      </main>
+      <CaseStudyShell>
+        <ProjectHero />
+        <CaseChapterNav chapters={chapters} />
+        <article className="min-w-0 w-full">
+          <ResearchSection />
+          <DefineSection />
+          <ImplementSection />
+          <ReflectSection />
+        </article>
+      </CaseStudyShell>
     </RokokoBrandContentProvider>
   );
 }

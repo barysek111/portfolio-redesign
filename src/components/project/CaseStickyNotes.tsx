@@ -215,11 +215,11 @@ function KeyUserNeedsBoard() {
   return (
     <StickyNoteBoardShell className="case-sticky-board--key-user-needs">
       <div className="case-sticky-board__group">
-        <h6 className="case-sticky-board__label">Patients:</h6>
+        <p className="case-sticky-board__label">Patients:</p>
         <StickyNoteGrid notes={KEY_USER_NEEDS.patients} color="white" columns={2} />
       </div>
       <div className="case-sticky-board__group">
-        <h6 className="case-sticky-board__label">Physios:</h6>
+        <p className="case-sticky-board__label">Physios:</p>
         <StickyNoteGrid notes={KEY_USER_NEEDS.physios} color="yellow" columns={2} />
       </div>
     </StickyNoteBoardShell>

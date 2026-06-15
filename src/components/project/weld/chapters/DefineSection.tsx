@@ -4,8 +4,8 @@ import {
   FigureRow,
   MajorSection,
   Prose,
-} from "@/components/project/cococare/primitives";
-import { figureRow12, figureRow12Cell, figureRow12Cell4, subsectionTitle } from "../constants";
+} from "@/components/project/primitives";
+import { figureRow12, figureRow12Cell, figureRow12Cell4, subsectionTitle } from "@/components/project/constants";
 import { Figure } from "../Figure";
 
 export function DefineSection() {
@@ -44,21 +44,21 @@ export function DefineSection() {
         <Prose>{s.websiteScreens.body}</Prose>
         <div className="case-prose-follow-full flex w-full flex-col">
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>{ws.navigation.label}</h3>
+            <h4 className={subsectionTitle}>{ws.navigation.label}</h4>
             <FigureRow>
               <Figure src={nav1} layout="pair" callout />
               <Figure src={nav2} layout="pair" callout />
             </FigureRow>
           </div>
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>{ws.fullPages.label}</h3>
+            <h4 className={subsectionTitle}>{ws.fullPages.label}</h4>
             <div className="case-prose-follow-full flex flex-col">
               <Figure src={pages1} callout />
               <Figure src={pages2} callout />
             </div>
           </div>
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>{ws.components.label}</h3>
+            <h4 className={subsectionTitle}>{ws.components.label}</h4>
             <div className="case-prose-follow-full flex flex-col">
               <Figure src={comp1} callout />
               <Figure src={comp2} callout />
@@ -71,7 +71,7 @@ export function DefineSection() {
         <Prose>{bv.body}</Prose>
         <div className="case-prose-follow-full flex w-full flex-col">
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>{bv.brandElements.label}</h3>
+            <h4 className={subsectionTitle}>{bv.brandElements.label}</h4>
             <div className="case-prose-follow-full flex flex-col">
               <Figure src={brand1} callout />
               <FigureRow>
@@ -81,11 +81,11 @@ export function DefineSection() {
             </div>
           </div>
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>{bv.iconPack.label}</h3>
+            <h4 className={subsectionTitle}>{bv.iconPack.label}</h4>
             <Figure src={bv.iconPack.image} callout />
           </div>
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>{bv.infographics.label}</h3>
+            <h4 className={subsectionTitle}>{bv.infographics.label}</h4>
             <div className={`${figureRow12} md:grid-cols-3`}>
               {bv.infographics.images.map((img) => (
                 <div key={img} className={figureRow12Cell4}>
@@ -95,7 +95,7 @@ export function DefineSection() {
             </div>
           </div>
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>{bv.metaImages.label}</h3>
+            <h4 className={subsectionTitle}>{bv.metaImages.label}</h4>
             <Figure src={bv.metaImages.image} callout />
           </div>
         </div>

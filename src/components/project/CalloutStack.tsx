@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { body, screenTitle } from "@/components/project/cococare/constants";
+import { body, screenTitle } from "@/components/project/constants";
 
 const METRIC_VALUE_RE = /≥?\d+(?:\.\d+)?%/;
 

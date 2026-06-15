@@ -1,6 +1,6 @@
 import { useState, useId } from "react";
 import { motion } from "motion/react";
-import { Button } from "@/components/ui/Pill";
+import { Button } from "@/components/ui/Button";
 import { loginFn } from "@/lib/loginFn";
 import { setAuthenticated } from "@/lib/auth";
 
@@ -42,7 +42,7 @@ export default function LoginPage({ onSuccess }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-6">
+    <div className="flex min-h-screen items-center justify-center bg-background px-06">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
@@ -50,14 +50,14 @@ export default function LoginPage({ onSuccess }: Props) {
         className="w-full max-w-[360px]"
       >
         <div className="mb-10">
-          <p className="text-xs text-muted-foreground tracking-widest uppercase mb-4">
+          <p className="text-xs text-muted-foreground tracking-widest uppercase mb-05">
             Portfolio
           </p>
           <h1 className="text-h3 text-foreground">Welcome back</h1>
         </div>
 
-        <form onSubmit={handleSubmit} noValidate className="space-y-7">
-          <div className="flex flex-col gap-2">
+        <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-07">
+          <div className="flex flex-col gap-03">
             <label
               htmlFor={loginId}
               className="text-xs text-muted-foreground tracking-wide uppercase"
@@ -75,12 +75,12 @@ export default function LoginPage({ onSuccess }: Props) {
                 setUsername(e.target.value);
                 setError(null);
               }}
-              className="w-full bg-transparent border-b border-border text-foreground text-s py-2 outline-none placeholder:text-muted-foreground/40 focus:border-foreground transition-colors duration-200"
+              className="w-full bg-transparent border-b border-border text-foreground text-s py-03 outline-none placeholder:text-muted-foreground/40 focus:border-foreground transition-colors duration-200"
               placeholder="your login"
             />
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-03">
             <label
               htmlFor={passwordId}
               className="text-xs text-muted-foreground tracking-wide uppercase"
@@ -97,12 +97,12 @@ export default function LoginPage({ onSuccess }: Props) {
                 setPassword(e.target.value);
                 setError(null);
               }}
-              className="w-full bg-transparent border-b border-border text-foreground text-s py-2 outline-none placeholder:text-muted-foreground/40 focus:border-foreground transition-colors duration-200"
+              className="w-full bg-transparent border-b border-border text-foreground text-s py-03 outline-none placeholder:text-muted-foreground/40 focus:border-foreground transition-colors duration-200"
               placeholder="••••••••"
             />
           </div>
 
-          <div className="pt-2">
+          <div className="pt-03">
             <Button
               variant="default"
               type="submit"
@@ -114,13 +114,14 @@ export default function LoginPage({ onSuccess }: Props) {
 
             {error && (
               <motion.div
+                role="alert"
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-4 space-y-3"
+                className="mt-05 flex flex-col gap-04"
               >
                 <p className="text-xs text-muted-foreground text-center">{error}</p>
                 {debug && (
-                  <pre className="text-xs text-muted-foreground bg-surface rounded p-3 overflow-auto whitespace-pre-wrap break-all">
+                  <pre className="text-xs text-muted-foreground bg-surface rounded p-04 overflow-auto whitespace-pre-wrap break-all">
                     {JSON.stringify(debug, null, 2)}
                   </pre>
                 )}

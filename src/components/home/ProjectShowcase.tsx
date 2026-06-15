@@ -1,5 +1,6 @@
+import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/Pill";
+import { Button } from "@/components/ui/Button";
 import { PROJECT_SHOWCASE_ENTRIES, type ShowcaseMedia, type ImgLayout } from "@/components/home/projectShowcaseEntries";
 import { ProjectShowcaseMedia } from "@/components/home/ProjectShowcaseMedia";
 
@@ -45,7 +46,7 @@ export function ProjectShowcaseInfo({
   );
 }
 
-export function ProjectShowcase() {
+export function ProjectShowcase({ footer }: { footer?: ReactNode }) {
   return (
     <section id="showcase" className="project-showcase pt-09 md:pt-12" aria-labelledby="showcase-heading">
       <h2 id="showcase-heading" className="sr-only">
@@ -71,6 +72,7 @@ export function ProjectShowcase() {
             />
           </div>
         ))}
+        {footer}
       </div>
     </section>
   );

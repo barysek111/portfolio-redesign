@@ -20,8 +20,7 @@ export default function Homepage() {
         className="case-page-shell page-shell pb-12"
         style={{ opacity }}
       >
-        <HowIWork />
-        <ProjectShowcase />
+        <ProjectShowcase footer={<HowIWork />} />
       </motion.div>
     </main>
   );
@@ -39,7 +38,7 @@ function HomeHero() {
 function SplineScene() {
   return (
     <div className="spline-frame">
-      <Suspense fallback={null}>
+      <Suspense fallback={<div className="w-full h-full" />}>
         <SplineViewer
           scene="/scene.splinecode"
           onLoad={(app) => app.setSize(800, 800)}
@@ -52,7 +51,7 @@ function SplineScene() {
 
 function HeroIntro() {
   return (
-    <h2 className="hero-intro">
+    <h1 className="hero-intro">
       <span className="hero-intro-emphasis">Barbora</span>
       <span className="hero-intro-muted"> Gadlinova is a product </span>
       <span className="hero-intro-emphasis">designer</span>
@@ -62,6 +61,6 @@ function HeroIntro() {
         {" "}
         of tech and lifestyle, with a focus on accessibility and user engagement.
       </span>
-    </h2>
+    </h1>
   );
 }

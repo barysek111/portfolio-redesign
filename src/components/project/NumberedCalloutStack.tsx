@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
-import { screenTitle } from "@/components/project/cococare/constants";
+import { screenTitle } from "@/components/project/constants";
 import { StackCalloutBody } from "@/components/project/CalloutStack";
-import { displayCalloutNumber } from "@/components/project/cococare/utils";
+import { displayCalloutNumber } from "@/components/project/utils";
 
 export type NumberedCalloutStackItem = {
   key: string;
@@ -26,7 +26,7 @@ export function NumberedCalloutStack({
     <div className={cn("case-hero-numbered-callouts", className)}>
       {items.map((item) => (
         <div key={item.key} className="case-callout case-numbered-item">
-          <h2 className="case-index">{displayCalloutNumber(item.number)}</h2>
+          <span className="case-index">{displayCalloutNumber(item.number)}</span>
           <div className="case-numbered-item-content min-w-0">
             {item.title ? (
               <h5 className={screenTitle}>{item.title}</h5>

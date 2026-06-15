@@ -7,25 +7,29 @@ import { IdeateSection } from "./powermatch/chapters/IdeateSection";
 import { PrototypeSection } from "./powermatch/chapters/PrototypeSection";
 import { ResearchSection } from "./powermatch/chapters/ResearchSection";
 import { ProjectHero } from "./powermatch/ProjectHero";
-import { SiteTopNav } from "@/components/nav/SiteTopNav";
+import { CaseStudyShell } from "@/components/project/CaseStudyShell";
+import { CaseChapterNav } from "@/components/project/CaseChapterNav";
+
+const chapters = [
+  { id: "research", label: "Research" },
+  { id: "define", label: "Define" },
+  { id: "ideate", label: "Ideate" },
+  { id: "prototype", label: "Prototype" },
+];
 
 export function PowermatchProjectPage({ content }: { content: PowermatchContent }) {
   return (
     <PowermatchContentProvider content={content}>
-      <main className="case-study min-h-screen antialiased">
-        <SiteTopNav />
-        <div className="case-page-shell page-shell pb-12">
-          <ProjectHero />
-          <div className="mt-12">
-            <article className="min-w-0 w-full">
-              <ResearchSection />
-              <DefineSection />
-              <IdeateSection />
-              <PrototypeSection />
-            </article>
-          </div>
-        </div>
-      </main>
+      <CaseStudyShell>
+        <ProjectHero />
+        <CaseChapterNav chapters={chapters} />
+        <article className="min-w-0 w-full">
+          <ResearchSection />
+          <DefineSection />
+          <IdeateSection />
+          <PrototypeSection />
+        </article>
+      </CaseStudyShell>
     </PowermatchContentProvider>
   );
 }

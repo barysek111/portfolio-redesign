@@ -1,44 +1,7 @@
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
-import { Button } from "@/components/ui/Pill";
-
-const focusItems = [
-  "Product Design",
-  "User Research",
-  "UI Design",
-  "Design Systems",
-  "Prototyping",
-  "Information Architecture",
-  "Usability Testing",
-  "Accessibility",
-  "Journey Mapping",
-  "Visual Identity",
-] as const;
-
-const toolItems = [
-  { label: "Figma", percent: "95%" },
-  { label: "FigJam", percent: "95%" },
-  { label: "Claude", percent: "60%" },
-  { label: "Notion", percent: "90%" },
-  { label: "Cursor", percent: "75%" },
-  { label: "Illustrator", percent: "85%" },
-  { label: "Photoshop", percent: "80%" },
-  { label: "InDesign", percent: "80%" },
-] as const;
-
-const nodes = [
-  { x: 30, y: 14, label: "keep the system flexible" },
-  { x: 62, y: 16, label: "be proven wrong" },
-  { x: 80, y: 28, label: "ship with care" },
-  { x: 32, y: 36, label: "never assume" },
-  { x: 60, y: 40, label: "progress over polish" },
-  { x: 78, y: 48, label: "design for trust" },
-  { x: 34, y: 62, label: "measure what matters" },
-  { x: 68, y: 64, label: "prioritise people" },
-  { x: 30, y: 84, label: "prototype fast" },
-  { x: 62, y: 86, label: "solid foundation" },
-];
-const center = { x: 12, y: 50 };
+import { motion, useReducedMotion } from "motion/react";
+import { Button } from "@/components/ui/Button";
+import { focusItems, toolItems, nodes, center } from "@/lib/howIWorkContent";
 
 function PrinciplesMap() {
   return (
@@ -129,9 +92,14 @@ function CapabilityColumn({
 
 function CountUpPercent({ value, delay = 0 }: { value: string; delay?: number }) {
   const target = Number.parseInt(value, 10);
+  const shouldReduceMotion = useReducedMotion();
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    if (shouldReduceMotion) {
+      setCount(target);
+      return;
+    }
     const timeout = window.setTimeout(() => {
       const start = performance.now();
       const duration = 1100 + delay * 0.25;
@@ -145,14 +113,14 @@ function CountUpPercent({ value, delay = 0 }: { value: string; delay?: number })
     }, delay);
 
     return () => window.clearTimeout(timeout);
-  }, [delay, target]);
+  }, [delay, target, shouldReduceMotion]);
 
   return <span className={columnPercentClass}>{count}%</span>;
 }
 
 export function HowIWork() {
   return (
-    <section className="flex flex-col gap-04">
+    <section className="flex flex-col gap-06">
       <h2 className="text-h3 text-left text-foreground">How I work</h2>
       <motion.div
         className="how-i-work-grid items-stretch"

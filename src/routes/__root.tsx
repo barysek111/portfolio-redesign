@@ -12,7 +12,7 @@ import {
 import appCss from "../styles.css?url";
 import { isAuthenticated } from "@/lib/auth";
 import LoginPage from "@/components/auth/LoginPage";
-import { Button } from "@/components/ui/Pill";
+import { Button } from "@/components/ui/Button";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 
 function NotFoundComponent() {

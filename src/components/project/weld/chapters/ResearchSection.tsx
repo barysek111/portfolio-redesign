@@ -4,7 +4,7 @@ import {
   MajorSection,
   NumberedCalloutSection,
   Prose,
-} from "@/components/project/cococare/primitives";
+} from "@/components/project/primitives";
 
 export function ResearchSection() {
   const c = useWeldContent();

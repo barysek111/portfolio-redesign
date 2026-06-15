@@ -7,25 +7,29 @@ import { DesignSection } from "./eatgrim/chapters/DesignSection";
 import { LaunchSection } from "./eatgrim/chapters/LaunchSection";
 import { ResearchSection } from "./eatgrim/chapters/ResearchSection";
 import { ProjectHero } from "./eatgrim/ProjectHero";
-import { SiteTopNav } from "@/components/nav/SiteTopNav";
+import { CaseStudyShell } from "@/components/project/CaseStudyShell";
+import { CaseChapterNav } from "@/components/project/CaseChapterNav";
+
+const chapters = [
+  { id: "research", label: "Research" },
+  { id: "define", label: "Define" },
+  { id: "design", label: "Design" },
+  { id: "launch", label: "Launch" },
+];
 
 export function EatGrimProjectPage({ content }: { content: EatGrimContent }) {
   return (
     <EatGrimContentProvider content={content}>
-      <main className="case-study min-h-screen antialiased">
-        <SiteTopNav />
-        <div className="case-page-shell page-shell pb-12">
-          <ProjectHero />
-          <div className="mt-12">
-            <article className="min-w-0 w-full">
-              <ResearchSection />
-              <DefineSection />
-              <DesignSection />
-              <LaunchSection />
-            </article>
-          </div>
-        </div>
-      </main>
+      <CaseStudyShell>
+        <ProjectHero />
+        <CaseChapterNav chapters={chapters} />
+        <article className="min-w-0 w-full">
+          <ResearchSection />
+          <DefineSection />
+          <DesignSection />
+          <LaunchSection />
+        </article>
+      </CaseStudyShell>
     </EatGrimContentProvider>
   );
 }

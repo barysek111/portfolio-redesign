@@ -3,7 +3,7 @@ import {
   ContentBlock,
   MajorSection,
   Prose,
-} from "@/components/project/cococare/primitives";
+} from "@/components/project/primitives";
 
 export function ImplementSection() {
   const c = useAgerasContent();

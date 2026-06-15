@@ -36,7 +36,7 @@ export function TestSection() {
       </ContentBlock>
       <div className="flex w-full flex-col gap-12">
         <div className={halfColumns}>
-          <h2 className={cn(contentBlockLabel, halfColumnsLabel)}>
+          <h3 className={cn(contentBlockLabel, halfColumnsLabel)}>
             {toSentenceCase(ut.heading)}
           </h2>
           <div className={cn(halfColumnsContent, "flex flex-col gap-07")}>
@@ -79,9 +79,9 @@ export function TestSection() {
         </div>
       </div>
       <div className="flex w-full min-w-0 flex-col gap-10">
-        <h2 className={contentBlockLabel}>
+        <h3 className={contentBlockLabel}>
           {toSentenceCase(s.priorityRevisions.heading)}
-        </h2>
+        </h3>
         <div className={figureRow12}>
           {s.priorityRevisions.images.map((img, index) => {
             const item = s.priorityRevisions.items[index];

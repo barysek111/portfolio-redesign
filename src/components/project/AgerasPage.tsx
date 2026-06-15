@@ -8,26 +8,31 @@ import { PrototypeSection } from "./ageras/chapters/PrototypeSection";
 import { ResearchSection } from "./ageras/chapters/ResearchSection";
 import { SystemSection } from "./ageras/chapters/SystemSection";
 import { ProjectHero } from "./ageras/ProjectHero";
-import { SiteTopNav } from "@/components/nav/SiteTopNav";
+import { CaseStudyShell } from "@/components/project/CaseStudyShell";
+import { CaseChapterNav } from "@/components/project/CaseChapterNav";
+
+const chapters = [
+  { id: "research", label: "Research" },
+  { id: "define", label: "Define" },
+  { id: "system", label: "System" },
+  { id: "prototype", label: "Prototype" },
+  { id: "implement", label: "Implement" },
+];
 
 export function AgerasProjectPage({ content }: { content: AgerasContent }) {
   return (
     <AgerasContentProvider content={content}>
-      <main className="case-study min-h-screen antialiased">
-        <SiteTopNav />
-        <div className="case-page-shell page-shell pb-12">
-          <ProjectHero />
-          <div className="mt-12">
-            <article className="min-w-0 w-full">
-              <ResearchSection />
-              <DefineSection />
-              <SystemSection />
-              <PrototypeSection />
-              <ImplementSection />
-            </article>
-          </div>
-        </div>
-      </main>
+      <CaseStudyShell>
+        <ProjectHero />
+        <CaseChapterNav chapters={chapters} />
+        <article className="min-w-0 w-full">
+          <ResearchSection />
+          <DefineSection />
+          <SystemSection />
+          <PrototypeSection />
+          <ImplementSection />
+        </article>
+      </CaseStudyShell>
     </AgerasContentProvider>
   );
 }

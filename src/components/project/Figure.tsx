@@ -7,7 +7,10 @@ import {
   body,
   contentBlockLabel,
   screenTitle,
-} from "@/components/project/cococare/constants";
+} from "@/components/project/constants";
+
+/** Symbol used by containsFigure in primitives.tsx to detect Figure wrappers cross-project. */
+export const CASE_FIGURE_MARKER = Symbol("CaseFigure");
 
 export type FigureProps = {
   src: string;
@@ -213,3 +216,4 @@ export function Figure({
     </figure>
   );
 }
+(Figure as any)[CASE_FIGURE_MARKER] = true;

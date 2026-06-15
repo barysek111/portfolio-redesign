@@ -4,8 +4,8 @@ import {
   FigureRow,
   MajorSection,
   Prose,
-} from "@/components/project/cococare/primitives";
-import { heroIntroBody, subsectionTitle } from "../constants";
+} from "@/components/project/primitives";
+import { heroIntroBody, subsectionTitle } from "@/components/project/constants";
 import { Figure } from "../Figure";
 
 export function ImplementSection() {
@@ -32,7 +32,7 @@ export function ImplementSection() {
       <ContentBlock label={hifi.heading}>
         <div className="case-prose-follow-full flex w-full flex-col">
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>{hifi.marketingWebsite.sectionLabel}</h3>
+            <h4 className={subsectionTitle}>{hifi.marketingWebsite.sectionLabel}</h4>
             <Prose>{hifi.marketingWebsite.body}</Prose>
             <div className="case-prose-follow-full flex flex-col">
               {hifi.marketingWebsite.images.map((img) => (
@@ -41,7 +41,7 @@ export function ImplementSection() {
             </div>
           </div>
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>{hifi.knowledgeBase.sectionLabel}</h3>
+            <h4 className={subsectionTitle}>{hifi.knowledgeBase.sectionLabel}</h4>
             <Prose>{hifi.knowledgeBase.body}</Prose>
             <div className="case-prose-follow-full flex flex-col">
               {hifi.knowledgeBase.images.map((img) => (
@@ -50,7 +50,7 @@ export function ImplementSection() {
             </div>
           </div>
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>{hifi.webshop.sectionLabel}</h3>
+            <h4 className={subsectionTitle}>{hifi.webshop.sectionLabel}</h4>
             <Prose>{hifi.webshop.body}</Prose>
             <div className="case-prose-follow-full flex flex-col">
               {hifi.webshop.images.map((img) => (

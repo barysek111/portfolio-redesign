@@ -5,5 +5,5 @@ export {
   MajorSection,
   NumberedCalloutSection,
   Prose,
-} from "@/components/project/cococare/primitives";
+} from "@/components/project/primitives";
 export { Figure } from "./Figure";

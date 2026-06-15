@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/Pill";
+import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 export type ProjectShowcaseNavProps = {

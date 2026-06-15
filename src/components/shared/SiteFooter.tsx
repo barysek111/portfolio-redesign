@@ -5,9 +5,7 @@ export function SiteFooter() {
     <footer className="dark w-full" style={{ background: "var(--background)" }}>
       <div className="page-shell py-12">
         <ContactGrid />
-        <div className="btn btn--static w-full justify-center mt-09" style={{ background: "transparent", color: "rgba(255,255,255,0.2)", border: "1px dashed rgba(255,255,255,0.2)" }}>
-          <span className="btn__label">© Barbora Gadlinova 2026</span>
-        </div>
+        <p className="text-xs m-0 text-muted-foreground mt-09">© Barbora Gadlinova 2026</p>
       </div>
     </footer>
   );

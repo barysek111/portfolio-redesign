@@ -4,7 +4,7 @@ import {
   FigureRow,
   MajorSection,
   Prose,
-} from "@/components/project/cococare/primitives";
+} from "@/components/project/primitives";
 import { Figure } from "../Figure";
 
 export function SystemSection() {

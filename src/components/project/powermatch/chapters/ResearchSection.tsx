@@ -1,5 +1,5 @@
 import { usePowermatchContent } from "@/lib/powermatchContentContext";
-import { heroIntroBody } from "../constants";
+import { heroIntroBody } from "@/components/project/constants";
 import {
   ContentBlock,
   Figure,

@@ -1,15 +1,15 @@
-import { Button } from "@/components/ui/Pill";
+import { Button } from "@/components/ui/Button";
 import { NumberedCalloutStack } from "@/components/project/NumberedCalloutStack";
 import {
   contentBlockLabel,
   heroIntroBody,
   heroIntroSplit,
   heroLead,
-} from "@/components/project/cococare/constants";
+} from "@/components/project/constants";
 import {
   numberedRowsFromItems,
   toSentenceCase,
-} from "@/components/project/cococare/utils";
+} from "@/components/project/utils";
 
 export interface CaseStudyHeroData {
   hero: {
@@ -42,7 +42,7 @@ export function ProjectHero({
 }) {
   const { hero, projectBackground, theChallenge } = data;
   return (
-    <header className="flex flex-col gap-11 overflow-visible">
+    <header className="flex flex-col gap-12 overflow-visible">
       {/* Centered title + pills */}
       <div className="flex flex-col items-center gap-05 py-11">
         <h1 className={`${heroLead} mt-0 text-center md:max-w-[66.67%]`}>{hero.title}</h1>
@@ -58,13 +58,13 @@ export function ProjectHero({
 
       {/* 3-column info bar */}
       <div className="grid grid-cols-1 gap-03 items-start md:grid-cols-12 md:gap-x-03 md:gap-y-0">
-        <div className="md:col-span-8 flex flex-col">
+        <div className="md:col-span-6 lg:col-span-8 flex flex-col">
           <Button variant="static" className="justify-start w-fit">About</Button>
           <div className="pt-04 pl-04 pb-04 pr-05 md:max-w-[87.5%]">
             <p className={`${heroIntroBody} m-0`}>{hero.subtitle}</p>
           </div>
         </div>
-        <div className="md:col-span-2 flex flex-col">
+        <div className="md:col-span-3 lg:col-span-2 flex flex-col">
           <Button variant="static" className="justify-start">{hero.metadata.tools.label}</Button>
           <div className="pt-04 pl-04 pb-04 pr-05">
             {hero.metadata.tools.items.map((item) => (
@@ -72,7 +72,7 @@ export function ProjectHero({
             ))}
           </div>
         </div>
-        <div className="md:col-span-2 flex flex-col">
+        <div className="md:col-span-3 lg:col-span-2 flex flex-col">
           <Button variant="static" className="justify-start">{hero.metadata.role.label}</Button>
           <div className="pt-04 pl-04 pb-04 pr-05">
             <p className="m-0">{hero.metadata.role.items.join(', ')}</p>
@@ -88,7 +88,7 @@ export function ProjectHero({
         />
       </figure>
 
-      <div className="flex w-full min-w-0 flex-col gap-11">
+      <div className="flex w-full min-w-0 flex-col gap-12">
         <div id="background" className={`${heroIntroSplit} scroll-mt-12`}>
           <h2 className={contentBlockLabel}>
             {toSentenceCase(projectBackground.heading)}

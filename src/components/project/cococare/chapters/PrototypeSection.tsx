@@ -33,9 +33,9 @@ export function PrototypeSection() {
         <h3 className={heroIntroBody}>{s.highFidelity.intro}</h3>
         <div className="case-prose-follow-full flex w-full flex-col">
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>
+            <h4 className={subsectionTitle}>
               {s.highFidelity.mobileApp.sectionLabel}
-            </h3>
+            </h4>
             <div className="case-prose-follow-full flex flex-col">
               {s.highFidelity.mobileApp.screens.map((screen, i) => (
                 <Figure
@@ -49,9 +49,9 @@ export function PrototypeSection() {
             </div>
           </div>
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>
+            <h4 className={subsectionTitle}>
               {s.highFidelity.desktopPortal.sectionLabel}
-            </h3>
+            </h4>
             <div className="case-prose-follow-full flex flex-col">
               {s.highFidelity.desktopPortal.screens.map((screen, i) => (
                 <Figure

@@ -1,6 +1,6 @@
 import { StickyNoteEqualizedStack } from "@/components/project/CaseStickyNotes";
 import { usePowermatchContent } from "@/lib/powermatchContentContext";
-import { body, heroIntroBody } from "../constants";
+import { body, heroIntroBody } from "@/components/project/constants";
 import {
   ContentBlock,
   Figure,

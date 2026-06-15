@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/Pill";
+import { useLocation } from "@tanstack/react-router";
+import { Button } from "@/components/ui/Button";
 import { spacing } from "@/lib/designSystem";
 import { cn } from "@/lib/utils";
 
@@ -40,6 +41,8 @@ export function PortfolioTopNav({
   className,
   shellClassName = spacing.caseStudyShell,
 }: PortfolioTopNavProps) {
+  const { pathname } = useLocation();
+
   return (
     <header
       className={cn(
@@ -48,12 +51,13 @@ export function PortfolioTopNav({
       )}
     >
       <div className={cn("w-full", shellClassName)}>
-        <div className="nav-top-grid relative z-10 grid w-full pb-04 pt-03 md:pb-07 md:pt-07">
+        <nav className="nav-top-grid relative z-10 grid w-full pb-04 pt-03 md:pb-07 md:pt-07" aria-label="Site navigation">
           {brand ? (
             <Button
               variant="default"
               to={brand.routerLink ? brand.href : undefined}
               href={brand.routerLink ? undefined : brand.href}
+              aria-current={pathname === brand.href ? "page" : undefined}
               className={cn(
                 gridSpanClass(brand.mobileSpan ?? brand.desktopSpan, "mobile"),
                 gridSpanClass(brand.desktopSpan, "desktop"),
@@ -67,12 +71,14 @@ export function PortfolioTopNav({
 
           {items.map((item) => {
             const mobileSpan = item.mobileSpan ?? item.desktopSpan;
+            const isActive = pathname === item.href;
             return (
               <Button
                 key={`${item.href}-${item.label}`}
                 variant="arrow"
                 to={item.routerLink ? item.href : undefined}
                 href={item.routerLink ? undefined : item.href}
+                aria-current={isActive ? "page" : undefined}
                 className={cn(
                   gridSpanClass(mobileSpan, "mobile"),
                   gridSpanClass(item.desktopSpan, "desktop"),
@@ -84,7 +90,7 @@ export function PortfolioTopNav({
               </Button>
             );
           })}
-        </div>
+        </nav>
       </div>
     </header>
   );

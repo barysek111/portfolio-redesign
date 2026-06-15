@@ -1,16 +1,17 @@
-import { useRef, useState } from "react";
-import { Button } from "@/components/ui/Pill";
+import { useId, useRef, useState } from "react";
+import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { CopyEmailButton } from "@/components/shared/CopyEmailButton";
 
-const borderStyle = { borderColor: "rgba(255,255,255,0.2)" };
+const borderStyle = { borderColor: "color-mix(in srgb, var(--white) 20%, transparent)" };
 const inputStyle = { ...borderStyle, color: "var(--white)", fontSize: "var(--text-body)" };
 
 const inputClass =
-  "w-full bg-transparent border rounded-full shadow-none focus-visible:outline-none focus-visible:ring-0 transition-colors placeholder:text-muted-foreground";
+  "w-full bg-transparent border rounded-full shadow-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/40 transition-colors placeholder:text-muted-foreground";
 
 const textareaClass =
-  "w-full bg-transparent border shadow-none focus-visible:outline-none focus-visible:ring-0 transition-colors resize-none placeholder:text-muted-foreground";
+  "w-full bg-transparent border shadow-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/40 transition-colors resize-none placeholder:text-muted-foreground";
 
 const fieldPadding = {
   paddingTop: "var(--spacing-03)",
@@ -18,11 +19,14 @@ const fieldPadding = {
   paddingLeft: "var(--spacing-04)",
   paddingRight: "var(--spacing-04)",
 };
-const inputHeight = { height: "26px" };
+const inputHeight = { height: "var(--btn-height)" };
 
 function ContactForm() {
   const [sent, setSent] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+  const nameId = useId();
+  const emailId = useId();
+  const messageId = useId();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -31,14 +35,17 @@ function ContactForm() {
   }
 
   if (sent) {
-    return <p className="text-body m-0">Thanks — I'll be in touch soon.</p>;
+    return <p role="status" className="text-body m-0">Thanks — I'll be in touch soon.</p>;
   }
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-03">
-      <Input required placeholder="Name" className={inputClass} style={{ ...inputStyle, ...fieldPadding, ...inputHeight }} />
-      <Input required type="email" placeholder="Email" className={inputClass} style={{ ...inputStyle, ...fieldPadding, ...inputHeight }} />
-      <Textarea required placeholder="Message" rows={3} className={textareaClass} style={{ ...inputStyle, ...fieldPadding, borderRadius: "13px" }} />
+      <label htmlFor={nameId} className="sr-only">Name</label>
+      <Input id={nameId} required placeholder="Name" className={inputClass} style={{ ...inputStyle, ...fieldPadding, ...inputHeight }} />
+      <label htmlFor={emailId} className="sr-only">Email address</label>
+      <Input id={emailId} required type="email" placeholder="Email" className={inputClass} style={{ ...inputStyle, ...fieldPadding, ...inputHeight }} />
+      <label htmlFor={messageId} className="sr-only">Message</label>
+      <Textarea id={messageId} required placeholder="Message" rows={3} className={textareaClass} style={{ ...inputStyle, ...fieldPadding, borderRadius: "13px" }} />
       <Button variant="arrow" type="submit" className="w-full">
         Send
       </Button>
@@ -46,26 +53,9 @@ function ContactForm() {
   );
 }
 
-const EMAIL = "barboragadlinova@gmail.com";
-
-function CopyEmailButton() {
-  const [copied, setCopied] = useState(false);
-
-  function handleCopy() {
-    navigator.clipboard.writeText(EMAIL).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }
-
-  return (
-    <Button variant="dual" left={EMAIL} right={copied ? "copied" : "copy"} onClick={handleCopy} />
-  );
-}
-
 export function ContactGrid() {
   return (
-    <div className="grid grid-cols-1 gap-09 md:grid-cols-12 md:gap-x-03 md:gap-y-0 items-start">
+    <div className="grid grid-cols-1 gap-07 md:grid-cols-12 md:gap-x-03 md:gap-y-0 items-start">
 
       {/* Col 1: Let's build together */}
       <div className="md:col-span-3 flex flex-col">

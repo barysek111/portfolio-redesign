@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { screenTitle } from "@/components/project/cococare/constants";
+import { screenTitle } from "@/components/project/constants";
 
 export type CalloutGridItem = {
   key: string;

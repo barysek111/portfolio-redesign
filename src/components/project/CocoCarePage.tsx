@@ -8,26 +8,31 @@ import { PrototypeSection } from "./cococare/chapters/PrototypeSection";
 import { ResearchSection } from "./cococare/chapters/ResearchSection";
 import { TestSection } from "./cococare/chapters/TestSection";
 import { ProjectHero } from "./cococare/ProjectHero";
-import { SiteTopNav } from "@/components/nav/SiteTopNav";
+import { CaseStudyShell } from "@/components/project/CaseStudyShell";
+import { CaseChapterNav } from "@/components/project/CaseChapterNav";
+
+const chapters = [
+  { id: "research", label: "Research" },
+  { id: "define", label: "Define" },
+  { id: "ideate", label: "Ideate" },
+  { id: "prototype", label: "Prototype" },
+  { id: "test", label: "Test" },
+];
 
 export function CocoCareProjectPage({ content }: { content: CocoCareContent }) {
   return (
     <CocoCareContentProvider content={content}>
-      <main className="case-study min-h-screen antialiased">
-        <SiteTopNav />
-        <div className="case-page-shell page-shell pb-12">
-          <ProjectHero />
-          <div className="mt-12">
-            <article className="min-w-0 w-full">
-              <ResearchSection />
-              <DefineSection />
-              <IdeateSection />
-              <PrototypeSection />
-              <TestSection />
-            </article>
-          </div>
-        </div>
-      </main>
+      <CaseStudyShell>
+        <ProjectHero />
+        <CaseChapterNav chapters={chapters} />
+        <article className="min-w-0 w-full">
+          <ResearchSection />
+          <DefineSection />
+          <IdeateSection />
+          <PrototypeSection />
+          <TestSection />
+        </article>
+      </CaseStudyShell>
     </CocoCareContentProvider>
   );
 }

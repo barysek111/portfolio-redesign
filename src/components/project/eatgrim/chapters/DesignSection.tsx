@@ -4,8 +4,8 @@ import {
   FigureRow,
   MajorSection,
   Prose,
-} from "@/components/project/cococare/primitives";
-import { figureRow12, figureRow12Cell, figureRow12Cell4, subsectionTitle } from "../constants";
+} from "@/components/project/primitives";
+import { figureRow12, figureRow12Cell, figureRow12Cell4, subsectionTitle } from "@/components/project/constants";
 import { Figure } from "../Figure";
 
 export function DesignSection() {

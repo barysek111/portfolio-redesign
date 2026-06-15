@@ -4,8 +4,8 @@ import {
   FigureRow,
   MajorSection,
   Prose,
-} from "@/components/project/cococare/primitives";
-import { figureRow12, figureRow12Cell, subsectionTitle } from "../constants";
+} from "@/components/project/primitives";
+import { figureRow12, figureRow12Cell, subsectionTitle } from "@/components/project/constants";
 import { Figure } from "../Figure";
 
 export function ImplementSection() {
@@ -38,21 +38,21 @@ export function ImplementSection() {
         <Prose>{s.socialMedia.body}</Prose>
         <div className="case-prose-follow-full flex w-full flex-col">
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>Grid posts & Stories</h3>
+            <h4 className={subsectionTitle}>Grid posts & Stories</h4>
             <FigureRow>
               <Figure src={social1} layout="pair" callout />
               <Figure src={social2} layout="pair" callout />
             </FigureRow>
           </div>
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>Job listings & Employee branding</h3>
+            <h4 className={subsectionTitle}>Job listings & Employee branding</h4>
             <FigureRow>
               <Figure src={joblistings} layout="pair" callout />
               <Figure src={profiles} layout="pair" callout />
             </FigureRow>
           </div>
           <div className="case-prose-follow-half flex w-full flex-col">
-            <h3 className={subsectionTitle}>Posts & YouTube thumbnails</h3>
+            <h4 className={subsectionTitle}>Posts & YouTube thumbnails</h4>
             <FigureRow>
               <Figure src={posts} layout="pair" callout />
               <Figure src={youtube} layout="pair" callout />

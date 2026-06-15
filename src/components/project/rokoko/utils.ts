@@ -17,4 +17,4 @@ export {
   parseLabeledItem,
   parseSectionTitle,
   toSentenceCase,
-} from "@/components/project/cococare/utils";
+} from "@/components/project/utils";

@@ -3,8 +3,8 @@ import {
   ContentBlock,
   MajorSection,
   Prose,
-} from "@/components/project/cococare/primitives";
-import { halfColumns, halfColumnsContent, halfColumnsLabel, subsectionTitle } from "../constants";
+} from "@/components/project/primitives";
+import { halfColumns, halfColumnsContent, halfColumnsLabel, subsectionTitle } from "@/components/project/constants";
 import { cn } from "@/lib/utils";
 import { toSentenceCase } from "../utils";
 
@@ -23,17 +23,17 @@ export function ImplementSection() {
       </ContentBlock>
       <div className="flex w-full flex-col gap-12">
         <div className={halfColumns}>
-          <h2 className={cn(subsectionTitle, halfColumnsLabel)}>
+          <h3 className={cn(subsectionTitle, halfColumnsLabel)}>
             {toSentenceCase(s.handover.heading)}
-          </h2>
+          </h3>
           <div className={halfColumnsContent}>
             <Prose>{s.handover.body}</Prose>
           </div>
         </div>
         <div className={halfColumns}>
-          <h2 className={cn(subsectionTitle, halfColumnsLabel)}>
+          <h3 className={cn(subsectionTitle, halfColumnsLabel)}>
             {toSentenceCase(s.learnings.heading)}
-          </h2>
+          </h3>
           <div className={halfColumnsContent}>
             <Prose>{s.learnings.body}</Prose>
           </div>

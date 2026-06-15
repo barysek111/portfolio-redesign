@@ -1,76 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { SiteTopNav } from "@/components/nav/SiteTopNav";
-import { Button } from "@/components/ui/Pill";
-import { ChapterIntroIcon } from "@/components/project/CaseChapterIcons";
-import type { ChapterIntroId } from "@/components/project/CaseChapterIcons";
-
-const education = [
-  { title: "Interaction Design Specialization", institution: "Course by University of California San Diego" },
-  { title: "Innovation Through Design", institution: "Course by The University of Sydney" },
-  { title: "UX Design Professional Certificate", institution: "Google Career Certificate" },
-  { title: "BA in Design & Business — Communication Design", institution: "KEA, Københavns Erhvervsakademi" },
-  { title: "Accessibility in UX Design", institution: "Workshop by Siteimprove" },
-] as const;
-
-const services: { key: string; icon: ChapterIntroId; title: string; text: string }[] = [
-  {
-    key: "1",
-    icon: "research",
-    title: "UX Research",
-    text: "I run user interviews, usability tests, and journey mapping to make sure design decisions are rooted in what people actually need rather than what seems right in a meeting room.",
-  },
-  {
-    key: "2",
-    icon: "define",
-    title: "Product Design",
-    text: "I take projects from early brief to shipped feature, working closely with PMs and engineers along the way so what gets built is something that genuinely solves the right problem.",
-  },
-  {
-    key: "3",
-    icon: "ideate",
-    title: "Interface Design",
-    text: "I design interfaces that are clear, considered, and visually strong. Every detail is thought through and everything is handed off in a state that is ready to build.",
-  },
-  {
-    key: "4",
-    icon: "prototype",
-    title: "Prototyping",
-    text: "I turn early concepts into interactive prototypes in Figma so flows, interactions, and edge cases can be tested and refined before any code gets written.",
-  },
-  {
-    key: "5",
-    icon: "test",
-    title: "Accessibility",
-    text: "I treat accessibility as part of the design process from the start. WCAG principles are built in by default and I have completed dedicated training in inclusive design.",
-  },
-  {
-    key: "6",
-    icon: "launch",
-    title: "Design Systems",
-    text: "I build component libraries that give teams a shared language to work from. The goal is always something consistent and scalable that people actually enjoy using.",
-  },
-];
-
-const experience = [
-  { title: "Digital Brand Designer", meta: "2024–2025, Ageras" },
-  { title: "Product Designer", meta: "2023–2024, Coco Care" },
-  { title: "Digital Designer", meta: "2022–2023, Rokoko" },
-  { title: "Visual Designer", meta: "2021–2022, Weld" },
-  { title: "Brand Designer", meta: "2019–2021, Eat Grim" },
-  { title: "Designer Intern", meta: "2019, 1508.dk" },
-] as const;
-
-// Images are 653×653 (square). At width 58% the window is 58% tall too.
-// Safe range: left 0–42%, top 0–42% — nothing clips.
-const WINDOWS = [
-  { src: "/about/window-1.png", left:  4, top:  3 },
-  { src: "/about/window-2.png", left: 33, top:  5 },
-  { src: "/about/window-3.png", left: 16, top: 12 },
-  { src: "/about/window-4.png", left:  3, top: 28 },
-  { src: "/about/window-5.png", left: 36, top: 22 },
-  { src: "/about/window-6.png", left: 20, top: 36 },
-  { src: "/about/window-7.png", left: 10, top: 20 },
-] as const;
+import { ChapterIntroIcon, type ChapterIntroId } from "@/components/project/CaseChapterIcons";
+import { CopyEmailButton } from "@/components/shared/CopyEmailButton";
+import { EditorialList } from "@/components/shared/EditorialList";
+import { Button } from "@/components/ui/Button";
+import { education, experience, services, WINDOWS } from "@/lib/aboutContent";
 
 function PhotoSlideshow() {
   // Each window gets a monotonically increasing z-index when it's "popped"
@@ -116,22 +50,40 @@ function PhotoSlideshow() {
   );
 }
 
-const EMAIL = "barboragadlinova@gmail.com";
-
-function CopyEmailButton() {
-  const [copied, setCopied] = useState(false);
-  function handleCopy() {
-    navigator.clipboard.writeText(EMAIL).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }
+function ServiceCard({ icon, title, text }: { icon: ChapterIntroId; title: string; text: string }) {
   return (
-    <Button variant="dual" left={EMAIL} right={copied ? "copied" : "copy"} onClick={handleCopy} />
+    <div
+      className="flex flex-col gap-05 h-full rounded-[var(--case-radius-outer)] p-05"
+      style={{ background: "var(--foreground)" }}
+    >
+      <div
+        style={{
+          color: "var(--card)",
+          filter: "drop-shadow(0 1px 6px color-mix(in srgb, var(--white) 18%, transparent))",
+          alignSelf: "flex-start",
+        }}
+      >
+        <ChapterIntroIcon
+          chapterId={icon}
+          className="about-service__icon block w-[100px] h-[100px] shrink-0"
+        />
+      </div>
+      <h5 className="m-0 text-h5" style={{ color: "var(--card)" }}>{title}</h5>
+      <p
+        className="m-0"
+        style={{
+          color: "var(--card)",
+          fontSize: "var(--text-body)",
+          fontFamily: "var(--font-text)",
+          lineHeight: "125%",
+          letterSpacing: "-0.005em",
+        }}
+      >
+        {text}
+      </p>
+    </div>
   );
 }
-
-
 
 export function AboutPage() {
   return (
@@ -143,13 +95,13 @@ export function AboutPage() {
         <div className="grid grid-cols-1 gap-07 pt-11 md:grid-cols-12 md:gap-x-03 md:gap-y-07">
           {/* Headline */}
           <div className="md:col-span-6 flex flex-col gap-07">
-            <p className="text-h1 m-0 text-foreground">Hey! I'm Barbora</p>
-            <p className="about-hero__sub text-h3 m-0" style={{ color: "var(--clay)" }}>A UX/UI Designer with experience crafting intuitive interfaces that solve complex business challenges and make people's lives easier. Skilled in prototyping, with a strong focus on accessibility and user engagement.</p>
+            <h1 className="text-h1 m-0 text-foreground">Hey! I'm Barbora</h1>
+            <p className="about-hero__sub text-h3 m-0" style={{ color: "var(--muted-foreground)" }}>A UX/UI Designer with experience crafting intuitive interfaces that solve complex business challenges and make people's lives easier. Skilled in prototyping, with a strong focus on accessibility and user engagement.</p>
           </div>
 
           {/* Slideshow — right col, spans headline + buttons rows on desktop */}
           <div className="about-hero__slideshow md:col-start-7 md:col-span-6 md:row-span-2 flex justify-center">
-            <div style={{ width: "66.667%" }}>
+            <div className="about-hero__photo-inner">
               <PhotoSlideshow />
             </div>
           </div>
@@ -163,72 +115,23 @@ export function AboutPage() {
         </div>
 
         {/* ── Education & Training ── */}
-        <div className="case-editorial-split">
-          <h2 className="content-block-label" style={{ fontSize: "var(--text-h2)" }}>Education &amp; Training</h2>
-          <div className="flex flex-col gap-04">
-            {education.map((item) => (
-              <div key={item.title}>
-                <p className="text-h4 m-0 text-foreground">{item.title}</p>
-                <p className="text-h4 m-0 text-muted-foreground">{item.institution}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <EditorialList
+          label="Education & Training"
+          items={education.map((item) => ({ title: item.title, sub: item.institution }))}
+        />
 
         {/* ── Experience ── */}
-        <div className="case-editorial-split">
-          <h2 className="content-block-label" style={{ fontSize: "var(--text-h2)" }}>Experience</h2>
-          <div className="flex flex-col gap-04">
-            {experience.map((item) => (
-              <div key={item.title}>
-                <p className="text-h4 m-0 text-foreground">{item.title}</p>
-                <p className="text-h4 m-0 text-muted-foreground">{item.meta}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <EditorialList
+          label="Experience"
+          items={experience.map((item) => ({ title: item.title, sub: item.meta }))}
+        />
 
         {/* ── Services ── */}
         <div className="flex flex-col gap-06">
           <h3 className="text-h2 m-0 text-foreground">Services</h3>
           <div className="case-interview-callouts__row case-interview-callouts__row--3">
             {services.map((item) => (
-              <div
-                key={item.key}
-                className="flex flex-col gap-05 h-full rounded-[18px] p-[18px]"
-                style={{ background: "var(--foreground)" }}
-              >
-                <div
-                  style={{
-                    color: "var(--card)",
-                    filter: "drop-shadow(0 1px 6px rgba(255,255,255,0.18))",
-                    alignSelf: "flex-start",
-                  }}
-                >
-                  <ChapterIntroIcon
-                    chapterId={item.icon}
-                    className="about-service__icon block w-[100px] h-[100px] shrink-0"
-                  />
-                </div>
-                <h5
-                  className="m-0 text-h5"
-                  style={{ color: "var(--card)" }}
-                >
-                  {item.title}
-                </h5>
-                <p
-                  className="m-0"
-                  style={{
-                    color: "var(--card)",
-                    fontSize: "var(--text-body)",
-                    fontFamily: "var(--font-text)",
-                    lineHeight: "125%",
-                    letterSpacing: "-0.005em",
-                  }}
-                >
-                  {item.text}
-                </p>
-              </div>
+              <ServiceCard key={item.key} icon={item.icon} title={item.title} text={item.text} />
             ))}
           </div>
         </div>

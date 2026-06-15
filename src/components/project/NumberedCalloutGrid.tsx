@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import { screenTitle } from "@/components/project/cococare/constants";
-import { displayCalloutNumber } from "@/components/project/cococare/utils";
+import { screenTitle } from "@/components/project/constants";
+import { displayCalloutNumber } from "@/components/project/utils";
 
 export type NumberedCalloutGridItem = {
   key: string;
@@ -36,7 +36,7 @@ export function NumberedCalloutGrid({
           key={item.key}
           className="case-interview-callout case-interview-callout--square case-interview-callout--numbered"
         >
-          <h2 className="case-index">{displayCalloutNumber(item.number)}</h2>
+          <span className="case-index">{displayCalloutNumber(item.number)}</span>
           <div className="case-interview-callout__copy mt-auto min-w-0 w-full">
             {item.title ? (
               <h5 className={screenTitle}>{item.title}</h5>

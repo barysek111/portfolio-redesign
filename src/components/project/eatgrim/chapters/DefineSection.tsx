@@ -5,8 +5,8 @@ import {
   MajorSection,
   NumberedCalloutSection,
   Prose,
-} from "@/components/project/cococare/primitives";
-import { figureRow12, figureRow12Cell4 } from "../constants";
+} from "@/components/project/primitives";
+import { figureRow12, figureRow12Cell4 } from "@/components/project/constants";
 import { Figure } from "../Figure";
 
 export function DefineSection() {

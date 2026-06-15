@@ -1,5 +1,5 @@
 import { usePowermatchContent } from "@/lib/powermatchContentContext";
-import { figureRow12, figureRow12Cell } from "../constants";
+import { figureRow12, figureRow12Cell } from "@/components/project/constants";
 import {
   ContentBlock,
   Figure,
