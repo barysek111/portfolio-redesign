@@ -33,12 +33,12 @@ export function ProjectShowcaseInfo({
 }) {
   return (
     <div className="project-showcase-col-3 flex min-w-0 flex-col gap-09">
-      <div className="project-showcase-hover-zone flex flex-col gap-03">
+      <div className="project-showcase-hover-zone flex flex-col">
         <Button variant="arrow" className="project-showcase-explore-pill">Explore</Button>
         <p className="project-showcase__copy text-body">{copy}</p>
       </div>
 
-      <div className="flex flex-col gap-03">
+      <div className="flex flex-col">
         <Button variant="static">My Role</Button>
         <p className="project-showcase__copy text-s">
           {lines.join(", ")}

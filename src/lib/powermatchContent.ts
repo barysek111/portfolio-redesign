@@ -8,10 +8,9 @@ export const powermatchAssetFolder = "powermatch" as const;
 
 export const powermatchContent = {
   hero: {
-    title: "Bank Reconciliation",
+    title: "Powermatch: Designing a Bank Reconciliation feature",
     subtitle:
       "Designing a bank reconciliation feature for Powermatch's internal finance team — replacing a fragmented cross-tool workflow with a single interface for matching payments to invoices, handling edge cases, and maintaining a full audit trail.",
-    backLink: "Back",
     metadata: {
       client: { label: "Client", value: "Powermatch" },
       year: { label: "Year", value: "2025" },
@@ -31,10 +30,10 @@ export const powermatchContent = {
       },
       field: {
         label: "Field",
-        items: ["B2B SaaS", "FinTech"],
+        items: ["B2B SaaS", "HR platform"],
       },
     },
-    heroImage: "recon-tab-large.png",
+    heroImage: "pw1hero.jpg",
     heroImageAlt: "Powermatch hero image",
   },
 

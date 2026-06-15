@@ -4,6 +4,7 @@ import {
   Outlet,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -12,6 +13,7 @@ import appCss from "../styles.css?url";
 import { isAuthenticated } from "@/lib/auth";
 import LoginPage from "@/components/auth/LoginPage";
 import { Button } from "@/components/ui/Pill";
+import { SiteFooter } from "@/components/shared/SiteFooter";
 
 function NotFoundComponent() {
   return (
@@ -118,8 +120,11 @@ function RootComponent() {
   );
 }
 
+const NO_FOOTER_ROUTES = ["/work-with-me"];
+
 function AuthGate() {
   const [authed, setAuthed] = useState<boolean | null>(null);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     setAuthed(isAuthenticated());
@@ -127,7 +132,12 @@ function AuthGate() {
 
   // null = SSR or first paint before check; render outlet so SSR pipeline stays intact
   if (authed === null || authed === true) {
-    return <Outlet />;
+    return (
+      <>
+        <Outlet />
+        {!NO_FOOTER_ROUTES.includes(pathname) && <SiteFooter />}
+      </>
+    );
   }
 
   return <LoginPage onSuccess={() => setAuthed(true)} />;

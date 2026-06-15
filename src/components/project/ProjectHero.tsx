@@ -5,17 +5,14 @@ import {
   heroIntroBody,
   heroIntroSplit,
   heroLead,
-  metaItemLabel,
 } from "@/components/project/cococare/constants";
 import {
   numberedRowsFromItems,
-  packTagItems,
   toSentenceCase,
 } from "@/components/project/cococare/utils";
 
 export interface CaseStudyHeroData {
   hero: {
-    backLink: string;
     title: string;
     subtitle: string;
     heroImage: string;
@@ -36,21 +33,6 @@ export interface CaseStudyHeroData {
   };
 }
 
-function MetaItem({ label, items }: { label: string; items: readonly string[] }) {
-  return (
-    <div>
-      <dt className={metaItemLabel}>{label}</dt>
-      <dd className="mt-03">
-        <ul className="case-meta-plain-list">
-          {items.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </dd>
-    </div>
-  );
-}
-
 export function ProjectHero({
   data,
   assetUrl,
@@ -61,37 +43,43 @@ export function ProjectHero({
   const { hero, projectBackground, theChallenge } = data;
   return (
     <header className="flex flex-col gap-11 overflow-visible">
-      <Button variant="arrow" direction="left" to="/" className="case-back-link">
-        {hero.backLink}
-      </Button>
-      <div className="flex flex-col gap-07 lg:flex-row lg:items-start lg:gap-13">
-        <div className="flex min-w-0 w-full flex-1 flex-col gap-09">
-          <h1 className={`${heroLead} mt-0 max-w-[80%]`}>
-            <span className="sr-only">{hero.title}: </span>
-            {hero.subtitle}
-          </h1>
-          <ul className="meta-pills meta-pills--hero-lead">
-            <li>
-              <Button variant="staticdark">Shipped</Button>
-            </li>
-            <li>
-              <Button variant="static">{hero.metadata.client.label}: {hero.metadata.client.value}</Button>
-            </li>
-            <li>
-              <Button variant="static">{hero.metadata.year.value}</Button>
-            </li>
-            {packTagItems(hero.metadata.field.items, 640).map((item) => (
-              <li key={item}>
-                <Button variant="static">{item}</Button>
-              </li>
-            ))}
-          </ul>
+      {/* Centered title + pills */}
+      <div className="flex flex-col items-center gap-05 py-11">
+        <h1 className={`${heroLead} mt-0 text-center max-w-[66.67%]`}>{hero.title}</h1>
+        <div className="flex flex-wrap justify-center gap-03 [&>.nav-pill]:w-fit">
+          <Button variant="staticdark">Shipped</Button>
+          <Button variant="static">{hero.metadata.client.label}: {hero.metadata.client.value}</Button>
+          <Button variant="static">{hero.metadata.year.value}</Button>
+          {hero.metadata.field.items.map((item) => (
+            <Button key={item} variant="static">{item}</Button>
+          ))}
         </div>
-        <dl className="case-hero-meta grid w-fit shrink-0 grid-cols-1 gap-x-08 gap-y-04 sm:grid-cols-2 sm:gap-y-05 lg:grid-cols-2 max-lg:w-full lg:ml-auto">
-          <MetaItem label={hero.metadata.role.label} items={hero.metadata.role.items} />
-          <MetaItem label={hero.metadata.tools.label} items={hero.metadata.tools.items} />
-        </dl>
       </div>
+
+      {/* 3-column info bar */}
+      <div className="grid grid-cols-12 gap-x-03 items-start">
+        <div className="col-span-8 flex flex-col">
+          <Button variant="static" className="justify-start w-fit">Explore</Button>
+          <div className="pt-04 pl-04 pb-04 pr-05 max-w-[87.5%]">
+            <p className={`${heroIntroBody} m-0`}>{hero.subtitle}</p>
+          </div>
+        </div>
+        <div className="col-span-2 flex flex-col">
+          <Button variant="static" className="justify-start">{hero.metadata.tools.label}</Button>
+          <div className="pt-04 pl-04 pb-04 pr-05">
+            {hero.metadata.tools.items.map((item) => (
+              <p key={item} className="m-0">{item}</p>
+            ))}
+          </div>
+        </div>
+        <div className="col-span-2 flex flex-col">
+          <Button variant="static" className="justify-start">{hero.metadata.role.label}</Button>
+          <div className="pt-04 pl-04 pb-04 pr-05">
+            <p className="m-0">{hero.metadata.role.items.join(', ')}</p>
+          </div>
+        </div>
+      </div>
+
       <figure className="overflow-hidden">
         <img
           src={assetUrl(hero.heroImage)}
@@ -99,6 +87,7 @@ export function ProjectHero({
           className="block h-auto w-full max-w-none"
         />
       </figure>
+
       <div className="flex w-full min-w-0 flex-col gap-11">
         <div id="background" className={`${heroIntroSplit} scroll-mt-12`}>
           <h2 className={contentBlockLabel}>

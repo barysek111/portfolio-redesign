@@ -10,7 +10,6 @@ export const rokokoContent = {
     title: "Rokoko Website Revamp",
     subtitle:
       "Rokoko is a motion capture software and hardware company with products that allow their users to breathe life into animated characters with intuitive real-time full body motion capture system.",
-    backLink: "Back",
     metadata: {
       client: { label: "Client", value: "Rokoko" },
       year: { label: "Year", value: "2023" },

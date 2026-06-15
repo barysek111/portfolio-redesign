@@ -7,10 +7,9 @@ export const agerasAssetFolder = "ageras" as const;
 
 export const agerasContent = {
   hero: {
-    title: "Ageras",
+    title: "Ageras Website UI/UX Consolidation",
     subtitle:
       "Reinventing the approach to web interface and consolidating digital UI/UX for a fintech SaaS suite catering to small business owners.",
-    backLink: "Back",
     metadata: {
       client: { label: "Client", value: "Ageras" },
       year: { label: "Year", value: "2025" },

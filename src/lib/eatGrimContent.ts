@@ -7,10 +7,9 @@ export const eatGrimAssetFolder = "eatgrim" as const;
 
 export const eatGrimContent = {
   hero: {
-    title: "Eat Grim",
+    title: "Eat Grim Brand Identity",
     subtitle:
       "Eat Grim changes the way people think about food by celebrating diversity in shape, size, and colour — creating real impact for farmers, consumers, and the planet.",
-    backLink: "Back",
     metadata: {
       client: { label: "Client", value: "Eat Grim" },
       year: { label: "Year", value: "2019–2021" },

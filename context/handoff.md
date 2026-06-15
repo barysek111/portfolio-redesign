@@ -5,8 +5,9 @@
 
 ## Resume prompt
 ```
-Powermatch case study — continue from handoff.
+Read context/current.md first, then the handoff file it points to.
 
+@context/current.md
 @AGENTS.md
 @docs/case-studies/powermatch-handoff.md
 
@@ -15,3 +16,6 @@ Powermatch case study — continue from handoff.
 
 ## Older project (paused)
 Coco Care — `docs/reference/notes/cococare-handoff.md`
+
+## Homepage
+Homepage cleanup is complete and stable. Do not modify unless explicitly asked.

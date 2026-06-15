@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkWithMeRouteImport } from './routes/work-with-me'
 import { Route as WeldRouteImport } from './routes/weld'
 import { Route as RokokowebRouteImport } from './routes/rokokoweb'
 import { Route as RokokobrandRouteImport } from './routes/rokokobrand'
@@ -16,8 +17,14 @@ import { Route as PowermatchRouteImport } from './routes/powermatch'
 import { Route as EatgrimRouteImport } from './routes/eatgrim'
 import { Route as CococareRouteImport } from './routes/cococare'
 import { Route as AgerasRouteImport } from './routes/ageras'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WorkWithMeRoute = WorkWithMeRouteImport.update({
+  id: '/work-with-me',
+  path: '/work-with-me',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WeldRoute = WeldRouteImport.update({
   id: '/weld',
   path: '/weld',
@@ -53,6 +60,11 @@ const AgerasRoute = AgerasRouteImport.update({
   path: '/ageras',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -61,6 +73,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/ageras': typeof AgerasRoute
   '/cococare': typeof CococareRoute
   '/eatgrim': typeof EatgrimRoute
@@ -68,9 +81,11 @@ export interface FileRoutesByFullPath {
   '/rokokobrand': typeof RokokobrandRoute
   '/rokokoweb': typeof RokokowebRoute
   '/weld': typeof WeldRoute
+  '/work-with-me': typeof WorkWithMeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/ageras': typeof AgerasRoute
   '/cococare': typeof CococareRoute
   '/eatgrim': typeof EatgrimRoute
@@ -78,10 +93,12 @@ export interface FileRoutesByTo {
   '/rokokobrand': typeof RokokobrandRoute
   '/rokokoweb': typeof RokokowebRoute
   '/weld': typeof WeldRoute
+  '/work-with-me': typeof WorkWithMeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/ageras': typeof AgerasRoute
   '/cococare': typeof CococareRoute
   '/eatgrim': typeof EatgrimRoute
@@ -89,11 +106,13 @@ export interface FileRoutesById {
   '/rokokobrand': typeof RokokobrandRoute
   '/rokokoweb': typeof RokokowebRoute
   '/weld': typeof WeldRoute
+  '/work-with-me': typeof WorkWithMeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/ageras'
     | '/cococare'
     | '/eatgrim'
@@ -101,9 +120,11 @@ export interface FileRouteTypes {
     | '/rokokobrand'
     | '/rokokoweb'
     | '/weld'
+    | '/work-with-me'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/ageras'
     | '/cococare'
     | '/eatgrim'
@@ -111,9 +132,11 @@ export interface FileRouteTypes {
     | '/rokokobrand'
     | '/rokokoweb'
     | '/weld'
+    | '/work-with-me'
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/ageras'
     | '/cococare'
     | '/eatgrim'
@@ -121,10 +144,12 @@ export interface FileRouteTypes {
     | '/rokokobrand'
     | '/rokokoweb'
     | '/weld'
+    | '/work-with-me'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AgerasRoute: typeof AgerasRoute
   CococareRoute: typeof CococareRoute
   EatgrimRoute: typeof EatgrimRoute
@@ -132,10 +157,18 @@ export interface RootRouteChildren {
   RokokobrandRoute: typeof RokokobrandRoute
   RokokowebRoute: typeof RokokowebRoute
   WeldRoute: typeof WeldRoute
+  WorkWithMeRoute: typeof WorkWithMeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/work-with-me': {
+      id: '/work-with-me'
+      path: '/work-with-me'
+      fullPath: '/work-with-me'
+      preLoaderRoute: typeof WorkWithMeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/weld': {
       id: '/weld'
       path: '/weld'
@@ -185,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AgerasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -197,6 +237,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AgerasRoute: AgerasRoute,
   CococareRoute: CococareRoute,
   EatgrimRoute: EatgrimRoute,
@@ -204,6 +245,7 @@ const rootRouteChildren: RootRouteChildren = {
   RokokobrandRoute: RokokobrandRoute,
   RokokowebRoute: RokokowebRoute,
   WeldRoute: WeldRoute,
+  WorkWithMeRoute: WorkWithMeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

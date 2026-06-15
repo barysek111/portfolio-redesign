@@ -7,10 +7,9 @@ export const rokokoBrandAssetFolder = "rokoko-brand" as const;
 
 export const rokokoBrandContent = {
   hero: {
-    title: "Rokoko Brand",
+    title: "Rokoko Brand Identity",
     subtitle:
       "Rokoko empowers creators with innovative motion capture technology, enabling artists to bring animated characters to life with intuitive, real-time tools. This project documents the rollout of a revitalized brand identity.",
-    backLink: "Back",
     metadata: {
       client: { label: "Client", value: "Rokoko" },
       year: { label: "Year", value: "2022" },

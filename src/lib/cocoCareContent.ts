@@ -52,10 +52,9 @@ export const cocoCareImages = [
 export const cocoCareContent = {
   hero: {
     /** No separate hero h1 in saved HTML; title from <title> / breadcrumb. */
-    title: "Coco Care",
+    title: "Coco Care Interface Design",
     subtitle:
       "Designing user interface for Coco Care web app and mobile app, an AI-driven motion capture tool for physio rehabilitation.",
-    backLink: "Back",
     metadata: {
       client: { label: "Client", value: "Coco Care" },
       year: { label: "Year", value: "2024" },

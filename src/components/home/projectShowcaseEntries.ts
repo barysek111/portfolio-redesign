@@ -5,7 +5,7 @@ export type ShowcaseMedia = {
   height?: number;
 };
 
-export type ImgLayout = "2 3 3" | "3 3 2" | "2 6" | "2 4 2";
+export type ImgLayout = "2 3 3" | "3 3 2" | "2 6" | "2 4 2" | "4 4";
 
 export type ProjectShowcaseEntry = {
   meta: string;
@@ -23,6 +23,26 @@ function roleLinesFromCommas(text: string): string[] {
 }
 
 export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
+  {
+    meta: "Powermatch Bank Reconciliation",
+    year: "2025",
+    layout: "2 6",
+    images: [
+      { src: "/powermatch/pw4.jpg", alt: "Powermatch — reconcile action card" },
+      { src: "/powermatch/powermatch1.jpg", alt: "Powermatch — invoice reconciliation dashboard on tablet" },
+    ],
+    roleLines: [
+      "UX Research",
+      "UX & UI Design",
+      "Component System",
+      "User Flows",
+      "Dev Handoff",
+    ],
+    exploreCopy:
+      "Designing a bank reconciliation feature for Powermatch's internal finance team — replacing a fragmented cross-tool workflow with a single interface for matching payments to invoices.",
+    href: "/powermatch",
+    routerLink: true,
+  },
   {
     meta: "Ageras Website UI/UX Consolidation",
     year: "2025",

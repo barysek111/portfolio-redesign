@@ -7,10 +7,9 @@ export const weldAssetFolder = "weld" as const;
 
 export const weldContent = {
   hero: {
-    title: "Weld",
+    title: "Weld Website Revamp",
     subtitle:
       "Website information architecture, wireframing, visual identity and illustration for a data SaaS company.",
-    backLink: "Back",
     metadata: {
       client: { label: "Client", value: "Weld" },
       year: { label: "Year", value: "2021" },
