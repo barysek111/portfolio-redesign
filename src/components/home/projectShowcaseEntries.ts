@@ -24,7 +24,7 @@ function roleLinesFromCommas(text: string): string[] {
 
 export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
   {
-    meta: "Powermatch Bank Reconciliation",
+    meta: "Powermatch Invoice Reconciliation",
     year: "2025",
     layout: "2 6",
     images: [
@@ -39,7 +39,7 @@ export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
       "Dev Handoff",
     ],
     exploreCopy:
-      "Designing a bank reconciliation feature for Powermatch's internal finance team — replacing a fragmented cross-tool workflow with a single interface for matching payments to invoices.",
+      "Designing an invoice reconciliation feature. Replacing a fragmented cross-tool workflow with a flow for matching payments to invoices.",
     href: "/powermatch",
     routerLink: true,
   },

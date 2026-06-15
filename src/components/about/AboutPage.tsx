@@ -6,8 +6,8 @@ import { ChapterIntroIcon } from "@/components/project/CaseChapterIcons";
 import type { ChapterIntroId } from "@/components/project/CaseChapterIcons";
 
 const education = [
-  { title: "Interaction Design Specialization", institution: "University of California San Diego" },
-  { title: "Innovation Through Design", institution: "The University of Sydney" },
+  { title: "Interaction Design Specialization", institution: "Course by University of California San Diego" },
+  { title: "Innovation Through Design", institution: "Course by The University of Sydney" },
   { title: "UX Design Professional Certificate", institution: "Google Career Certificate" },
   { title: "BA in Design & Business — Communication Design", institution: "KEA, Københavns Erhvervsakademi" },
   { title: "Accessibility in UX Design", institution: "Workshop by Siteimprove" },
@@ -18,37 +18,37 @@ const services: { key: string; icon: ChapterIntroId; title: string; text: string
     key: "1",
     icon: "research",
     title: "UX Research",
-    text: "I run user interviews, usability tests, and journey mapping to ground design decisions in real evidence — not gut feel or stakeholder assumptions.",
+    text: "I run user interviews, usability tests, and journey mapping to make sure design decisions are rooted in what people actually need rather than what seems right in a meeting room.",
   },
   {
     key: "2",
     icon: "define",
     title: "Product Design",
-    text: "End-to-end product thinking from fuzzy brief to shipped feature. I work closely with PMs and engineers to make sure what gets built actually solves the right problem.",
+    text: "I take projects from early brief to shipped feature, working closely with PMs and engineers along the way so what gets built is something that genuinely solves the right problem.",
   },
   {
     key: "3",
     icon: "ideate",
     title: "Interface Design",
-    text: "Pixel-precise UI that balances visual hierarchy, interaction clarity, and brand personality — designed to a high bar and handed off ready for development.",
+    text: "I design interfaces that are clear, considered, and visually strong. Every detail is thought through and everything is handed off in a state that is ready to build.",
   },
   {
     key: "4",
     icon: "prototype",
     title: "Prototyping",
-    text: "From rough concept to high-fidelity interactive prototype in Figma. I validate flows, micro-interactions, and edge cases before a line of code is written.",
+    text: "I turn early concepts into interactive prototypes in Figma so flows, interactions, and edge cases can be tested and refined before any code gets written.",
   },
   {
     key: "5",
     icon: "test",
     title: "Accessibility",
-    text: "WCAG principles built in from day one, not bolted on at the end. I've trained specifically in inclusive design and treat it as standard practice on every project.",
+    text: "I treat accessibility as part of the design process from the start. WCAG principles are built in by default and I have completed dedicated training in inclusive design.",
   },
   {
     key: "6",
     icon: "launch",
     title: "Design Systems",
-    text: "Scalable component libraries that keep teams consistent and fast without sacrificing craft. I build systems people actually want to use.",
+    text: "I build component libraries that give teams a shared language to work from. The goal is always something consistent and scalable that people actually enjoy using.",
   },
 ];
 
@@ -271,10 +271,7 @@ export function AboutPage() {
           {/* Left 6 cols: bio + links */}
           <div className="col-span-6 flex flex-col gap-07">
             <p className="text-h2 m-0 text-foreground">
-              Hey! I'm Barbora, a UX/UI Designer with experience crafting intuitive
-              interfaces that solve complex business challenges and make people's lives
-              easier. Skilled in prototyping, with a strong focus on accessibility and
-              user engagement.
+              Hey! I'm Barbora<span style={{ color: "var(--clay)" }}>, a UX/UI Designer with experience crafting intuitive interfaces that solve complex business challenges and make people's lives easier. Skilled in prototyping, with a strong focus on accessibility and user engagement.</span>
             </p>
             <div className="flex flex-col gap-03">
               <Button variant="arrow" href="https://www.linkedin.com/in/barboragadlinova/">LinkedIn</Button>
