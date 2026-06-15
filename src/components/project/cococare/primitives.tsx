@@ -415,7 +415,7 @@ export function PersonaFigureRow({ images }: { images: readonly string[] }) {
   };
 
   return (
-    <div className="case-persona-carousel w-full max-w-[50%] md:max-w-full">
+    <div className="case-persona-carousel w-full">
       <div className="case-callout case-persona-callout case-persona-carousel__frame">
         {images.length > 1 ? (
           <div className="case-persona-carousel__nav-row">

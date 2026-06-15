@@ -30,8 +30,8 @@ type PortfolioTopNavProps = {
 
 function gridSpanClass(span: number, breakpoint: "mobile" | "desktop") {
   return breakpoint === "mobile"
-    ? `nav-pill-span-mobile-${span}`
-    : `nav-pill-span-desktop-${span}`;
+    ? `nav-col-mobile-${span}`
+    : `nav-col-desktop-${span}`;
 }
 
 export function PortfolioTopNav({

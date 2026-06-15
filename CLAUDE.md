@@ -7,6 +7,7 @@ Barba's UX design portfolio. Built with Vite + React + TypeScript + TailwindCSS 
 - Content: lives in `src/lib/*Content.ts`, never inline in components
 - Components: reuse from `src/components/` before creating new ones
 - Decisions: check `docs/decisions/README.md` before architectural changes
+- Spacing: never hardcode px values — always use the token scale (`--spacing-01` … `--spacing-13`). When a requested px value matches a token exactly, use that token. When it falls between tokens, silently use the nearest one. If the gap is ambiguous (equidistant), ask. Token scale: 2, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 160 px.
 
 ## Five important files
 | File | Purpose |

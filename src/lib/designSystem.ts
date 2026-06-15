@@ -136,11 +136,6 @@ export const spacing = {
   tagPaddingY: spacingTokens["02"].rem,
   tagSmPaddingX: spacingTokens["04"].rem, // was px-2.5 (10px → 12)
   tagSmPaddingY: spacingTokens["02"].rem,
-  pillPaddingX: spacingTokens["05"].rem,
-  pillPaddingY: spacingTokens["03"].rem,
-  pillSmPaddingX: spacingTokens["04"].rem,
-  pillSmPaddingY: spacingTokens["03"].rem, // was py-1.5 (6px → 8)
-
   // Gaps
   gridGap: spacingTokens["05"].rem,
   /** Gutter between columns in 12-col case study grids */
@@ -169,38 +164,6 @@ export const radius = {
   card: "1rem",      // rounded-2xl on project card images
 } as const;
 
-// ─── Button Variants ──────────────────────────────────────────────────────────
-// Tailwind class strings — use with cn() or directly in className
-
-export const buttonStyles = {
-  base: [
-    "inline-flex items-center justify-center gap-03 whitespace-nowrap rounded-md",
-    "text-sm font-medium cursor-pointer transition-colors",
-    "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
-    "disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed",
-  ].join(" "),
-
-  variants: {
-    default:     "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-    destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-    outline:     "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-    secondary:   "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-    ghost:       "hover:bg-accent hover:text-accent-foreground",
-    link:        "text-primary underline-offset-4 hover:underline",
-    // Custom pill variant — used on "View archive" and social link buttons
-    pill:        "rounded-full border border-border bg-surface transition-all hover:bg-foreground hover:text-background hover:border-foreground",
-  },
-
-  sizes: {
-    default: "h-9 px-05 py-03",
-    sm:      "h-8 px-04 text-xs",
-    lg:      "h-10 px-08",
-    icon:    "h-9 w-9",
-    pillMd:  "px-05 py-03 text-[13px]",
-    pillSm:  "px-04 py-03 text-[12px]",
-  },
-} as const;
-
 // ─── Tag / Badge Styles ───────────────────────────────────────────────────────
 
 export const tagStyles = {
@@ -220,13 +183,4 @@ export const tagStyles = {
   cardOverlay: "rounded-full bg-background/95 px-04 py-02 text-[11px] text-foreground backdrop-blur",
 } as const;
 
-// ─── Navigation ───────────────────────────────────────────────────────────────
-
-export const navStyles = {
-  // Gentle.systems–style top nav: 16-col grid, separate pills, scroll fade
-  wrapper: "nav-blur-shell nav-top-header fixed inset-x-0 top-0 z-50",
-  grid: "nav-top-grid page-shell grid w-full pb-06 pt-06 md:pb-07 md:pt-07",
-  pill: "nav-pill",
-  pillTransition: { type: "spring" as const, stiffness: 400, damping: 32 },
-} as const;
 

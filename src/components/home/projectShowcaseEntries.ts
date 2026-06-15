@@ -69,11 +69,11 @@ export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
   {
     meta: "Coco Care Interface Design",
     year: "2024",
-    layout: "3 3 2",
+    layout: "2 3 3",
     images: [
+      { src: "/coco-care/cococareshowcase3.jpg", alt: "Coco Care web — feature highlights" },
       { src: "/coco-care/cococareshowcase2.jpg", alt: "Coco Care physio dashboard — patient overview" },
       { src: "/coco-care/cococareshowcase1.jpg", alt: "Coco Care mobile app — home and pain tracking screens" },
-      { src: "/coco-care/cococareshowcase3.jpg", alt: "Coco Care web — feature highlights" },
     ],
     roleLines: [
       "UX/UI Design",
@@ -139,7 +139,7 @@ export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
   {
     meta: "Eat Grim Brand Identity",
     year: "2019–2021",
-    layout: "2 4 2",
+    layout: "2 3 3",
     images: [
       { src: "/eatgrim/showcase2.jpg", alt: "Eat Grim editorial photography — celery in bag" },
       { src: "/eatgrim/showcase1.jpg", alt: "Eat Grim website — Mixy box product page on laptop" },

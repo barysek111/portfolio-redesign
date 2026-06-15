@@ -15,9 +15,9 @@ export function ProjectShowcaseImages({
   images: readonly ShowcaseMedia[];
 }) {
   return (
-    <div className="project-showcase-col-9 project-showcase-hover-zone flex min-w-0 flex-col gap-03">
+    <div className="project-showcase-col-9 flex min-w-0 flex-col gap-03">
       <Button variant="dual" left={meta} right={year} />
-      <div className="project-showcase-media-frame">
+      <div className="project-showcase-media-frame project-showcase-hover-zone">
         <ProjectShowcaseMedia layout={layout} images={images} />
       </div>
     </div>
@@ -32,17 +32,14 @@ export function ProjectShowcaseInfo({
   lines: readonly string[];
 }) {
   return (
-    <div className="project-showcase-col-3 flex min-w-0 flex-col gap-09">
-      <div className="project-showcase-hover-zone flex flex-col">
-        <Button variant="arrow" className="project-showcase-explore-pill">Explore</Button>
-        <p className="project-showcase__copy text-body">{copy}</p>
-      </div>
-
-      <div className="flex flex-col">
-        <Button variant="static">My Role</Button>
-        <p className="project-showcase__copy text-s">
-          {lines.join(", ")}
-        </p>
+    <div className="project-showcase-col-3 project-showcase-info flex min-w-0 flex-col">
+      <Button variant="arrow-always" className="project-showcase-explore-btn project-showcase-info__explore">Explore</Button>
+      <div className="project-showcase-info__copy-group project-showcase-hover-zone flex flex-col gap-06">
+        <p className="project-showcase__copy project-showcase-info__body text-body">{copy}</p>
+        <div className="project-showcase-info__role flex flex-col">
+          <Button variant="static" className="project-showcase-myrole">My Role</Button>
+          <p className="project-showcase__copy text-s">{lines.join(", ")}</p>
+        </div>
       </div>
     </div>
   );

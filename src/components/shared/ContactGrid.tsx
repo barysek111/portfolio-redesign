@@ -65,10 +65,10 @@ function CopyEmailButton() {
 
 export function ContactGrid() {
   return (
-    <div className="grid grid-cols-12 gap-x-03 items-start">
+    <div className="grid grid-cols-1 gap-09 md:grid-cols-12 md:gap-x-03 md:gap-y-0 items-start">
 
       {/* Col 1: Let's build together */}
-      <div className="col-span-3 flex flex-col">
+      <div className="md:col-span-3 flex flex-col">
         <p className="text-body m-0" style={{ color: "var(--white)", fontSize: "var(--text-body)" }}>Let's build together?</p>
         <div className="pt-04 flex flex-col gap-03">
           <p className="text-body m-0 text-muted-foreground">
@@ -79,7 +79,7 @@ export function ContactGrid() {
       </div>
 
       {/* Col 2: Links */}
-      <div className="col-span-3 flex flex-col">
+      <div className="md:col-span-3 flex flex-col">
         <p className="text-body m-0" style={{ color: "var(--white)", fontSize: "var(--text-body)" }}>Links</p>
         <div className="pt-04 flex flex-col gap-03">
           <Button variant="arrow" href="https://www.linkedin.com/in/barboragadlinova/">LinkedIn</Button>
@@ -89,7 +89,7 @@ export function ContactGrid() {
       </div>
 
       {/* Col 3: Contact form */}
-      <div className="col-start-9 col-span-4 flex flex-col">
+      <div className="md:col-start-9 md:col-span-4 flex flex-col">
         <p className="text-body m-0" style={{ color: "var(--white)", fontSize: "var(--text-body)" }}>Contact</p>
         <div className="pt-04">
           <ContactForm />

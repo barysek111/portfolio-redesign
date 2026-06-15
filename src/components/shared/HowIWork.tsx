@@ -29,10 +29,10 @@ const toolItems = [
 const nodes = [
   { x: 30, y: 14, label: "keep the system flexible" },
   { x: 62, y: 16, label: "be proven wrong" },
-  { x: 88, y: 28, label: "ship with care" },
+  { x: 80, y: 28, label: "ship with care" },
   { x: 32, y: 36, label: "never assume" },
   { x: 60, y: 40, label: "progress over polish" },
-  { x: 86, y: 48, label: "design for trust" },
+  { x: 78, y: 48, label: "design for trust" },
   { x: 34, y: 62, label: "measure what matters" },
   { x: 68, y: 64, label: "prioritise people" },
   { x: 30, y: 84, label: "prototype fast" },
@@ -83,9 +83,9 @@ function PrinciplesMap() {
   );
 }
 
-const columnListClass = "divide-y divide-solid divide-foreground/35 px-04";
-const columnItemClass = "text-body grid grid-cols-[1fr_auto] items-center gap-06 py-04";
-const columnPercentClass = "text-body text-muted-foreground";
+const columnListClass = "divide-y divide-solid divide-foreground/20";
+const columnItemClass = "text-s grid grid-cols-[1fr_auto] items-center py-03 px-04";
+const columnPercentClass = "text-s text-muted-foreground";
 
 function CapabilityColumn({
   title,
@@ -111,7 +111,7 @@ function CapabilityColumn({
 
   return (
     <div className="min-w-0">
-      <Button variant="static" className="mb-06 inline-flex w-auto shrink-0">
+      <Button variant="static" className="inline-flex w-auto shrink-0">
         {title}
       </Button>
       <motion.div

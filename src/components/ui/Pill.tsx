@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 function ButtonArrow({ direction = "right" }: { direction?: "left" | "right" }) {
   return (
     <svg
-      className={cn("nav-pill__arrow", direction === "left" && "nav-pill__arrow--left")}
+      className={cn("btn__arrow", direction === "left" && "btn__arrow--left")}
       xmlns="http://www.w3.org/2000/svg"
       width="10"
       height="10"
@@ -42,6 +42,7 @@ type ButtonProps = ButtonBase & (
   | { variant: "static"; children: ReactNode }
   | { variant: "staticdark"; children: ReactNode }
   | { variant: "arrow"; children: ReactNode; direction?: "left" | "right" }
+  | { variant: "arrow-always"; children: ReactNode }
   | { variant: "dual"; left: ReactNode; right: ReactNode }
 );
 
@@ -51,27 +52,30 @@ export function Button(props: ButtonProps) {
   let content: ReactNode;
 
   if (variant === "default" || variant === "static" || variant === "staticdark") {
-    content = <span className="nav-pill__label">{props.children}</span>;
+    content = <span className="btn__label">{props.children}</span>;
   } else if (variant === "arrow") {
     const arrow = <ButtonArrow direction={props.direction} />;
-    const label = <span className="nav-pill__label">{props.children}</span>;
+    const label = <span className="btn__label">{props.children}</span>;
     content = props.direction === "left"
       ? <>{arrow}{label}</>
       : <>{label}{arrow}</>;
+  } else if (variant === "arrow-always") {
+    content = <><span className="btn__label">{props.children}</span><ButtonArrow /></>;
   } else {
     content = (
       <>
-        <span className="nav-pill__label min-w-0 truncate">{props.left}</span>
-        <span className="nav-pill__label shrink-0 tabular-nums">{props.right}</span>
+        <span className="btn__label min-w-0 truncate">{props.left}</span>
+        <span className="btn__label shrink-0 tabular-nums">{props.right}</span>
       </>
     );
   }
 
   const cls = cn(
-    "nav-pill",
+    "btn",
     (variant === "static" || variant === "staticdark") && "justify-center",
-    variant === "static" && "nav-pill--static",
-    variant === "staticdark" && "nav-pill--staticdark",
+    variant === "static" && "btn--static",
+    variant === "staticdark" && "btn--staticdark",
+    variant === "arrow-always" && "btn--arrow-always",
     className,
   );
 

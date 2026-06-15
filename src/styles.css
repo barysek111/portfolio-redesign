@@ -125,7 +125,7 @@
   --radius: 0.875rem;
 
   /* Page side padding — fluid column-based system.
-     < 780px  : 20px fixed
+     < 780px  : 16px fixed
      780–1399 : 1 column (viewport / 14 total cols)
      ≥ 1400px : 2 columns (viewport / 8 = 2 × viewport/16)
   */
@@ -215,6 +215,7 @@
   html {
     scroll-behavior: smooth;
     font-size: 16px;
+    scroll-padding-top: 70px;
   }
   body {
     background-color: var(--background);
@@ -301,25 +302,26 @@
 
   .site-nav {
     background: transparent;
-  }.site-nav--visible .nav-top-grid > .nav-pill,
-  .site-nav[data-scroll-state="top"] .nav-top-grid > .nav-pill {
+  }.site-nav--visible .nav-top-grid > .btn,
+  .site-nav[data-scroll-state="top"] .nav-top-grid > .btn {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .nav-top-grid > .nav-pill {
+  .nav-top-grid > .btn {
     min-width: 0;
   }
 
   /* Top nav column spans — mobile baseline, desktop override at md+ */
-  .nav-pill-span-mobile-2 { grid-column: span 2; }
-  .nav-pill-span-mobile-6 { grid-column: span 6; }
+  .nav-col-mobile-2 { grid-column: span 2; }
+  .nav-col-mobile-4 { grid-column: span 4; }
+  .nav-col-mobile-6 { grid-column: span 6; }
 
   @media (min-width: 768px) {
-    .nav-pill-span-desktop-2 { grid-column: span 2; }
-    .nav-pill-span-desktop-3 { grid-column: span 3; }
-    .nav-pill-span-desktop-6 { grid-column: span 6; }
-    .nav-pill-span-desktop-7 { grid-column: span 7; }
+    .nav-col-desktop-2 { grid-column: span 2; }
+    .nav-col-desktop-3 { grid-column: span 3; }
+    .nav-col-desktop-6 { grid-column: span 6; }
+    .nav-col-desktop-7 { grid-column: span 7; }
   }
 
   /* Project showcase: one nav row (8 + 2 + 2), content row matches below */
@@ -341,10 +343,15 @@
 
   /* How I work: principles 6 + focus 3 + tools 3 */
   .how-i-work-span-6,
-  .how-i-work-span-4,
-  .how-i-work-span-3 {
+  .how-i-work-span-4 {
     min-width: 0;
     grid-column: span 12;
+  }
+
+  /* Focus + Tools sit side by side on mobile */
+  .how-i-work-span-3 {
+    min-width: 0;
+    grid-column: span 6;
   }
 
   @media (min-width: 768px) {
@@ -361,25 +368,31 @@
     }
   }
 
-  .project-showcase-nav > .nav-pill {
+  @media (min-width: 1440px) {
+    .how-i-work-span-3 {
+      grid-column: span 2;
+    }
+  }
+
+  .project-showcase-nav > .btn {
     min-width: 0;
     pointer-events: none;
   }
 
   /* One link: hover anywhere → all pills + explore arrow */
-  .project-showcase-nav:hover > .nav-pill,
-  .project-showcase-nav:focus-visible > .nav-pill {
+  .project-showcase-nav:hover > .btn,
+  .project-showcase-nav:focus-visible > .btn {
     background-color: var(--card);
   }
 
-  .case-study .project-showcase-nav:hover > .nav-pill,
-  .case-study .project-showcase-nav:focus-visible > .nav-pill {
+  .case-study .project-showcase-nav:hover > .btn,
+  .case-study .project-showcase-nav:focus-visible > .btn {
     background-color: var(--card);
     color: var(--muted-foreground);
   }
 
-  .project-showcase-nav:hover .project-showcase-nav__explore .nav-pill__arrow,
-  .project-showcase-nav:focus-visible .project-showcase-nav__explore .nav-pill__arrow {
+  .project-showcase-nav:hover .project-showcase-nav__explore .btn__arrow,
+  .project-showcase-nav:focus-visible .project-showcase-nav__explore .btn__arrow {
     opacity: 1;
     transform: translateX(0);
   }
@@ -397,14 +410,20 @@
     grid-column: span 12;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 800px) {
     .project-showcase-col-9 { grid-column: span 9; }
     .project-showcase-col-3 { grid-column: span 3; }
   }
 
-  /* Media frame: 8/9 of the parent 9-col width, aligned left (1 col gap on right) */
+  /* Media frame: 8/9 of the parent 9-col width at desktop, full width at tablet/mobile */
   .project-showcase-media-frame {
     width: calc(8 / 9 * 100%);
+  }
+
+  @media (max-width: 799px) {
+    .project-showcase-media-frame {
+      width: 100%;
+    }
   }
 
   /* Entry group: 12-col grid, full width, relative for block-link */
@@ -417,27 +436,28 @@
   }
 
   /* All pills inside the showcase are decorative — background link handles clicks */
-  .project-showcase__entry-group .nav-pill {
+  .project-showcase__entry-group .btn {
     pointer-events: none;
   }
 
-  /* Hover state triggered by hovering a designated zone or focusing the block link */
-  .project-showcase__entry-group:has(.project-showcase-hover-zone:hover) .nav-pill:not(.nav-pill--static),
-  .project-showcase__entry-group:has(a:focus-visible) .nav-pill:not(.nav-pill--static) {
+  /* Hover state: only fires when mouse is over images or text (not empty grid space).
+     Changes only the meta/year dual button and Explore button — static buttons excluded. */
+  .project-showcase__entry-group:has(.project-showcase-hover-zone:hover) .btn:not(.btn--static),
+  .project-showcase__entry-group:has(a:focus-visible) .btn:not(.btn--static) {
     background-color: var(--card);
   }
 
-  .case-study .project-showcase__entry-group:has(.project-showcase-hover-zone:hover) .nav-pill:not(.nav-pill--static),
-  .case-study .project-showcase__entry-group:has(a:focus-visible) .nav-pill:not(.nav-pill--static) {
+  .case-study .project-showcase__entry-group:has(.project-showcase-hover-zone:hover) .btn:not(.btn--static),
+  .case-study .project-showcase__entry-group:has(a:focus-visible) .btn:not(.btn--static) {
     background-color: var(--card);
     color: var(--foreground);
   }
 
-  /* Arrow reveals only on the explore pill */
-  .project-showcase__entry-group:has(.project-showcase-hover-zone:hover) .project-showcase-explore-pill .nav-pill__arrow,
-  .project-showcase__entry-group:has(a:focus-visible) .project-showcase-explore-pill .nav-pill__arrow {
+  /* Arrow nudges right on the explore button hover */
+  .project-showcase__entry-group:has(.project-showcase-hover-zone:hover) .project-showcase-explore-btn .btn__arrow,
+  .project-showcase__entry-group:has(a:focus-visible) .project-showcase-explore-btn .btn__arrow {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(3px);
   }
 
   /* Gentle /work-style featured project block (homepage) */
@@ -468,18 +488,51 @@
     width: 100%;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 799px) {
+    /* Images: 2-column grid instead of stacked column */
     .project-showcase__media-pair {
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
     }
 
-    .project-showcase__media-pair > .project-showcase__frame {
-      flex: none;
-      width: 100%;
+    /* Remove grid row gap so padding-top on body is the sole source of spacing */
+    .project-showcase__entry-group { row-gap: 0; }
+
+    /* Info column: reorder children — copy group first, Explore last */
+    .project-showcase-info { gap: 0; }
+    .project-showcase-info__copy-group { order: 1; }
+    .project-showcase-info__explore { order: 2; margin-top: var(--spacing-07); }
+    .project-showcase-myrole { display: none !important; }
+
+    /* Copy group: shared right padding + 24px gap between description and role lines */
+    .project-showcase-info__copy-group {
+      padding-right: var(--spacing-09);
+      margin-top: var(--spacing-07);
+      gap: var(--spacing-06);
+    }
+    .project-showcase-info__body.project-showcase__copy { padding: 0; }
+    .project-showcase-info__role .project-showcase__copy { padding: 0; }
+
+    .about-hero__sub { padding-right: var(--spacing-09); }
+    .about-hero__slideshow { order: -1; }
+
+    .about-service__icon {
+      width: var(--spacing-09);
+      height: var(--spacing-09);
+    }
+
+  }
+
+  /* #2 — Tighter headings on small phones */
+  @media (max-width: 599px) {
+    .case-lead {
+      letter-spacing: -0.008em;
+      line-height: 110%;
     }
   }
 
-  .nav-pill {
+  .btn {
     position: relative;
     z-index: 10;
     display: flex;
@@ -506,12 +559,12 @@
       transform 0.5s cubic-bezier(0.25, 0, 0, 0.75);
   }
 
-  .nav-pill__label {
+  .btn__label {
     white-space: nowrap;
     font-size: var(--text-body);
   }
 
-  .nav-pill__arrow {
+  .btn__arrow {
     flex-shrink: 0;
     opacity: 0;
     transform: translateX(-5px);
@@ -520,52 +573,65 @@
       transform 0.5s cubic-bezier(0.33, 0, 0, 1);
   }
 
-  .nav-pill--static {
+  @media (max-width: 799px) {
+    .btn { height: 30px; }
+  }
+
+  .btn--static {
     cursor: default;
     pointer-events: none;
   }
 
-  .nav-pill--static:hover {
+  .btn--static:hover {
     background-color: var(--surface);
     color: var(--foreground);
   }
 
-  .nav-pill--staticdark {
+  .btn--staticdark {
     cursor: default;
     pointer-events: none;
     background-color: var(--foreground);
     color: var(--card);
   }
 
-  .nav-pill--staticdark:hover {
+  .btn--staticdark:hover {
     background-color: var(--foreground);
     color: var(--card);
   }
 
-  button.nav-pill:disabled {
+  button.btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
   }
 
-  .nav-pill:hover {
+  .btn:hover {
     background-color: var(--card);
   }
 
-  .dark .nav-pill:hover {
+  .dark .btn:hover {
     background-color: var(--foreground);
     color: var(--background);
   }
 
-  .nav-pill:hover .nav-pill__arrow {
+  .btn:hover .btn__arrow {
     opacity: 1;
     transform: translateX(0);
   }
 
-  .nav-pill:focus-visible {
+  .btn--arrow-always .btn__arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .btn--arrow-always:hover .btn__arrow {
+    transform: translateX(3px);
+  }
+
+  .btn:focus-visible {
     outline: 2px solid var(--foreground);
     outline-offset: 2px;
-  }.nav-top-header--scroll-up .nav-top-grid > .nav-pill,
-  .nav-top-header[data-scroll-state="top"] .nav-top-grid > .nav-pill {
+  }.nav-top-header--scroll-up .nav-top-grid > .btn,
+  .nav-top-header[data-scroll-state="top"] .nav-top-grid > .btn {
     opacity: 1;
     transform: translateY(0);
   }  .nav-blur-shell::before {
@@ -1503,7 +1569,7 @@
     margin-bottom: var(--case-persona-pad, 18px);
   }
 
-  .case-persona-carousel__nav-row .nav-pill {
+  .case-persona-carousel__nav-row .btn {
     width: fit-content;
   }
 
@@ -1807,27 +1873,11 @@
     .case-sticky-board__grid--2,
     .case-sticky-board__grid--3,
     .case-sticky-board__grid--4 {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    .case-interview-callouts__row--3 {
-      grid-template-columns: minmax(0, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (max-width: 479px) {
-    .case-sticky-board__grid--2,
-    .case-sticky-board__grid--3,
-    .case-sticky-board__grid--4 {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    .case-interview-callouts__row--3 {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-
-  .case-back-link.nav-pill {
+  .case-back-link.btn {
     position: relative;
     z-index: 1;
     width: fit-content;
@@ -1840,7 +1890,7 @@
   }
 
   /* Back arrow: rests in pill padding; hover nudges left (mirror of nav →) */
-  .case-back-link .nav-pill__arrow--left {
+  .case-back-link .btn__arrow--left {
     opacity: 1;
     transform: translateX(0);
     transition:
@@ -1848,12 +1898,12 @@
       transform 0.5s cubic-bezier(0.33, 0, 0, 1);
   }
 
-  .case-back-link:hover .nav-pill__arrow--left {
+  .case-back-link:hover .btn__arrow--left {
     opacity: 1;
     transform: translateX(-5px);
   }
 
-  .case-study .case-back-link.nav-pill {
+  .case-study .case-back-link.btn {
     background-color: transparent;
     font-size: var(--text-body);
     line-height: 125%;
@@ -1861,7 +1911,7 @@
     color: var(--muted-foreground);
   }
 
-  .case-study .case-back-link.nav-pill:hover {
+  .case-study .case-back-link.btn:hover {
     background-color: var(--card);
     color: var(--muted-foreground);
   }  .case-callout {
@@ -1953,27 +2003,27 @@
     color: var(--muted-foreground);
   }
 
-  .case-study .nav-pill {
+  .case-study .btn {
     background-color: var(--surface);
     color: var(--foreground);
   }
 
-  .case-study .nav-pill:hover {
+  .case-study .btn:hover {
     background-color: var(--card);
     color: var(--foreground);
   }
 
-  .case-study .nav-pill--static:hover {
+  .case-study .btn--static:hover {
     background-color: var(--surface);
     color: var(--foreground);
   }
 
-  .case-study .nav-pill--staticdark {
+  .case-study .btn--staticdark {
     background-color: var(--foreground);
     color: var(--card);
   }
 
-  .case-study .nav-pill--staticdark:hover {
+  .case-study .btn--staticdark:hover {
     background-color: var(--foreground);
     color: var(--card);
   }
@@ -2015,7 +2065,7 @@
     width: 100%;
     max-width: none;
     font-family: var(--font-text);
-    font-size: var(--text-body-prose);
+    font-size: clamp(14px, 4vw, 18px);
     line-height: 120%;
     letter-spacing: -0.005em;
     font-weight: 400;
@@ -2219,28 +2269,28 @@
     .case-major-section-header {
       margin-bottom: var(--spacing-07);
     }
-  }@media (prefers-reduced-motion: reduce) {.case-study .case-back-link.nav-pill,
-  .nav-top-header .nav-pill,
-  .nav-top-header .nav-pill__arrow,
+  }@media (prefers-reduced-motion: reduce) {.case-study .case-back-link.btn,
+  .nav-top-header .btn,
+  .nav-top-header .btn__arrow,
   .nav-top-header::before {
       transition: none;
     }
 
-    .nav-top-header .nav-pill:hover .nav-pill__arrow,
-    .case-back-link:hover .nav-pill__arrow--left {
+    .nav-top-header .btn:hover .btn__arrow,
+    .case-back-link:hover .btn__arrow--left {
       opacity: 1;
       transform: translateX(0);
     }}
 
-  @media (prefers-reduced-motion: reduce) {.case-study .case-back-link.nav-pill,
-  .nav-top-header .nav-pill,
-  .nav-top-header .nav-pill__arrow,
+  @media (prefers-reduced-motion: reduce) {.case-study .case-back-link.btn,
+  .nav-top-header .btn,
+  .nav-top-header .btn__arrow,
   .nav-top-header::before {
       transition: none;
     }
 
-    .nav-top-header .nav-pill:hover .nav-pill__arrow,
-    .case-back-link:hover .nav-pill__arrow--left {
+    .nav-top-header .btn:hover .btn__arrow,
+    .case-back-link:hover .btn__arrow--left {
       opacity: 1;
       transform: translateX(0);
     }}
