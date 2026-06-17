@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -10,8 +9,6 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import { isAuthenticated } from "@/lib/auth";
-import LoginPage from "@/components/auth/LoginPage";
 import { Button } from "@/components/ui/Button";
 import { SiteFooter } from "@/components/shared/SiteFooter";
 
@@ -110,37 +107,18 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+const NO_FOOTER_ROUTES = ["/work-with-me"];
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthGate />
+      <div className="min-h-screen">
+        <Outlet />
+      </div>
+      {!NO_FOOTER_ROUTES.includes(pathname) && <SiteFooter />}
     </QueryClientProvider>
   );
-}
-
-const NO_FOOTER_ROUTES = ["/work-with-me"];
-
-function AuthGate() {
-  const [authed, setAuthed] = useState<boolean | null>(null);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-
-  useEffect(() => {
-    setAuthed(isAuthenticated());
-  }, []);
-
-  // null = SSR or first paint before check; render outlet so SSR pipeline stays intact
-  if (authed === null || authed === true) {
-    return (
-      <>
-        <div className="min-h-screen">
-          <Outlet />
-        </div>
-        {!NO_FOOTER_ROUTES.includes(pathname) && <SiteFooter />}
-      </>
-    );
-  }
-
-  return <LoginPage onSuccess={() => setAuthed(true)} />;
 }
