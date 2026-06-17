@@ -26,6 +26,8 @@ export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
     images: [
       { src: "/powermatch/pw4.jpg", alt: "Powermatch — reconcile action card" },
       { src: "/powermatch/powermatch1.jpg", alt: "Powermatch — invoice reconciliation dashboard on tablet" },
+      { src: "/powermatch/p2neww.jpg", alt: "Powermatch — brand mark" },
+      { src: "/powermatch/pw12.jpg", alt: "Powermatch — activity feed UI" },
     ],
     roleLines: [
       "UX Research",
@@ -43,9 +45,10 @@ export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
     meta: "Ageras Website UI/UX Consolidation",
     year: "2025",
     images: [
-      { src: "/ageras/agerasshowcase2.jpg", alt: "Ageras dashboard chart UI" },
+      { src: "/ageras/ageras13.jpg", alt: "Ageras — invoice list UI" },
       { src: "/ageras/agerasshowcase1.jpg", alt: "Ageras mobile app — invoice quote flow" },
-      { src: "/ageras/agerasshowcase3.jpg.jpg", alt: "Ageras careers page on tablet" },
+      { src: "/ageras/ageras12.jpg", alt: "Ageras — expense chart and brand" },
+      { src: "/ageras/ageras11.jpg", alt: "Ageras — pricing and careers pages on tablet" },
     ],
     roleLines: [
       "UX/UI Design",
@@ -68,6 +71,7 @@ export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
       { src: "/coco-care/cococareshowcase3.jpg", alt: "Coco Care web — feature highlights" },
       { src: "/coco-care/cococareshowcase2.jpg", alt: "Coco Care physio dashboard — patient overview" },
       { src: "/coco-care/cococareshowcase1.jpg", alt: "Coco Care mobile app — home and pain tracking screens" },
+      { src: "/coco-care/cococarenew.jpg", alt: "Coco Care — current goal progress card" },
     ],
     roleLines: [
       "UX/UI Design",
@@ -86,7 +90,9 @@ export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
     year: "2023",
     images: [
       { src: "/rokoko/rokokowebimg.jpg", alt: "Rokoko website — new product modal and sale banner UI" },
-      { src: "/rokoko/rokokowerthumbnailprojectpage-2.jpg", alt: "Rokoko website revamp — marketing site and webshop" },
+      { src: "/rokoko/rokokoweb222.jpg", alt: "Rokoko mobile — footer navigation" },
+      { src: "/rokoko/rokokoweb444.jpg", alt: "Rokoko mobile — user stories feed" },
+      { src: "/rokoko/rokokoweb111111111.jpg", alt: "Rokoko tablet — product page and community section" },
     ],
     roleLines: roleLinesFromCommas(
       "UX/UI Design, Wireframing & Prototyping, Brand identity, Responsive Web Design, Design Systems",
@@ -103,6 +109,7 @@ export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
       { src: "/rokoko-brand/some1-scaled copy.jpg", alt: "Rokoko social media campaigns" },
       { src: "/rokoko-brand/rokokobrandthumbnailprojectpage copy.jpg", alt: "Rokoko logo system and typography" },
       { src: "/rokoko-brand/Headrig_21-copy copy.jpg", alt: "Rokoko Headrig packaging design" },
+      { src: "/rokoko-brand/rokokonewww.jpg", alt: "Rokoko — logo spacing and construction" },
     ],
     roleLines: roleLinesFromCommas(
       "Brand Identity, Merchandising, Design for print, Design systems, Packaging design",
@@ -116,7 +123,9 @@ export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
     meta: "Weld Website Revamp",
     year: "2021",
     images: [
+      { src: "/weld/Group-13486.svg", alt: "Weld — illustration" },
       { src: "/weld/weld-showcase-left.png", alt: "Weld platform — feature highlights on dark background" },
+      { src: "/weld/Group-13358-2.svg", alt: "Weld — illustration" },
       { src: "/weld/weldthumbnail2-1.jpg", alt: "Weld website and brand identity design" },
     ],
     roleLines: roleLinesFromCommas(
@@ -133,6 +142,7 @@ export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
     images: [
       { src: "/eatgrim/showcase2.jpg", alt: "Eat Grim editorial photography — celery in bag" },
       { src: "/eatgrim/showcase1.jpg", alt: "Eat Grim website — Mixy box product page on laptop" },
+      { src: "/eatgrim/packing-action123.jpg", alt: "Eat Grim — branded packaging boxes in warehouse" },
       { src: "/eatgrim/showcase3.jpg", alt: "Eat Grim colour system brand guidelines" },
     ],
     roleLines: roleLinesFromCommas(
