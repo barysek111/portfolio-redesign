@@ -1,25 +1,23 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/Button";
-import { PROJECT_SHOWCASE_ENTRIES, type ShowcaseMedia, type ImgLayout } from "@/components/home/projectShowcaseEntries";
+import { PROJECT_SHOWCASE_ENTRIES, type ShowcaseMedia } from "@/components/home/projectShowcaseEntries";
 import { ProjectShowcaseMedia } from "@/components/home/ProjectShowcaseMedia";
 
 export function ProjectShowcaseImages({
   meta,
   year,
-  layout,
   images,
 }: {
   meta: string;
   year: string;
-  layout: ImgLayout;
   images: readonly ShowcaseMedia[];
 }) {
   return (
     <div className="project-showcase-col-9 flex min-w-0 flex-col gap-03">
       <Button variant="dual" left={meta} right={year} />
-      <div className="project-showcase-media-frame project-showcase-hover-zone">
-        <ProjectShowcaseMedia layout={layout} images={images} />
+      <div className="project-showcase-hover-zone">
+        <ProjectShowcaseMedia images={images} />
       </div>
     </div>
   );
@@ -48,7 +46,7 @@ export function ProjectShowcaseInfo({
 
 export function ProjectShowcase({ footer }: { footer?: ReactNode }) {
   return (
-    <section id="showcase" className="project-showcase pt-09 md:pt-12" aria-labelledby="showcase-heading">
+    <section id="showcase" className="project-showcase" aria-labelledby="showcase-heading">
       <h2 id="showcase-heading" className="sr-only">
         Featured projects
       </h2>
@@ -63,7 +61,6 @@ export function ProjectShowcase({ footer }: { footer?: ReactNode }) {
             <ProjectShowcaseImages
               meta={entry.meta}
               year={entry.year}
-              layout={entry.layout}
               images={entry.images}
             />
             <ProjectShowcaseInfo

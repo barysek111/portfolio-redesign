@@ -101,6 +101,8 @@ export const spacingTokens = {
   "11": { rem: "5rem", px: 80 },
   "12": { rem: "6rem", px: 96 },
   "13": { rem: "10rem", px: 160 },
+  "14": { rem: "12.5rem", px: 200 },
+  "15": { rem: "15rem", px: 240 },
 } as const;
 
 export type SpacingToken = keyof typeof spacingTokens;

@@ -134,7 +134,9 @@ function AuthGate() {
   if (authed === null || authed === true) {
     return (
       <>
-        <Outlet />
+        <div className="min-h-screen">
+          <Outlet />
+        </div>
         {!NO_FOOTER_ROUTES.includes(pathname) && <SiteFooter />}
       </>
     );

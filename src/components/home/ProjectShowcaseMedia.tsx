@@ -1,4 +1,4 @@
-import type { ShowcaseMedia, ImgLayout } from "@/components/home/projectShowcaseEntries";
+import type { ShowcaseMedia } from "@/components/home/projectShowcaseEntries";
 
 function MediaImg({ item }: { item: ShowcaseMedia }) {
   return (
@@ -14,25 +14,23 @@ function MediaImg({ item }: { item: ShowcaseMedia }) {
   );
 }
 
-export function ProjectShowcaseMedia({
-  layout,
-  images,
-}: {
-  layout: ImgLayout;
-  images: readonly ShowcaseMedia[];
-}) {
-  const spans = layout.split(" ").map(Number);
+export function ProjectShowcaseMedia({ images }: { images: readonly ShowcaseMedia[] }) {
+  const slots: (ShowcaseMedia | null)[] = [
+    ...images.slice(0, 4),
+    ...Array(Math.max(0, 4 - images.length)).fill(null),
+  ];
+
   return (
-    <div className="project-showcase__media-pair flex w-full min-w-0 items-start gap-03">
-      {images.map((item, i) => (
-        <div
-          key={item.src}
-          className="project-showcase__frame min-w-0"
-          style={{ flex: spans[i] ?? 1 }}
-        >
-          <MediaImg item={item} />
-        </div>
-      ))}
+    <div className="project-showcase__media-grid">
+      {slots.map((item, i) =>
+        item ? (
+          <div key={item.src} className="project-showcase__frame">
+            <MediaImg item={item} />
+          </div>
+        ) : (
+          <div key={`blank-${i}`} className="project-showcase__frame project-showcase__frame--blank" />
+        )
+      )}
     </div>
   );
 }

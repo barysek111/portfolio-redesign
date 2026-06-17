@@ -89,10 +89,10 @@ export function AboutPage() {
   return (
     <main className="case-study min-h-screen overflow-x-hidden antialiased">
       <SiteTopNav />
-      <div className="case-page-shell page-shell pb-12 flex flex-col gap-13">
+      <div className="case-page-shell page-shell pb-13 flex flex-col gap-13">
 
         {/* ── Hi! intro ── */}
-        <div className="grid grid-cols-1 gap-07 pt-11 md:grid-cols-12 md:gap-x-03 md:gap-y-07">
+        <div className="grid grid-cols-1 gap-07 md:grid-cols-12 md:gap-x-03 md:gap-y-07">
           {/* Headline */}
           <div className="md:col-span-6 flex flex-col gap-07">
             <h1 className="text-h1 m-0 text-foreground">Hey! I'm Barbora</h1>

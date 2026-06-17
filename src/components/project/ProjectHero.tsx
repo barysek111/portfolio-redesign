@@ -44,15 +44,17 @@ export function ProjectHero({
   return (
     <header className="flex flex-col gap-12 overflow-visible">
       {/* Centered title + pills */}
-      <div className="flex flex-col items-center gap-05 py-11">
-        <h1 className={`${heroLead} mt-0 text-center md:max-w-[66.67%]`}>{hero.title}</h1>
-        <div className="flex flex-wrap justify-center gap-03 [&>.btn]:w-fit">
-          <Button variant="staticdark">Shipped</Button>
-          <Button variant="static">{hero.metadata.client.label}: {hero.metadata.client.value}</Button>
-          <Button variant="static">{hero.metadata.year.value}</Button>
-          {hero.metadata.field.items.map((item) => (
-            <Button key={item} variant="static">{item}</Button>
-          ))}
+      <div className="case-project-hero-block">
+        <div className="case-project-hero-content">
+          <h1 className={`${heroLead} mt-0 text-center md:max-w-[66.67%]`}>{hero.title}</h1>
+          <div className="flex flex-wrap justify-center gap-03 [&>.btn]:w-fit">
+            <Button variant="staticdark">Shipped</Button>
+            <Button variant="static">{hero.metadata.client.label}: {hero.metadata.client.value}</Button>
+            <Button variant="static">{hero.metadata.year.value}</Button>
+            {hero.metadata.field.items.map((item) => (
+              <Button key={item} variant="static">{item}</Button>
+            ))}
+          </div>
         </div>
       </div>
 

@@ -25,6 +25,21 @@ function ButtonArrow({ direction = "right" }: { direction?: "left" | "right" }) 
   );
 }
 
+const DOWN_ARROW_PATH = "M4.99072 10L0 5.07299L0.92764 4.16058L4.32282 7.68248V0H5.65863V7.68248L9.07236 4.16058L10 5.07299Z";
+
+function ScrollArrowDown() {
+  return (
+    <span className="btn-scroll-arrow-clip" aria-hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <path d={DOWN_ARROW_PATH} fill="currentColor" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <path d={DOWN_ARROW_PATH} fill="currentColor" />
+      </svg>
+    </span>
+  );
+}
+
 type ButtonBase = {
   className?: string;
   /** Renders as a TanStack Router <Link>. */
@@ -45,6 +60,7 @@ type ButtonProps = ButtonBase & (
   | { variant: "arrow"; children: ReactNode; direction?: "left" | "right" }
   | { variant: "arrow-always"; children: ReactNode }
   | { variant: "dual"; left: ReactNode; right: ReactNode }
+  | { variant: "scroll"; children: ReactNode }
 );
 
 export function Button(props: ButtonProps) {
@@ -63,6 +79,14 @@ export function Button(props: ButtonProps) {
       : <>{label}{arrow}</>;
   } else if (variant === "arrow-always") {
     content = <><span className="btn__label">{props.children}</span><ButtonArrow /></>;
+  } else if (variant === "scroll") {
+    content = (
+      <>
+        <ScrollArrowDown />
+        <span className="btn__label">{props.children}</span>
+        <ScrollArrowDown />
+      </>
+    );
   } else {
     content = (
       <>
@@ -74,10 +98,11 @@ export function Button(props: ButtonProps) {
 
   const cls = cn(
     "btn",
-    (variant === "static" || variant === "staticdark") && "justify-center",
+    (variant === "static" || variant === "staticdark" || variant === "scroll") && "justify-center",
     variant === "static" && "btn--static",
     variant === "staticdark" && "btn--staticdark",
     variant === "arrow-always" && "btn--arrow-always",
+    variant === "scroll" && "btn--scroll",
     className,
   );
 

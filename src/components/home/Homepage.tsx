@@ -5,22 +5,40 @@ const SplineViewer = lazy(() => import("@splinetool/react-spline"));
 import { ProjectShowcase } from "@/components/home/ProjectShowcase";
 import { SiteTopNav } from "@/components/nav/SiteTopNav";
 import { HowIWork } from "@/components/shared/HowIWork";
+import { Button } from "@/components/ui/Button";
 
 export default function Homepage() {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [40, 260], [0, 1]);
+  const scrollBtnOpacity = useTransform(scrollY, [0, 120], [1, 0]);
 
   return (
     <main className="case-study case-study--home min-h-screen overflow-x-hidden antialiased">
       <SiteTopNav />
-      <section id="about" className="page-shell min-h-screen flex items-center justify-center">
+      <section id="about" className="home-about-shell page-shell">
         <HomeHero />
       </section>
       <motion.div
-        className="case-page-shell page-shell pb-12"
+        id="case-studies"
+        className="case-page-shell page-shell pb-14"
         style={{ opacity }}
       >
         <ProjectShowcase footer={<HowIWork />} />
+      </motion.div>
+      <motion.div
+        className="fixed bottom-0 inset-x-0 py-03 md:py-07 z-40 pointer-events-none"
+        style={{ opacity: scrollBtnOpacity }}
+      >
+        <div className="page-shell pointer-events-none">
+          <Button
+            variant="scroll"
+            type="button"
+            onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}
+            className="w-full pointer-events-auto"
+          >
+            Case Studies
+          </Button>
+        </div>
       </motion.div>
     </main>
   );
