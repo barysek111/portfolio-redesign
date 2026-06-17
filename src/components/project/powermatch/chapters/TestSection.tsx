@@ -38,7 +38,7 @@ export function TestSection() {
         <div className={halfColumns}>
           <h3 className={cn(contentBlockLabel, halfColumnsLabel)}>
             {toSentenceCase(ut.heading)}
-          </h2>
+          </h3>
           <div className={cn(halfColumnsContent, "flex flex-col gap-07")}>
             <h4 className={heroIntroBody}>{ut.intro}</h4>
             <CalloutStack
