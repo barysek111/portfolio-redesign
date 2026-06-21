@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="280" viewBox="0 0 600 280" role="img" aria-labelledby="title desc">
+  <title id="title">Conversational Ease user flow</title>
+  <desc id="desc">User flow for chat-forward invoice approval direction.</desc>
+  <defs>
+    <style>
+      .label { font-family: Inter, system-ui, sans-serif; font-size: 9px; font-weight: 400; }
+      .hint { font-family: Inter, system-ui, sans-serif; font-size: 7px; font-weight: 400; font-style: italic; fill: #F4442D; }
+    </style>
+  </defs>
+
+  <rect width="600" height="280" fill="#f3f3f3"/>
+
+  <!-- connectors -->
+  <path d="M 100 132 H 116 Q 124 132 124 124 V 108 Q 124 100 132 100 H 148" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 100 132 H 116 Q 124 132 124 140 V 156 Q 124 164 132 164 H 148" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 228 100 H 244 Q 252 100 252 108 V 124 Q 252 132 260 132 H 276" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 228 164 H 244 Q 252 164 252 156 V 140 Q 252 132 260 132 H 276" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 372 132 H 396 Q 404 132 404 124 V 108 Q 404 100 412 100 H 428" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 372 132 H 396 Q 404 132 404 140 V 156 Q 404 164 412 164 H 428" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 484 132 H 500" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+
+  <!-- start -->
+  <rect x="40" y="116" width="60" height="32" rx="16" fill="#2d2d2d"/>
+  <text x="70" y="136" text-anchor="middle" class="label" fill="#ffffff">Start</text>
+
+  <!-- open diamond -->
+  <polygon points="188,132 220,100 252,132 220,164" fill="#2d2d2d"/>
+  <text x="220" y="136" text-anchor="middle" class="label" fill="#ffffff">Open</text>
+
+  <rect x="148" y="84" width="96" height="32" rx="16" fill="#2d2d2d"/>
+  <text x="196" y="104" text-anchor="middle" class="label" fill="#ffffff">Open queue</text>
+
+  <rect x="148" y="148" width="96" height="32" rx="16" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="196" y="168" text-anchor="middle" class="label" fill="#555555">Pick invoice</text>
+
+  <!-- copilot -->
+  <rect x="276" y="116" width="96" height="32" rx="16" fill="#2d2d2d"/>
+  <text x="324" y="136" text-anchor="middle" class="label" fill="#ffffff">Copilot chat</text>
+  <text x="324" y="162" class="hint" text-anchor="middle">Enter: question or approve</text>
+
+  <!-- actions -->
+  <rect x="428" y="84" width="96" height="32" rx="16" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="476" y="104" text-anchor="middle" class="label" fill="#555555">Ask follow-up</text>
+
+  <rect x="428" y="148" width="96" height="32" rx="16" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="476" y="168" text-anchor="middle" class="label" fill="#555555">Approve in chat</text>
+
+  <!-- done -->
+  <rect x="500" y="116" width="60" height="32" rx="16" fill="#F4442D"/>
+  <text x="530" y="136" text-anchor="middle" class="label" fill="#ffffff">Approved</text>
+</svg>

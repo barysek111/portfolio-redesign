@@ -1,15 +1,18 @@
 # Portfolio redesign
 
 **Folder:** `~/portfolio-projects/portfolio-redesign`  
-**Preview:** `npm run dev` (port **5173** fixed) → http://localhost:5173/ and http://localhost:5173/project/cococare  
+**Preview:** `npm run dev` (port **5173** fixed) → http://localhost:5173/ · http://localhost:5173/project/cococare · http://localhost:5173/plinto  
 **Open in browser:** `npm run open:home` or `npm run open:coco` (after dev server is running)
 
-## Only two pages
+## Live pages
 
 | Page | Route | UI | Copy |
 |------|-------|-----|------|
 | Homepage | `/` | `src/components/home/AiDesignHomepage.tsx` | inline |
 | Coco Care | `/project/cococare` | `src/components/project/CocoCarePage.tsx` | `src/lib/cocoCareContent.ts` |
+| Plinto | `/plinto` | `src/components/project/PlintoPage.tsx` | `src/lib/plintoContent.ts` |
+
+→ Plinto handoff: `docs/case-studies/plinto-handoff.md`
 
 **Styles:** `src/styles.css` · **Tokens:** `src/lib/designSystem.ts`
 

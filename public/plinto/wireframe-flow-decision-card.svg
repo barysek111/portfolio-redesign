@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="280" viewBox="0 0 600 280" role="img" aria-labelledby="title desc">
+  <title id="title">Decision Card user flow</title>
+  <desc id="desc">User flow for minimal decision card direction.</desc>
+  <defs>
+    <style>
+      .label { font-family: Inter, system-ui, sans-serif; font-size: 9px; font-weight: 400; }
+      .hint { font-family: Inter, system-ui, sans-serif; font-size: 7px; font-weight: 400; font-style: italic; fill: #F4442D; }
+    </style>
+  </defs>
+
+  <rect width="600" height="280" fill="#f3f3f3"/>
+
+  <!-- connectors -->
+  <path d="M 100 132 H 124" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 220 132 H 236 Q 244 132 244 124 V 108 Q 244 100 252 100 H 268" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 220 132 H 236 Q 244 132 244 140 V 164 Q 244 172 252 172 H 268" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 364 100 H 388 Q 396 100 396 108 V 124 Q 396 132 404 132 H 420" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 364 172 H 388 Q 396 172 396 164 V 148 Q 396 132 404 132 H 420" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 500 132 H 508" fill="none" stroke="#c8c8c8" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M 548 148 C 548 220, 196 220, 196 180" fill="none" stroke="#c8c8c8" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <rect x="40" y="116" width="60" height="32" rx="16" fill="#2d2d2d"/>
+  <text x="70" y="136" text-anchor="middle" class="label" fill="#ffffff">Start</text>
+
+  <rect x="124" y="116" width="96" height="32" rx="16" fill="#2d2d2d"/>
+  <text x="172" y="136" text-anchor="middle" class="label" fill="#ffffff">Approval queue</text>
+
+  <rect x="268" y="68" width="96" height="32" rx="16" fill="#2d2d2d"/>
+  <text x="316" y="88" text-anchor="middle" class="label" fill="#ffffff">Scan card</text>
+
+  <rect x="268" y="156" width="96" height="32" rx="16" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="316" y="176" text-anchor="middle" class="label" fill="#555555">Read summary</text>
+  <text x="316" y="204" class="hint" text-anchor="middle">Scan: amount, PO, due date</text>
+
+  <!-- decide diamond -->
+  <polygon points="364,132 396,100 428,132 396,164" fill="#2d2d2d"/>
+  <text x="396" y="136" text-anchor="middle" class="label" fill="#ffffff">Decide</text>
+
+  <!-- grouped decision -->
+  <rect x="420" y="76" width="80" height="112" rx="14" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <rect x="432" y="92" width="56" height="28" rx="14" fill="#F4442D"/>
+  <text x="460" y="110" text-anchor="middle" class="label" fill="#ffffff">Approve</text>
+  <rect x="432" y="144" width="56" height="28" rx="14" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="460" y="162" text-anchor="middle" class="label" fill="#555555">Reject</text>
+
+  <rect x="508" y="116" width="52" height="32" rx="16" fill="#2d2d2d"/>
+  <text x="534" y="136" text-anchor="middle" class="label" fill="#ffffff">Next item</text>
+</svg>

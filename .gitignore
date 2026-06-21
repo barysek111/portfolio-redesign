@@ -32,3 +32,6 @@ dist-ssr
 *.sw?
 .env.local
 .env*.local
+
+# Local case-study source exports (nested .git in Plinto prototype folder breaks staging)
+public/case studies materials/

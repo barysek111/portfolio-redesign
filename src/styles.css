@@ -129,8 +129,8 @@
 
   /* Page side padding — fluid column-based system.
      < 1024px : 20px fixed
-     1024–1399: 1 column (viewport / 14 total cols)
-     ≥ 1400px : 2 columns (viewport / 8 = 2 × viewport/16)
+     1024–1579: 1 column (viewport / 14 total cols)
+     ≥ 1580px : 2 columns (viewport / 8 = 2 × viewport/16)
   */
   --page-pad: 20px;
   --btn-height: 26px;
@@ -203,7 +203,7 @@
 }
 
 /* Fluid page padding — 2 columns each side (16-col total) */
-@media (min-width: 1400px) {
+@media (min-width: 1580px) {
   :root { --page-pad: calc(100vw / 8); }
 }
 
@@ -548,10 +548,17 @@
     .project-showcase__entry-group { row-gap: 0; }
 
     /* Info column: reorder children — copy group first, Explore last */
-    .project-showcase-info { gap: 0; }
+    .project-showcase-info { gap: var(--spacing-06); }
     .project-showcase-info__copy-group { order: 1; }
-    .project-showcase-info__explore { order: 2; margin-top: var(--spacing-07); }
+    .project-showcase-info__explore { order: 2; margin-top: 0; }
     .project-showcase-myrole { display: none !important; }
+
+    /* Copy padding stacks with gap — strip vertical padding so gap reads as 24px */
+    .project-showcase-info__body.project-showcase__copy,
+    .project-showcase-info__role .project-showcase__copy {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
 
     /* Copy group: gap between description and role lines */
     .project-showcase-info__copy-group {
@@ -1163,12 +1170,12 @@
   .case-block-title {
     margin: 0;
     font-weight: 400;
-    color: var(--muted-foreground);
+    color: var(--foreground);
     text-wrap: balance;
   }
 
   .case-study .case-block-title {
-    color: var(--muted-foreground);
+    color: var(--foreground);
   }
 
   .case-screen-title {
@@ -1347,6 +1354,14 @@
     border-radius: var(--case-radius-inner);
     color: var(--muted-foreground);
     text-wrap: pretty;
+  }
+
+  .case-figure-placeholder {
+    width: 100%;
+    min-height: var(--spacing-13);
+    border-radius: var(--case-radius-inner);
+    background: var(--card);
+    border: 1px solid var(--border);
   }
 
   .case-figure-row .case-figure-caption-callout,
@@ -1549,6 +1564,40 @@
 
   #prototype .case-figure-caption-callout__media,
   #prototype .case-figure-pair .case-figure-caption-callout__media {
+    margin-top: 0;
+    overflow: hidden;
+    border-radius: var(--case-radius-inner);
+  }
+
+  #prototype .case-figure-caption-callout__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--case-radius-inner);
+  }
+
+  .case-prototype-chat-detail .case-editorial-split {
+    gap: var(--spacing-07);
+  }
+
+  @media (min-width: 768px) {
+    .case-prototype-chat-detail
+      .case-editorial-split:has(.case-editorial-split__media) {
+      row-gap: var(--spacing-07);
+    }
+  }
+
+  /* Design wireframes: same headline ↔ caption spacing as prototype desktop cards */
+  #design .case-figure-row--12 .case-figure-caption-callout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-04);
+  }
+
+  #design .case-figure-row--12 .case-figure-caption-callout__media,
+  #design
+    .case-figure-row--12
+    .case-figure-caption-callout__media:not(.case-figure-caption-callout__media--solo) {
     margin-top: 0;
   }
 
@@ -2220,7 +2269,8 @@
       align-items: start;
     }
 
-    .case-editorial-split > h2.content-block-label {
+    .case-editorial-split > h2.content-block-label,
+    .case-editorial-split > h3.case-block-title {
       grid-column: 1 / 7;
       grid-row: 1;
       justify-self: start;
@@ -2280,7 +2330,8 @@
       align-items: start;
     }
 
-    .case-editorial-split > h2.content-block-label {
+    .case-editorial-split > h2.content-block-label,
+    .case-editorial-split > h3.case-block-title {
       grid-column: 1 / 7;
       grid-row: 1;
       justify-self: start;

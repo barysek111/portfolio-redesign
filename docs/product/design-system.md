@@ -146,10 +146,10 @@ Strict 13-step scale. No arbitrary values. No Tailwind arbitrary spacing like `p
 
 `.page-shell` — fluid side padding applied as `padding-inline: var(--page-pad)`. Applied to all page wrappers.
 
-Page padding breakpoints:
-- `< 780px`: 20px fixed
-- `780–1399px`: `calc(100vw / 14)` — 1 column in a 14-column grid
-- `≥ 1400px`: `calc(100vw / 8)` — 2 columns in a 16-column grid
+Page padding breakpoints (see `styles.css` `--page-pad`):
+- `< 1024px`: 20px fixed
+- `1024–1579px`: `calc(100vw / 14)` — 1 column each side (14-column grid)
+- `≥ 1580px`: `calc(100vw / 8)` — 2 columns each side (16-column grid)
 
 ### Content width
 

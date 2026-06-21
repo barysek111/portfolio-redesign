@@ -21,6 +21,26 @@ function roleLinesFromCommas(text: string): string[] {
 
 export const PROJECT_SHOWCASE_ENTRIES: readonly ProjectShowcaseEntry[] = [
   {
+    meta: "Plinto AI Invoice Approval",
+    year: "2026",
+    images: [
+      { src: "/plinto/plintoshowcase1.jpg", alt: "Plinto — invoice approval interface showcase" },
+      { src: "/plinto/plintoshowcase2.jpg", alt: "Plinto — AI-assisted finance workflow screen" },
+      { src: "/plinto/showcasenewww.jpg", alt: "Plinto — approval decision component detail" },
+      { src: "/plinto/plintoshowcase4.jpg", alt: "Plinto — invoice review interface" },
+    ],
+    roleLines: [
+      "UX Research",
+      "Interaction Design",
+      "UI Design",
+      "Prototyping",
+    ],
+    exploreCopy:
+      "Designing the human-AI handoff moment for an invoice approval workflow. A single decision component that adapts its interface, gating logic, and visual hierarchy to four risk levels.",
+    href: "/plinto",
+    routerLink: true,
+  },
+  {
     meta: "Powermatch Invoice Reconciliation",
     year: "2025",
     images: [

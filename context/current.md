@@ -1,27 +1,37 @@
 # Current Working State
 
-**Last session:** 2026-06-14
-**Active area:** Project pages (case studies)
-**Preview:** `bun run dev` → http://localhost:5173
+**Last session:** 2026-06-21 (evening)
+**Active area:** Plinto case study (`/plinto`)
+**Preview:** `npm run dev` → http://localhost:5173/plinto
 
-## Homepage — completed and clean (do not touch)
+## Homepage — completed and clean (do not touch unless asked)
 
-Full homepage cleanup finished this session:
+Full homepage cleanup finished 2026-06-18. Showcase entry for Plinto updated 2026-06-21 (3rd image → `showcasenewww.jpg`).
 
-- `ProjectShowcase` refactored: image layout variants (`"2 3 3" | "3 3 2" | "2 6" | "2 4 2"`), pills converted from `<a>` to decorative `<div>` (background `<Link>` is the real interactive element), Framer Motion wrapper removed from entries
-- `HowIWork` grid: renamed from `nav-top-grid` to `how-i-work-grid` (own CSS class, no nav coupling)
-- Dead files deleted: `Explore.tsx`, `MyRole.tsx`
-- Dead code deleted: `PrinciplesMap`, `PrinciplePill`, all 5 constants (~130 lines)
-- `styles.css` deduplication: removed duplicate file header, 5× `@font-face`, `@theme inline`, `@keyframes blink`, all 8 `principleOrbit*` keyframes, empty media stubs, duplicate `--ds-section` and `case-page-shell` media queries
-- **File went from 2376 → 2193 lines. Nothing changed visually.**
+## Active case study: Plinto
 
-## Active case study: Powermatch
+Route `/plinto`, 5 chapters (Research, Define, Design, Prototype, Reflection).
 
-Authoritative handoff with what's done and what's next:
-→ `docs/case-studies/powermatch-handoff.md`
+→ **`docs/case-studies/plinto-handoff.md`** — full file map, assets, and session log.
 
-## Other case study (paused)
+### Done this session
 
+- **Design — Wireframes:** 3 direction SVGs in a 12-col row (4+4+4; stack below `lg`). Visual system section removed.
+- **Design — Wireframe assets:** `wireframe-conversational-ease.svg`, `wireframe-control-room.svg`, `wireframe-decision-card.svg` (sidebar `#fafafa`). User flows SVGs exist but are **not** on the page yet.
+- **Prototype — Desktop:** 3 full-screen JPGs + 1 copilot chat composite wired from `public/plinto/screens exports/`.
+- **Prototype:** Mobile sub-chapter removed. Desktop/Mobile intro copy uses `Prose` (body level). Copilot chat detail uses `gap-07` label→frame spacing.
+- **Homepage showcase:** Plinto grid image 3 → `/plinto/showcasenewww.jpg`.
+- **Site-wide:** Page side padding 2-col breakpoint moved **1400px → 1580px** (`--page-pad` in `styles.css`).
+
+### Next (optional)
+
+- Wire user-flow SVGs into Design chapter if desired (`wireframe-flow-*.svg`).
+- Mobile screens / reflection polish / copy pass.
+- Commit Plinto route + assets (still largely untracked in git).
+
+## Other case studies
+
+Powermatch — `docs/case-studies/powermatch-handoff.md`  
 Coco Care — `docs/reference/notes/cococare-handoff.md`
 
 ## Decided conventions
